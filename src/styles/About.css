@@ -1,0 +1,137 @@
+/* src/styles/About.css */
+
+.about-page {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Espaço entre as seções */
+}
+
+/* ------------------------------------- */
+/* 1. SEÇÃO DA IMAGEM E BIO CURTA */
+/* ------------------------------------- */
+
+.profile-section {
+  display: flex;
+  align-items: center; /* Alinha a foto e o texto na vertical */
+  gap: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Linha de separação */
+}
+
+.profile-photo {
+  width: 200px; /* Tamanho fixo da foto */
+  height: 200px;
+  border-radius: 50%; /* Torna a foto redonda */
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border: 5px solid var(--cor-principal); /* Borda com cor de destaque */
+}
+
+.bio-summary h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.bio-summary h3 {
+  font-size: 1.2rem;
+  color: var(--cor-principal);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.bio-summary p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ------------------------------------- */
+/* 2. SEÇÃO DE BIOGRAFIA DETALHADA */
+/* ------------------------------------- */
+
+.detailed-bio h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.detailed-bio p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* ------------------------------------- */
+/* 3. SEÇÃO DE HABILIDADES (TECH STACK) */
+/* ------------------------------------- */
+
+.tech-stack-section {
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.tech-stack-section h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.skills-list {
+  list-style: none; /* Remove os pontos da lista */
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permite que as habilidades quebrem a linha */
+  gap: 15px; /* Espaço entre os itens */
+}
+
+.skill-item {
+  display: inline-block;
+  background-color: var(--cor-principal); /* Fundo com cor de destaque */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px; /* Formato de "cápsula" */
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.skill-item:hover {
+  background-color: #0056b3; /* Um tom mais escuro no hover */
+}
+
+/* ------------------------------------- */
+/* RESPONSIVIDADE (Para telas pequenas) */
+/* ------------------------------------- */
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column; /* Empilha a foto e o texto */
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .bio-summary h2 {
+    font-size: 2rem;
+  }
+
+  .bio-summary h3 {
+    font-size: 1rem;
+  }
+
+  .skills-list {
+    justify-content: center; /* Centraliza as habilidades em telas menores */
+  }
+}
