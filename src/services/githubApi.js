@@ -1,7 +1,7 @@
 // src/services/githubApi.js
 import axios from "axios";
 
-const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
+export const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
 const BASE_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
 
 /**

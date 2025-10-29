@@ -1,25 +1,107 @@
 // src/pages/Projects.jsx
 import React, { useState, useEffect } from "react";
-import { getRepositories } from "../services/githubApi"; // Importa a função de serviço
-import "../styles/Projects.css"; // Vamos criar este estilo depois
 
+// Importa a função de serviço E o nome de usuário (para o erro de "repos.length === 0")
+import { getRepositories, GITHUB_USERNAME } from "../services/githubApi";
+import "../styles/Projects.css";
+
+// ----------------------------------------------------
+// 1. IMPORTAÇÃO DE IMAGENS (AJUSTE AQUI!)
+// ----------------------------------------------------
+// 🚨 Importe suas imagens aqui. O caminho é relativo a este arquivo Projects.jsx.
+// Exemplo:
+import Project1Image from "../assets/project-images/agenda-express-mongo.jpeg";
+import Project2Image from "../assets/project-images/javascript-form-validation.jpeg";
+import Project3Image from "../assets/project-images/node-express-api-rest.jpeg";
+import Project4Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project5Image from "../assets/project-images/react-cpf-validator.png";
+import Project6Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project7Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project8Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project9Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project10Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project11Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project12Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project13Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project14Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project15Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project16Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project17Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project18Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project19Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project20Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project21Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project22Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project23Image from "../assets/project-images/portifolio-Single-Page.gif";
+
+// ----------------------------------------------------
+// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS (AJUSTE AQUI!)
+// ----------------------------------------------------
+const projectDetails = [
+  {
+    repoName: "portifolio-Single-Page",
+    imageUrl: Project4Image,
+    deployUrl: "camiloruas.dev",
+  },
+  {
+    repoName: "node-express-api-rest",
+    imageUrl: Project3Image,
+    deployUrl: "https://github.com/Camiloruas/node-express-api-rest",
+  },
+  {
+    repoName: "agenda-express-mongo",
+    imageUrl: Project1Image,
+    deployUrl: "https://camiloruas.github.io/TrybeTunes/", // VERIFIQUE ESTE LINK!
+  },
+  {
+    repoName: "javascript-form-validation",
+    imageUrl: Project2Image,
+    deployUrl: "https://camiloruas.github.io/TrybeTunes/", // VERIFIQUE ESTE LINK!
+  },
+  {
+    repoName: "react-cpf-validator",
+    imageUrl: Project5Image,
+    deployUrl: "https://camiloruas.github.io/TrybeTunes/", // VERIFIQUE ESTE LINK!
+  },
+  // ATENÇÃO: Os próximos projetos estão com o mesmo nome de repositório ("TrybeTunes").
+  // A lógica de mesclagem só vai encontrar o primeiro. Corrija o nome do repo e a imagem, se for o caso!
+  {
+    repoName: "TrybeTunes",
+    imageUrl: null,
+    deployUrl: "https://camiloruas.github.io/TrybeTunes/",
+  },
+  // Remova os projetos repetidos ou preencha com os dados corretos!
+];
 const Projects = () => {
-  // Estado para armazenar a lista de repositórios
   const [repos, setRepos] = useState([]);
-  // Estado para gerenciar o estado de carregamento
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect roda uma vez (por causa do array vazio []) após a primeira renderização
   useEffect(() => {
     const fetchRepos = async () => {
-      setIsLoading(true); // Começa o carregamento
-      const repositories = await getRepositories();
-      setRepos(repositories); // Atualiza o estado com os dados
-      setIsLoading(false); // Finaliza o carregamento
+      setIsLoading(true);
+      const githubRepos = await getRepositories();
+
+      // ----------------------------------------------------
+      // 3. LÓGICA DE MESCLAGEM (Merge)
+      // ----------------------------------------------------
+      const mergedRepos = githubRepos.map((repo) => {
+        // Encontra a entrada manual que corresponde ao nome deste repositório
+        const manualDetails = projectDetails.find((detail) => detail.repoName === repo.name);
+
+        // Retorna o objeto do repositório, adicionando as propriedades de deploy e imagem
+        return {
+          ...repo, // Dados da API do GitHub
+          imageUrl: manualDetails ? manualDetails.imageUrl : null,
+          deployUrl: manualDetails ? manualDetails.deployUrl : null,
+        };
+      });
+
+      setRepos(mergedRepos); // Atualiza o estado com os dados mesclados
+      setIsLoading(false);
     };
 
     fetchRepos();
-  }, []); // O array vazio garante que rode apenas na montagem
+  }, []);
 
   // -------------------------------------
   // Lógica de Renderização Condicional
@@ -29,7 +111,6 @@ const Projects = () => {
     return (
       <section className="projects-page loading">
         <h2>Carregando Projetos...</h2>
-        {/* Você pode adicionar um ícone de carregamento aqui depois */}
       </section>
     );
   }
@@ -49,12 +130,35 @@ const Projects = () => {
       <div className="repo-list">
         {repos.map((repo) => (
           <div key={repo.id} className="repo-card">
-            <h3>{repo.name}</h3>
-            <p>{repo.description || "Sem descrição disponível."}</p>
-            <p className="language">Linguagem: {repo.language || "N/A"}</p>
-            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-              Ver no GitHub
-            </a>
+            {/* ---------------------------------------------------- */}
+            {/* 4. NOVO: EXIBIÇÃO DA IMAGEM E DOS LINKS */}
+            {/* ---------------------------------------------------- */}
+
+            {repo.imageUrl && (
+              <div className="project-image-container">
+                <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
+              </div>
+            )}
+
+            <div className="repo-content">
+              <h3>{repo.name}</h3>
+              <p>{repo.description || "Sem descrição disponível."}</p>
+              <p className="language">Linguagem: {repo.language || "N/A"}</p>
+
+              <div className="card-links">
+                {/* Link para o Repositório no GitHub */}
+                <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="github-link">
+                  Código Fonte
+                </a>
+
+                {/* Link para o Projeto Online (Só aparece se o deployUrl existir) */}
+                {repo.deployUrl && (
+                  <a href={repo.deployUrl} target="_blank" rel="noopener noreferrer" className="deploy-link">
+                    Ver Projeto Online
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
         ))}
       </div>
