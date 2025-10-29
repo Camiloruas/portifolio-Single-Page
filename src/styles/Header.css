@@ -1,0 +1,40 @@
+/* src/styles/Header.css */
+
+.main-header {
+  background-color: #ffffff; /* Fundo branco para o cabeçalho */
+  padding: 1rem 2rem; /* Espaçamento interno */
+  display: flex;
+  justify-content: space-between; /* Logo na esquerda, links na direita */
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+}
+
+.main-header .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-principal, #333); /* Usa a variável definida no global.css */
+  text-decoration: none; /* Remove sublinhado */
+  transition: color 0.3s;
+}
+
+.main-nav ul {
+  list-style: none; /* Remove as bolinhas */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espaço entre os links */
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--cor-principal, #333);
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 5px;
+}
+
+.main-nav a:hover {
+  color: #007bff; /* Cor de destaque ao passar o mouse */
+  border-bottom: 2px solid #007bff; /* Destaque elegante */
+}
+
