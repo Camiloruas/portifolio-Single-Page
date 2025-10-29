@@ -1,12 +1,10 @@
 // src/components/Header.jsx
 import { Link } from "react-router-dom";
-
+import "../styles/Header.css";
 const Header = () => {
   return (
-    // ✅ CORRETO: Use a tag HTML semântica <header>
     <header className="main-header">
       <div className="logo">
-        {/* ✅ CORRETO: Use o componente <Link> do React Router */}
         <Link to="/">Portfólio Dev</Link>
       </div>
       <nav className="main-nav">
