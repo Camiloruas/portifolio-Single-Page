@@ -1,0 +1,98 @@
+/* src/styles/Projects.css */
+
+.projects-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects-page h2 {
+  font-size: 2.5rem;
+  color: var(--cor-principal);
+  margin-bottom: 40px;
+}
+
+/* ------------------------------------- */
+/* Estilos para a lista e cartões (Cards)*/
+/* ------------------------------------- */
+
+.repo-list {
+  /* Layout de Grid Responsivo */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Espaço maior entre os cards */
+}
+
+.repo-card {
+  background-color: #ffffff; /* Fundo branco para destaque */
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 12px; /* Cantos mais suaves */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.repo-card:hover {
+  transform: translateY(-8px); /* Efeito de elevação sutil */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.repo-card h3 {
+  font-size: 1.4rem;
+  color: #007bff; /* Cor de destaque para o título */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.repo-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.repo-card .language {
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.repo-card a {
+  display: inline-block;
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.repo-card a:hover {
+  background-color: #007bff; /* Mude a cor do botão no hover */
+}
+
+.project-image-container {
+  /* CRÍTICO 1: Define uma altura padrão para TODAS as caixas de imagem */
+  height: 200px; /* Você pode ajustar este valor (ex: 180px, 220px) */
+  overflow: hidden; /* CRÍTICO 2: Corta o excesso da imagem que sair desta altura */
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.project-image {
+  width: 100%; /* Ocupa toda a largura disponível no card */
+  height: 100%; /* Ocupa 100% da altura fixa do contêiner (200px) */
+
+  /* CRÍTICO 3: Garante que a imagem preencha o contêiner sem distorcer, fazendo o 'crop' */
+  object-fit: cover;
+
+  display: block;
+  transition: transform 0.5s;
+}
+
+.repo-card:hover .project-image {
+  transform: scale(1.05);
+}
