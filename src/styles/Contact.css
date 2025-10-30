@@ -1,4 +1,4 @@
-/* src/styles/Contact.css */
+/* src/styles/Contact.css - OTIMIZADO COM VARIÁVEIS GLOBAIS */
 
 .contact-page {
   padding: 4rem 2rem;
@@ -9,7 +9,8 @@
 
 .contact-page h2 {
   font-size: 3rem;
-  color:#e7eef1;
+  /* USANDO VARIÁVEL */
+  color: var(--cor-texto-principal);
   margin-bottom: 50px;
 }
 
@@ -19,15 +20,15 @@
 
 .contact-info-container h3 {
   font-size: 1.8rem;
-  color:#e7eef1;
-;
-;
+  /* USANDO VARIÁVEL */
+  color: var(--cor-texto-principal);
   margin-bottom: 10px;
 }
 
 .contact-intro {
   font-size: 1.1rem;
-  color: #e7eef1;
+  /* USANDO VARIÁVEL */
+  color: var(--cor-texto-secundario);
   margin-bottom: 40px;
 }
 
@@ -57,17 +58,22 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: bold;
+  /* MANTIDO: Cor do texto branca, pois os fundos são escuros */
   color: white;
 
   transition: transform 0.3s, box-shadow 0.3s;
+
+  /* Sombra ajustada para ser sutil em fundo escuro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .social-link:hover {
   transform: translateY(-5px); /* Efeito de levantamento no hover */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  /* Sombra mais forte no hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Cores específicas (Você pode ajustar as cores se quiser) */
+/* Cores específicas (Mantidas, pois são cores de marca) */
 .social-link.linkedin {
   background-color: #0077b5;
 }
@@ -81,12 +87,14 @@
 }
 
 .social-link.email {
-  background-color: var(--cor-principal); /* Usando a cor principal */
+  /* Usando a cor principal como você já tinha feito */
+  background-color: var(--cor-principal);
 }
 
 .contact-footer-note {
   font-size: 0.9rem;
-  color: #888;
+  /* USANDO VARIÁVEL: Cinza claro/secundário */
+  color: var(--cor-texto-secundario);
 }
 
 /* ------------------------------------- */

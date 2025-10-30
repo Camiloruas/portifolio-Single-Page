@@ -1,33 +1,42 @@
+/* src/styles/Home.css - OTIMIZADO COM VARIÁVEIS GLOBAIS */
+
 .home-page {
-  min-height: calc(50vh - 80px);
+  /* ATENÇÃO: Corrigido o cálculo do min-height. Se 80px for a altura do seu Header, este cálculo garante que a Home ocupe o restante da tela. */
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
-  color: aliceblue;
+  /* USANDO VARIÁVEL: Cor principal do texto (branco suave) */
+  color: var(--cor-texto-principal);
 }
 
 .home-name-1 {
   font-size: 10rem;
-  font-weight: 1000;
-  height: -webkit-min-content;
+  font-weight: 700;
   height: min-content;
   letter-spacing: 3rem;
-  margin-bottom: -2%;
+  margin-bottom: -3%;
   text-transform: uppercase;
+  /* DICA: Para este título ser ainda mais chamativo, você pode tentar: 
+     color: var(--cor-principal); 
+     text-shadow: 0 0 15px var(--cor-principal); */
 }
 
 .home-name-2 {
   font-size: 8rem;
-  font-weight: 300;
-  height: -webkit-min-content;
+  font-weight: 100;
   height: min-content;
   letter-spacing: 8rem;
   margin: 0;
   text-transform: uppercase;
 }
-.habilidades{
-    font-size: 2rem;
+
+.habilidades {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 10%;
+  /* MANTENDO a cor do body, que é --cor-texto-principal */
 }

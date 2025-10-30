@@ -15,16 +15,16 @@ import Project2Image from "../assets/project-images/javascript-form-validation.j
 import Project3Image from "../assets/project-images/node-express-api-rest.jpeg";
 import Project4Image from "../assets/project-images/portifolio-Single-Page.gif";
 import Project5Image from "../assets/project-images/react-cpf-validator.png";
-import Project6Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project7Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project8Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project9Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project10Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project11Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project12Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project13Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project14Image from "../assets/project-images/portifolio-Single-Page.gif";
-import Project15Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project6Image from "../assets/project-images/calcauladora.png";
+import Project7Image from "../assets/project-images/pomodoro-timer.png";
+import Project8Image from "../assets/project-images/react-flow-tasks.png";
+import Project9Image from "../assets/project-images/task-CRUD.png";
+import Project10Image from "../assets/project-images/weather-now.png";
+import Project11Image from "../assets/project-images/blog-app-capstone-node.png";
+import Project12Image from "../assets/project-images/simon-game-challenge.png";
+import Project13Image from "../assets/project-images/english-alphabet-audio.png";
+import Project14Image from "../assets/project-images/Capstone-Project-1.png";
+import Project15Image from "../assets/project-images/Camiloruas.png";
 import Project16Image from "../assets/project-images/portifolio-Single-Page.gif";
 import Project17Image from "../assets/project-images/portifolio-Single-Page.gif";
 import Project18Image from "../assets/project-images/portifolio-Single-Page.gif";
@@ -61,14 +61,64 @@ const projectDetails = [
   {
     repoName: "react-cpf-validator",
     imageUrl: Project5Image,
-    deployUrl: "https://camiloruas.github.io/TrybeTunes/", // VERIFIQUE ESTE LINK!
+    deployUrl: "https://camiloruas.github.io/react-cpf-validator/", // VERIFIQUE ESTE LINK!
   },
   // ATENÇÃO: Os próximos projetos estão com o mesmo nome de repositório ("TrybeTunes").
   // A lógica de mesclagem só vai encontrar o primeiro. Corrija o nome do repo e a imagem, se for o caso!
   {
+    repoName: "calcauladora",
+    imageUrl: Project6Image,
+    deployUrl: "https://camiloruas.github.io/calcauladora/",
+  },
+  {
+    repoName: "pomodoro-timer",
+    imageUrl: Project7Image,
+    deployUrl: "https://pomodoro-timer-six-sage.vercel.app/",
+  },
+  {
+    repoName: "react-flow-tasks",
+    imageUrl: Project8Image,
+    deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/",
+  },
+  {
+    repoName: "task-CRUD",
+    imageUrl: Project9Image,
+    deployUrl: "https://camiloruas.github.io/TrybeTunes/",
+  },
+  {
+    repoName: "weather-now",
+    imageUrl: Project10Image,
+    deployUrl: "https://weather-now-ashy.vercel.app/",
+  },
+  {
+    repoName: "blog-app-capstone-node",
+    imageUrl: Project11Image,
+    deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node",
+  },
+  {
+    repoName: "simon-game-challenge",
+    imageUrl: Project12Image,
+    deployUrl: "https://camiloruas.github.io/simon-game-challenge/",
+  },
+  {
+    repoName: "english-alphabet-audio",
+    imageUrl: Project13Image,
+    deployUrl: "https://camiloruas.github.io/english-alphabet-audio/",
+  },
+  {
+    repoName: "Capstone-Project-1",
+    imageUrl: Project14Image,
+    deployUrl: "https://camiloruas.github.io/Capstone-Project-1/",
+  },
+  {
+    repoName: "Camiloruas",
+    imageUrl: Project15Image,
+    deployUrl: "https://github.com/Camiloruas/Camiloruas",
+  },
+  {
     repoName: "TrybeTunes",
     imageUrl: null,
-    deployUrl: "https://camiloruas.github.io/TrybeTunes/",
+    deployUrl: "https://github.com/Camiloruas/Camiloruas",
   },
   // Remova os projetos repetidos ou preencha com os dados corretos!
 ];

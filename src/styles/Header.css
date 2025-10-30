@@ -1,10 +1,13 @@
-/* src/styles/Header.css */
+/* src/styles/Header.css - OTIMIZADO COM VARIÁVEIS GLOBAIS */
 
 .main-header {
   padding: 1.5rem 3rem; /* Espaçamento interno */
   display: flex;
   justify-content: space-between; /* Logo na esquerda, links na direita */
   align-items: center;
+
+  /* Garantindo que o header seja transparente para mostrar o fundo abstrato */
+  background: transparent;
 }
 
 .main-nav ul {
@@ -17,13 +20,25 @@
 
 .main-nav a {
   text-decoration: none;
-  color: aliceblue;
+  /* USANDO VARIÁVEL: Cor principal do texto (branco suave) */
+  color: var(--cor-texto-principal);
   font-weight: 500;
 
   padding-bottom: 10px;
+  transition: color 0.3s, border-bottom 0.3s; /* Transição suave */
 }
 
-.main-nav a:hover {
-  color: #007bff; /* Cor de destaque ao passar o mouse */
-  border-bottom: 2px solid #007bff; /* Destaque elegante */
+.main-nav a:hover,
+.main-nav a.active {
+  /* USANDO VARIÁVEL: Cor de destaque ao passar o mouse ou estar na página ativa */
+  color: var(--cor-principal);
+  /* Destaque elegante com a cor principal */
+  border-bottom: 2px solid var(--cor-principal);
 }
+
+/* Opcional: Estilo para o Logo (Se for texto, para garantir a cor) */
+/* .main-header .logo-link {
+    color: var(--cor-principal);
+    font-size: 1.5rem;
+    font-weight: bold;
+} */
