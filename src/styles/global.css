@@ -1,39 +1,46 @@
-/* src/styles/global.css */
+/* src/styles/global.css - VERSÃO FINAL COM PADRÕES DE TEXTO */
 
-/* --- CONFIGURAÇÃO GLOBAL --- */
+/* --- CONFIGURAÇÃO GLOBAL DE VARIÁVEIS (:ROOT) --- */
 
 :root {
-    /* (Mantenha suas variáveis de cor, como --cor-principal) */
-    --cor-principal: #00bcd4; /* Exemplo de cor verde/ciano de destaque */
-    --cor-fundo-escuro: #0d1e1c; 
-    --cor-fundo-base: #1a1a1a;
+  /* --- CORES DE DESTAQUE --- */
+  --cor-principal: #00bcd4; /* Ciano/Verde-água (Para botões, links ativos, etc.) */
+  --cor-secundaria: #00ffaa; /* Verde Neon (Para efeitos de hover, forte destaque) */
+
+  /* --- CORES DE FUNDO --- */
+  --cor-fundo-base: #1a1a1a; /* Fundo base escuro */
+  --cor-fundo-abstrato: #0d1e1c; /* O tom específico do seu fundo (para o body) */
+
+  /* --- CORES DE TEXTO E ÍCONES --- */
+  --cor-texto-principal: #f0f0f0; /* Branco Suave (Para títulos e textos primários) */
+  --cor-texto-secundario: #cccccc; /* Cinza Claro (Para parágrafos longos, menor destaque) */
+  --cor-texto-contraste: #1a1a1a; /* Escuro (Para texto que fica em cima de elementos 'var(--cor-principal)') */
+
+  /* --- CORES DE BORDAS E SEPARADORES --- */
+  --cor-borda-suave: rgba(255, 255, 255, 0.2); /* Linhas de divisão sutis em fundo escuro */
 }
 
 body {
-    /* 1. Cor de Fundo Principal: Verde muito escuro, quase preto */
-    background-color: var(--cor-fundo-escuro); 
-    
-    /* 2. Aplicação de Múltiplos Backgrounds para o Efeito de Ondas */
-    background-image: 
-        /* Primeira Camada: O Gradiente de Cor (dando profundidade) */
-        linear-gradient(
-            to bottom, 
-            rgba(0, 255, 170, 0.05) 0%, /* Verde-água transparente no topo */
-            rgba(0, 0, 0, 0.95) 80% /* Escuro intenso na parte inferior */
-        ),
-        
-        /* Segunda Camada: O Padrão de Linhas Repetitivas (Simulando Ondas) */
-        repeating-linear-gradient(
-            150deg, /* O ângulo das linhas */
-            rgba(0, 255, 170, 0.03), /* Linha muito fina e transparente */
-            rgba(0, 255, 170, 0.03) 1px, /* Espessura da linha */
-            transparent 1px, 
-            transparent 25px /* Espaçamento entre as linhas */
-        );
+  /* 1. Cor de Fundo Principal */
+  background-color: var(--cor-fundo-abstrato);
 
-    /* 3. Ajustes para a tela */
-    min-height: 100vh;
-    margin: 0; 
-    color: #f0f0f0; /* Cor do texto claro para o contraste com o fundo escuro */
-    font-family: 'Arial', sans-serif;
+  /* 2. Aplicação de Múltiplos Backgrounds para o Efeito de Ondas (MANTIDO) */
+  background-image: linear-gradient(to bottom, rgba(0, 255, 170, 0.05) 0%, rgba(0, 0, 0, 0.95) 80%), repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.03), rgba(0, 255, 170, 0.03) 1px, transparent 1px, transparent 25px);
+
+  /* 3. Ajustes e Aplicação de Variáveis de Texto */
+  min-height: 100vh;
+  margin: 0;
+  color: var(--cor-texto-principal); /* <-- AGORA USANDO A VARIÁVEL */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo padrão de links para usar as variáveis de destaque */
+a {
+  color: var(--cor-principal);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--cor-secundaria);
 }
