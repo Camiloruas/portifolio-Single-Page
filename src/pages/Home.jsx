@@ -1,32 +1,50 @@
+// src/pages/Home.jsx
 import React from "react";
-import useScrollReveal from "../hooks/useScrollReveal"; // 🚨 IMPORTADO
+import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/Home.css";
+// Ajuste o caminho da sua foto se necessário
+import profilePhoto from "../assets/project-images/Imagem-capa.png";
 
 const Home = () => {
-  useScrollReveal(".home-name-1", {
-    origin: "top",
-    distance: "60px",
-    duration: 1200,
+  // ANIMAÇÕES SCROLL REVEAL - DISTÂNCIA E DURAÇÃO AJUSTADAS POR VOCÊ
+  useScrollReveal(".text-content .home-name-1", {
+    origin: "left",
+    distance: "500px", // Grande deslocamento
+    duration: 1300,
     delay: 200,
   });
-  useScrollReveal(".home-name-2", {
-    origin: "bottom",
-    distance: "60px",
+  useScrollReveal(".text-content .home-name-2", {
+    origin: "left",
+    distance: "500px",
     duration: 1200,
     delay: 500,
   });
-  useScrollReveal(".habilidades", {
+  useScrollReveal(".text-content .habilidades", {
     origin: "left",
-    distance: "30px",
+    distance: "500px",
     duration: 900,
     delay: 1000,
+  });
+  useScrollReveal(".image-content .new-profile-photo", {
+    origin: "right",
+    distance: "300px",
+    duration: 1200,
+    delay: 800,
   });
 
   return (
     <section className="home-page">
-      <p className="home-name-1">Camilo</p>
-      <p className="home-name-2">Ruas</p>
-      <p className="habilidades">Desenvolvedor Full Stack</p>
+      <div className="home-main-content">
+        <div className="text-content">
+          <p className="home-name-1">Camilo</p>
+          <p className="home-name-2">Ruas</p>
+          <p className="habilidades">Desenvolvedor Full Stack</p>
+        </div>
+
+        <div className="image-content">
+          <img src={profilePhoto} alt="Foto de Perfil de Camilo Ruas" className="new-profile-photo" />
+        </div>
+      </div>
     </section>
   );
 };

@@ -4,8 +4,8 @@
 
 :root {
   /* --- CORES DE DESTAQUE --- */
-  --cor-principal: #00bcd4; /* Ciano/Verde-água (Para botões, links ativos, etc.) */
-  --cor-secundaria: #00ffaa; /* Verde Neon (Para efeitos de hover, forte destaque) */
+  --cor-principal: #bcecec87; /* Ciano/Verde-água (Para botões, links ativos, etc.) */
+  --cor-secundaria: #29b28788; /* Verde Neon (Para efeitos de hover, forte destaque) */
 
   /* --- CORES DE FUNDO --- */
   --cor-fundo-base: #1a1a1a; /* Fundo base escuro */
@@ -24,13 +24,23 @@ body {
   /* 1. Cor de Fundo Principal */
   background-color: var(--cor-fundo-abstrato);
 
-  /* 2. Aplicação de Múltiplos Backgrounds para o Efeito de Ondas (MANTIDO) */
-  background-image: linear-gradient(to bottom, rgba(0, 255, 170, 0.05) 0%, rgba(0, 0, 0, 0.95) 80%), repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.03), rgba(0, 255, 170, 0.03) 1px, transparent 1px, transparent 25px);
+  /* 🚨 CÓDIGO CORRIGIDO PARA MAIOR VISIBILIDADE DAS LINHAS */
+  background-image: 
+    /* GRADIENTE PRINCIPAL (de cima para baixo) */
+    linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, /* 🚨 AUMENTADO DE 0.05 PARA 0.1 */
+                    rgba(0, 0, 0, 0.95) 80%), 
+    
+    /* LINHAS REPETITIVAS (as ondas) */
+    repeating-linear-gradient(150deg, 
+                              rgba(0, 255, 170, 0.08), /* 🚨 AUMENTADO DE 0.03 PARA 0.08 */
+                              rgba(0, 255, 170, 0.08) 1px, /* 🚨 AUMENTADO DE 0.03 PARA 0.08 */
+                              transparent 1px, 
+                              transparent 25px);
 
   /* 3. Ajustes e Aplicação de Variáveis de Texto */
   min-height: 100vh;
   margin: 0;
-  color: var(--cor-texto-principal); /* <-- AGORA USANDO A VARIÁVEL */
+  color: var(--cor-texto-principal);
   font-family: 'Montserrat', sans-serif;
 }
 
