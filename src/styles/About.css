@@ -1,4 +1,13 @@
-/* src/styles/About.css - OTIMIZADO PARA FUNDO ESCURO COM VARIÁVEIS */
+/* src/styles/About.css - OTIMIZADO PARA FUNDO ESCURO COM VARIÁVEIS E GRUPOS */
+
+/* 🚨 NOVO: Garante que todos os elementos que serão animados pelo Scroll Reveal comecem invisíveis. */
+.profile-section,
+.detailed-bio,
+.tech-stack-section h3,
+.skills-group h4,
+.skill-item-icon-wrapper {
+  visibility: hidden; /* Garante que o elemento não seja visível antes da animação */
+}
 
 .about-page {
   padding: 3rem 2rem;
@@ -30,7 +39,7 @@
 .profile-photo {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 5%;
   object-fit: cover;
   /* Alterado: Sombra que combina com o destaque (MANTIDO o código RGB devido à transparência) */
   box-shadow: 0 0 25px rgba(0, 255, 170, 0.2);
@@ -84,56 +93,87 @@
 }
 
 /* ------------------------------------- */
-/* 3. SEÇÃO DE HABILIDADES (TECH STACK) */
+/* 3. SEÇÃO DE HABILIDADES (TECH STACK) - ÍCONES E AGRUPAMENTO */
 /* ------------------------------------- */
 
 .tech-stack-section {
   padding-top: 20px;
-  /* USANDO VARIÁVEL: Linha de separação suave */
   border-top: 1px solid var(--cor-borda-suave);
 }
 
 .tech-stack-section h3 {
   font-size: 1.8rem;
-  /* USANDO VARIÁVEL: Branco Suave */
   color: var(--cor-texto-principal);
   margin-bottom: 25px;
 }
 
+/* 🚨 ESTILOS PARA GRUPOS DE HABILIDADES */
+.skills-group {
+  margin-bottom: 40px; /* Espaço entre os diferentes setores (Languages, Frameworks, etc.) */
+}
+
+.skills-group h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-principal); /* Destaca o nome do setor */
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 255, 170, 0.2); /* Linha sutil para separar */
+  max-width: 800px; /* Limita a largura do título do setor */
+}
+
+/* Container para dispor os ícones em grade */
 .skills-list {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px; /* Espaçamento entre os ícones */
 }
 
-/* As "cápsulas" de habilidade devem se destacar! */
-.skill-item {
-  display: inline-block;
-  background-color: var(--cor-principal);
-  /* USANDO VARIÁVEL: Texto escuro no fundo claro */
-  color: var(--cor-texto-contraste);
-  padding: 8px 15px;
-  border-radius: 20px;
+/* Wrapper para cada ícone + nome */
+.skill-item-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  padding: 15px; /* Área de clique maior */
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.skill-icon {
+  /* CHAVE: Aumenta o tamanho do ícone */
+  font-size: 4rem;
+  color: var(--cor-texto-principal); /* Cor inicial: Branco Suave */
+  margin-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.skill-name {
   font-size: 0.9rem;
-  font-weight: bold;
-  /* Sombra interna para dar profundidade (MANTIDO o código RGB) */
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
+  font-weight: 500;
+  color: var(--cor-texto-secundario);
 }
 
-.skill-item:hover {
-  /* USANDO VARIÁVEL: Tom de destaque no hover */
-  background-color: var(--cor-secundaria);
-  transform: translateY(-2px);
+/* 🚨 EFEITO HOVER SOLICITADO */
+.skill-item-icon-wrapper:hover {
+  /* Desliza levemente para cima */
+  transform: translateY(-5px) scale(1.05);
+  /* Adiciona um background sutil no hover (opcional) */
+  background-color: rgba(0, 255, 170, 0.05);
+}
+
+.skill-item-icon-wrapper:hover .skill-icon {
+  /* CHAVE: Ícone muda para cor de destaque no hover */
+  color: var(--cor-principal);
 }
 
 /* ------------------------------------- */
-/* RESPONSIVIDADE (Para telas pequenas) */
+/* RESPONSIVIDADE (Ajuste da lista) */
 /* ------------------------------------- */
 
 @media (max-width: 768px) {
+  /* Regras anteriores de responsividade mantidas */
   .profile-section {
     flex-direction: column;
     text-align: center;
@@ -152,7 +192,17 @@
     font-size: 1rem;
   }
 
+  /* Ajustes para a seção de habilidades em telas menores */
   .skills-list {
     justify-content: center;
+    gap: 20px;
+  }
+
+  .skill-icon {
+    font-size: 3rem;
+  }
+
+  .skills-group h4 {
+    font-size: 1.3rem;
   }
 }
