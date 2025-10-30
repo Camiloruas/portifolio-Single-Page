@@ -1,0 +1,104 @@
+/* src/styles/Contact.css */
+
+.contact-page {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-page h2 {
+  font-size: 3rem;
+  color:#e7eef1;
+  margin-bottom: 50px;
+}
+
+.contact-info-container {
+  padding: 30px;
+}
+
+.contact-info-container h3 {
+  font-size: 1.8rem;
+  color:#e7eef1;
+;
+;
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  color: #e7eef1;
+  margin-bottom: 40px;
+}
+
+/* ------------------------------------- */
+/* ESTILOS DA LISTA DE LINKS SOCIAIS */
+/* ------------------------------------- */
+
+.social-links-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centraliza os links horizontalmente */
+  flex-wrap: wrap;
+  gap: 20px; /* Espaço entre os links */
+  margin-bottom: 40px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Tamanho e Estilo do Botão */
+  width: 250px; /* Largura fixa para cada botão */
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-link:hover {
+  transform: translateY(-5px); /* Efeito de levantamento no hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Cores específicas (Você pode ajustar as cores se quiser) */
+.social-link.linkedin {
+  background-color: #0077b5;
+}
+
+.social-link.github {
+  background-color: #333;
+}
+
+.social-link.phone {
+  background-color: #25d366; /* Cor do WhatsApp/Telefone */
+}
+
+.social-link.email {
+  background-color: var(--cor-principal); /* Usando a cor principal */
+}
+
+.contact-footer-note {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ------------------------------------- */
+/* RESPONSIVIDADE */
+/* ------------------------------------- */
+
+@media (max-width: 600px) {
+  .social-links-list {
+    flex-direction: column; /* Empilha os links em telas pequenas */
+    gap: 15px;
+  }
+  .social-link {
+    width: 100%; /* Ocupa a largura total em mobile */
+  }
+}

@@ -1,23 +1,39 @@
 /* src/styles/global.css */
 
-/* Define cores básicas e espaçamento */
+/* --- CONFIGURAÇÃO GLOBAL --- */
+
 :root {
-  --cor-principal: #333;
-  --cor-fundo: #f4f4f4; /* Cinza bem claro */
-  --cor-texto: #1a1a1a;
+    /* (Mantenha suas variáveis de cor, como --cor-principal) */
+    --cor-principal: #00bcd4; /* Exemplo de cor verde/ciano de destaque */
+    --cor-fundo-escuro: #0d1e1c; 
+    --cor-fundo-base: #1a1a1a;
 }
 
-/* Remove margens padrão e define o fundo */
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  font-family: Arial, sans-serif; /* Fonte padrão temporária */
-}
+    /* 1. Cor de Fundo Principal: Verde muito escuro, quase preto */
+    background-color: var(--cor-fundo-escuro); 
+    
+    /* 2. Aplicação de Múltiplos Backgrounds para o Efeito de Ondas */
+    background-image: 
+        /* Primeira Camada: O Gradiente de Cor (dando profundidade) */
+        linear-gradient(
+            to bottom, 
+            rgba(0, 255, 170, 0.05) 0%, /* Verde-água transparente no topo */
+            rgba(0, 0, 0, 0.95) 80% /* Escuro intenso na parte inferior */
+        ),
+        
+        /* Segunda Camada: O Padrão de Linhas Repetitivas (Simulando Ondas) */
+        repeating-linear-gradient(
+            150deg, /* O ângulo das linhas */
+            rgba(0, 255, 170, 0.03), /* Linha muito fina e transparente */
+            rgba(0, 255, 170, 0.03) 1px, /* Espessura da linha */
+            transparent 1px, 
+            transparent 25px /* Espaçamento entre as linhas */
+        );
 
-/* Garante que o container principal ocupe a altura da tela */
-#root {
-  min-height: 100vh;
+    /* 3. Ajustes para a tela */
+    min-height: 100vh;
+    margin: 0; 
+    color: #f0f0f0; /* Cor do texto claro para o contraste com o fundo escuro */
+    font-family: 'Arial', sans-serif;
 }
