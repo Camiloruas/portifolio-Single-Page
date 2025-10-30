@@ -17,7 +17,7 @@ const About = () => {
           <img src={ProfileImage} alt="Foto de perfil de Camilo Ruas" className="profile-photo" />
 
           <div className="bio-summary">
-            <h2>Olá, eu sou Camilo Ruas!</h2>
+            <h2 className="quem-sou-eu">Olá, eu sou Camilo Ruas!</h2>
             {/* Preencha com sua especialidade */}
             <h3>Desenvolvedor Front-end | Focado em React e JavaScript</h3>
             <p>Apaixonado por criar interfaces web modernas e responsivas. Minha jornada na programação começou com... [**Insira aqui um resumo de 2-3 linhas sobre sua paixão e objetivo!**]</p>

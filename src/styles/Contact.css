@@ -9,7 +9,7 @@
 
 .contact-page h2 {
   font-size: 3rem;
-  color: var(--cor-principal);
+  color:#e7eef1;
   margin-bottom: 50px;
 }
 
@@ -19,13 +19,15 @@
 
 .contact-info-container h3 {
   font-size: 1.8rem;
-  color: #333;
+  color:#e7eef1;
+;
+;
   margin-bottom: 10px;
 }
 
 .contact-intro {
   font-size: 1.1rem;
-  color: #555;
+  color: #e7eef1;
   margin-bottom: 40px;
 }
 
