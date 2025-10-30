@@ -1,4 +1,4 @@
-/* src/styles/About.css */
+/* src/styles/About.css - OTIMIZADO PARA FUNDO ESCURO */
 
 .about-page {
   padding: 3rem 2rem;
@@ -10,6 +10,12 @@
   display: flex;
   flex-direction: column;
   gap: 40px; /* Espaço entre as seções */
+
+  /* 💡 Opcional: Adicionar um fundo levemente claro ao container 
+       para fazer o conteúdo "saltar" um pouco do fundo escuro global. */
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  /* padding: 40px; */
+  /* border-radius: 10px; */
 }
 
 /* ------------------------------------- */
@@ -18,33 +24,37 @@
 
 .profile-section {
   display: flex;
-  align-items: center; /* Alinha a foto e o texto na vertical */
+  align-items: center;
   gap: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee; /* Linha de separação */
+  /* Alterado: Linha de separação mais clara */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-photo {
-  width: 200px; /* Tamanho fixo da foto */
+  width: 200px;
   height: 200px;
-  border-radius: 50%; /* Torna a foto redonda */
+  border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  /* Alterado: Sombra mais nítida em fundo escuro */
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.2);
   border: 5px solid var(--cor-principal); /* Borda com cor de destaque */
 }
 
-bio-summary h2 {
+/* Garante o alto contraste (Se sua cor global não for aplicada) */
+.bio-summary h2 {
   font-size: 2.5rem;
-  color: #e7eef1;
+  color: #f0f0f0; /* Branco Suave */
   margin-bottom: 5px;
 }
+
 .quem-sou-eu {
-  color: #e7eef1;
+  color: #f0f0f0;
 }
 
 .bio-summary h3 {
   font-size: 1.2rem;
-  color: #e7eef1;
+  color: var(--cor-principal); /* Usando a cor de destaque (Verde-água) */
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -52,7 +62,7 @@ bio-summary h2 {
 .bio-summary p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #e7eef1;
+  color: #cccccc; /* Cinza claro para textos longos */
 }
 
 /* ------------------------------------- */
@@ -61,7 +71,7 @@ bio-summary h2 {
 
 .detailed-bio h3 {
   font-size: 1.8rem;
-  color: #e7eef1;
+  color: #f0f0f0;
   margin-bottom: 15px;
 }
 
@@ -69,7 +79,7 @@ bio-summary h2 {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 15px;
-  color: #e7eef1;
+  color: #cccccc;
 }
 
 /* ------------------------------------- */
@@ -78,37 +88,43 @@ bio-summary h2 {
 
 .tech-stack-section {
   padding-top: 20px;
-  border-top: 1px solid #eee;
+  /* Alterado: Linha de separação mais clara */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .tech-stack-section h3 {
   font-size: 1.8rem;
-  color: #e7eef1;
+  color: #f0f0f0;
   margin-bottom: 25px;
 }
 
 .skills-list {
-  list-style: none; /* Remove os pontos da lista */
+  list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Permite que as habilidades quebrem a linha */
-  gap: 15px; /* Espaço entre os itens */
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
+/* As "cápsulas" de habilidade devem se destacar! */
 .skill-item {
   display: inline-block;
-  background-color: var(--cor-principal); /* Fundo com cor de destaque */
-  color: white;
+  /* Fundo forte com a cor de destaque */
+  background-color: var(--cor-principal);
+  color: #1a1a1a; /* Texto escuro no fundo claro do item */
   padding: 8px 15px;
-  border-radius: 20px; /* Formato de "cápsula" */
+  border-radius: 20px;
   font-size: 0.9rem;
   font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Sombra interna para dar profundidade */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s;
 }
 
 .skill-item:hover {
-  background-color: #0056b3; /* Um tom mais escuro no hover */
+  /* Um tom de destaque diferente no hover */
+  background-color: #00ffaa;
+  transform: translateY(-2px); /* Efeito de leve levantamento */
 }
 
 /* ------------------------------------- */
@@ -117,7 +133,7 @@ bio-summary h2 {
 
 @media (max-width: 768px) {
   .profile-section {
-    flex-direction: column; /* Empilha a foto e o texto */
+    flex-direction: column;
     text-align: center;
   }
 
@@ -135,6 +151,6 @@ bio-summary h2 {
   }
 
   .skills-list {
-    justify-content: center; /* Centraliza as habilidades em telas menores */
+    justify-content: center;
   }
 }
