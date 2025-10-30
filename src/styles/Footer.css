@@ -1,0 +1,24 @@
+/* src/styles/Footer.css */
+
+.main-footer {
+  /* Posição padrão: Ocupa a largura total */
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+
+  /* Estilo sutil */
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+
+  /* Cor discreta, mas legível */
+  color: var(--cor-texto-secundario);
+
+  /* Garante que o fundo seja transparente para ver o background abstrato */
+  background-color: transparent;
+}
+
+/* Opcional: Estilo sutil de hover, se houver interação */
+.main-footer:hover {
+  color: var(--cor-principal);
+}

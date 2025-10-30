@@ -1,0 +1,62 @@
+/* src/styles/SocialSidebar.css */
+
+.social-sidebar {
+  position: fixed; /* Fixa o elemento na tela */
+  top: 50%; /* Centraliza verticalmente */
+  right: 0; /* Alinha à direita */
+  transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Ícones empilhados verticalmente */
+
+  background-color: var(--cor-principal); /* Cor de fundo do painel */
+  padding: 10px 5px; /* Espaçamento interno */
+  border-radius: 10px 0 0 10px; /* Bordas arredondadas apenas na esquerda */
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.sidebar-icon {
+  /* MANTIDO: Cor padrão do ícone */
+  color: var(--cor-texto-principal);
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 5px 0;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s, color 0.3s; /* 🚨 NOVO: Incluir 'color' na transição */
+  border-radius: 5px;
+}
+
+.sidebar-icon:hover {
+  /* 1. Fundo Vibrante/Escuro: Usa sua cor de destaque (cor-principal) */
+  background-color: var(--cor-principal);
+
+  /* 2. Cor do Ícone Clara: Garante que o ícone seja legível no novo fundo */
+  color: var(--cor-fundo); /* Assumindo que cor-fundo é branco ou muito claro */
+
+  transform: translateX(-5px);
+}
+
+/* Opcional: Cores específicas para cada ícone, se desejar diferenciá-las */
+/* .sidebar-icon.linkedin:hover { background-color: #0077b5; } */
+/* .sidebar-icon.github:hover { background-color: #333; } */
+/* .sidebar-icon.instagram:hover { background-color: #C13584; } */
+
+/* ------------------------------------- */
+/* RESPONSIVIDADE: Ocultar em telas muito pequenas */
+/* ------------------------------------- */
+@media (max-width: 768px) {
+  .social-sidebar {
+    /* Oculta o painel lateral em telas menores, ou reposiciona */
+    display: none;
+    /* Ou, se quiser reposicionar: */
+    /* right: 0;
+        top: auto;
+        bottom: 0;
+        transform: none;
+        flex-direction: row;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        padding: 5px 10px; */
+  }
+}
