@@ -1,11 +1,11 @@
-/* src/styles/global.css - VERSÃO FINAL COM PADRÕES DE TEXTO */
+/* src/styles/global.css - VERSÃO FINAL COM PADRÕES DE TEXTO E ESTILOS GLOBAIS DE BOTÃO */
 
 /* --- CONFIGURAÇÃO GLOBAL DE VARIÁVEIS (:ROOT) --- */
 
 :root {
   /* --- CORES DE DESTAQUE --- */
-  --cor-principal: #bcecec87; /* Ciano/Verde-água (Para botões, links ativos, etc.) */
-  --cor-secundaria: #29b28788; /* Verde Neon (Para efeitos de hover, forte destaque) */
+  --cor-principal: #00ffaa; /* Verde Neon Forte (Melhor contraste para botões) */
+  --cor-secundaria: #29b287; /* Verde Secundário (Ajustado) */
 
   /* --- CORES DE FUNDO --- */
   --cor-fundo-base: #1a1a1a; /* Fundo base escuro */
@@ -24,24 +24,16 @@ body {
   /* 1. Cor de Fundo Principal */
   background-color: var(--cor-fundo-abstrato);
 
-  /* 🚨 CÓDIGO CORRIGIDO PARA MAIOR VISIBILIDADE DAS LINHAS */
+  /* 🚨 LINHAS REPETITIVAS: Ajustei o gradiente principal para usar uma cor mais viva */
   background-image: 
-    /* GRADIENTE PRINCIPAL (de cima para baixo) */
-    linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, /* 🚨 AUMENTADO DE 0.05 PARA 0.1 */
-                    rgba(0, 0, 0, 0.95) 80%), 
-    
-    /* LINHAS REPETITIVAS (as ondas) */
-    repeating-linear-gradient(150deg, 
-                              rgba(0, 255, 170, 0.08), /* 🚨 AUMENTADO DE 0.03 PARA 0.08 */
-                              rgba(0, 255, 170, 0.08) 1px, /* 🚨 AUMENTADO DE 0.03 PARA 0.08 */
-                              transparent 1px, 
-                              transparent 25px);
+    /* GRADIENTE PRINCIPAL (de cima para baixo) */ linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, rgba(0, 0, 0, 0.95) 80%),
+    /* LINHAS REPETITIVAS (as ondas) */ repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.08), rgba(0, 255, 170, 0.08) 1px, transparent 1px, transparent 25px);
 
   /* 3. Ajustes e Aplicação de Variáveis de Texto */
   min-height: 100vh;
   margin: 0;
   color: var(--cor-texto-principal);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* Estilo padrão de links para usar as variáveis de destaque */
@@ -53,4 +45,37 @@ a {
 
 a:hover {
   color: var(--cor-secundaria);
+}
+
+/* 🚨 NOVO BLOCO: Estilo Base de Botão Global */
+.btn-base {
+  padding: 10px 20px;
+  border: 1px solid var(--cor-principal); /* 🚨 CORRIGIDO: Borda reduzida para 1px */
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  text-align: center;
+  display: inline-flex; /* Garante que 'a' e 'button' se comportem da mesma forma */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo do Botão Primário (Usado nos filtros de projeto e botões Call-to-Action) */
+.btn-primary {
+  /* Fundo semi-transparente para o estado normal (MAIOR VISIBILIDADE) */
+  background-color: rgba(0, 255, 170, 0.15);
+  color: var(--cor-principal); /* Texto no verde de destaque */
+}
+
+/* Efeito Hover do Botão */
+.btn-primary:hover,
+.btn-primary.active {
+  /* 'active' é para o botão de filtro selecionado */
+  background-color: var(--cor-principal); /* Fundo sólido e vibrante no hover/ativo */
+  color: var(--cor-fundo-base); /* Texto escuro para alto contraste */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 170, 0.4);
 }

@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column; /* Ícones empilhados verticalmente */
 
-  background-color: var(--cor-principal); /* Cor de fundo do painel */
+  background-color:#3d6e5d;; /* Cor de fundo do painel */
   padding: 10px 5px; /* Espaçamento interno */
   border-radius: 10px 0 0 10px; /* Bordas arredondadas apenas na esquerda */
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */

@@ -1,5 +1,14 @@
 /* src/styles/About.css - OTIMIZADO PARA FUNDO ESCURO COM VARIÁVEIS E GRUPOS */
 
+/* 🚨 NOVO: Garante que todos os elementos que serão animados pelo Scroll Reveal comecem invisíveis. */
+.profile-section,
+.detailed-bio,
+.tech-stack-section h3,
+.skills-group h4,
+.skill-item-icon-wrapper {
+  visibility: hidden; /* Garante que o elemento não seja visível antes da animação */
+}
+
 .about-page {
   padding: 3rem 2rem;
   max-width: 1200px;
@@ -30,7 +39,7 @@
 .profile-photo {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 5%;
   object-fit: cover;
   /* Alterado: Sombra que combina com o destaque (MANTIDO o código RGB devido à transparência) */
   box-shadow: 0 0 25px rgba(0, 255, 170, 0.2);

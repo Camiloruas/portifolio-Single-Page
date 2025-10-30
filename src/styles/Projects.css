@@ -1,16 +1,27 @@
-/* src/styles/Projects.css */
+/* src/styles/Projects.css - AJUSTADO PARA TEMA ESCURO, TRANPARÊNCIA E CENTRALIZAÇÃO */
 
 .projects-page {
-  padding: 2rem;
+  padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
-.projects-page h2 {
-  font-size: 2.5rem;
-  color:#e7eef1;
+.projects-page .page-title {
+  font-size: 3rem;
+  color: var(--cor-texto-principal);
   margin-bottom: 40px;
+}
+
+/* ------------------------------------- */
+/* BARRA DE FILTROS */
+/* ------------------------------------- */
+.filter-buttons-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 50px;
 }
 
 /* ------------------------------------- */
@@ -21,78 +32,105 @@
   /* Layout de Grid Responsivo */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px; /* Espaço maior entre os cards */
+  gap: 30px;
 }
 
 .repo-card {
-  background-color: #ffffff; /* Fundo branco para destaque */
-  border: 1px solid #eee;
+  /* 🚨 CORREÇÃO 1: Mais transparência no fundo do card (0.6 = 60% opaco) */
+  background-color: rgba(10, 10, 10, 0.6);
+  border: 1px solid var(--cor-borda-suave);
   padding: 20px;
-  border-radius: 12px; /* Cantos mais suaves */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   text-align: left;
   transition: all 0.3s ease-in-out;
 }
 
 .repo-card:hover {
-  transform: translateY(-8px); /* Efeito de elevação sutil */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 255, 170, 0.2);
 }
 
 .repo-card h3 {
   font-size: 1.4rem;
-  color: #007bff; /* Cor de destaque para o título */
+  color: var(--cor-principal);
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 .repo-card p {
   font-size: 1rem;
-  color: #555;
+  color: var(--cor-texto-secundario);
   margin-bottom: 15px;
 }
 
-.repo-card .language {
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.repo-card .language,
+.filter-tag {
   font-weight: bold;
-  color: #333;
+  color: var(--cor-texto-principal);
   font-size: 0.9rem;
-  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgba(0, 255, 170, 0.1);
 }
 
-.repo-card a {
-  display: inline-block;
-  background-color: var(--cor-principal);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
+/* ------------------------------------- */
+/* Botões dentro do Card (Links) */
+/* ------------------------------------- */
 
-.repo-card a:hover {
-  background-color: #007bff; /* Mude a cor do botão no hover */
+.card-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+
+  /* 🚨 CORREÇÃO 2: Centraliza os botões */
+  justify-content: center;
+
+  .btn-primary svg {
+    margin-right: 5px;
+    font-size: 1.1em;
+  }
 }
 
 .project-image-container {
-  /* CRÍTICO 1: Define uma altura padrão para TODAS as caixas de imagem */
-  height: 200px; /* Você pode ajustar este valor (ex: 180px, 220px) */
-  overflow: hidden; /* CRÍTICO 2: Corta o excesso da imagem que sair desta altura */
+  height: 200px;
+  overflow: hidden;
   margin-bottom: 15px;
   border-radius: 8px;
 }
 
 .project-image {
-  width: 100%; /* Ocupa toda a largura disponível no card */
-  height: 100%; /* Ocupa 100% da altura fixa do contêiner (200px) */
-
-  /* CRÍTICO 3: Garante que a imagem preencha o contêiner sem distorcer, fazendo o 'crop' */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
   display: block;
   transition: transform 0.5s;
 }
 
 .repo-card:hover .project-image {
   transform: scale(1.05);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .projects-page .page-title {
+    font-size: 2.5rem;
+  }
+  .filter-buttons-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    white-space: nowrap;
+  }
+  /* Centraliza os botões mesmo em telas pequenas */
+  .card-links {
+    justify-content: center;
+  }
 }
