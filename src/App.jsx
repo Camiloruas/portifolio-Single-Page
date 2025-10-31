@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import NotFound from "./components/NotFound"
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/projetos" element={<Projects />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />
-          <Route path="*" element={<h2>Página não encontrada!</h2>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
