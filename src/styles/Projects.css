@@ -37,6 +37,7 @@
 
 .repo-card {
   /* Transparência no fundo do card (0.6 = 60% opaco) */
+
   background-color: rgba(10, 10, 10, 0.6);
   border: 1px solid var(--cor-borda-suave);
   padding: 20px;
@@ -69,8 +70,8 @@
   display: flex;
 
   /* Garante que o conteúdo comece na borda esquerda */
-  justify-content: flex-start;
 
+  justify-content: center;
   /* A PROPRIEDADE CHAVE: Alinha o item na base da linha flex. */
   /* Isso pode corrigir qualquer diferença de altura de linha ou margem implícita */
   align-items: flex-start;
@@ -84,6 +85,7 @@
 /* Estiliza a tag de linguagem principal e a tag de filtro dos botões */
 .language-tag,
 .filter-tag {
+  align-items: center;
   font-weight: 500;
   color: var(--cor-texto-principal);
   font-size: 0.85rem;

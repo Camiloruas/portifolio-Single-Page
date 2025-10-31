@@ -1,4 +1,4 @@
-/* src/styles/About.css - OTIMIZADO PARA FUNDO ESCURO COM VARIÁVEIS E GRUPOS */
+/* src/styles/About.css - CÓDIGO FINAL COM DESTAQUE DE TEXTO E RESPONSIVIDADE */
 
 /* 🚨 NOVO: Garante que todos os elementos que serão animados pelo Scroll Reveal comecem invisíveis. */
 .profile-section,
@@ -19,8 +19,6 @@
   display: flex;
   flex-direction: column;
   gap: 40px; /* Espaço entre as seções */
-
-  /* Estilos opcionais comentados */
 }
 
 /* ------------------------------------- */
@@ -74,6 +72,31 @@
 }
 
 /* ------------------------------------- */
+/* ESTILOS DE DESTAQUE NO TEXTO (NOVO BLOCO) */
+/* ------------------------------------- */
+
+.giant-hello {
+  /* Destaque GIGANTE no "Olá!" */
+  font-size: 3.5rem; /* Maior que o h2 */
+  font-weight: 300; /* Mais fino para contraste */
+  color: var(--cor-principal); /* Cor de destaque */
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.highlight-name {
+  /* Destaque de cor no seu nome */
+  color: var(--cor-principal);
+  font-weight: 700;
+}
+
+.highlight-keyword {
+  /* Destaque de cor para as tecnologias no h3 */
+  color: var(--cor-principal);
+  font-weight: 600;
+}
+
+/* ------------------------------------- */
 /* 2. SEÇÃO DE BIOGRAFIA DETALHADA */
 /* ------------------------------------- */
 
@@ -84,6 +107,10 @@
   margin-bottom: 15px;
 }
 
+.negrito {
+  font-size: 1rem;
+  font-weight: bold;
+}
 .detailed-bio p {
   font-size: 1rem;
   line-height: 1.7;
@@ -169,7 +196,7 @@
 }
 
 /* ------------------------------------- */
-/* RESPONSIVIDADE (Ajuste da lista) */
+/* RESPONSIVIDADE (Ajustes Adicionais) */
 /* ------------------------------------- */
 
 @media (max-width: 768px) {
@@ -184,8 +211,16 @@
     height: 150px;
   }
 
+  /* Ajuste para o Olá! gigante em telas pequenas */
+  .giant-hello {
+    font-size: 2.5rem; /* Reduz o tamanho */
+    display: block; /* Força quebra de linha para ficar no topo */
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
   .bio-summary h2 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Reduz o h2 para não competir com o Olá! */
   }
 
   .bio-summary h3 {
