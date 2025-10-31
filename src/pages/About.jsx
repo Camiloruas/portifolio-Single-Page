@@ -1,4 +1,4 @@
-// src/pages/About.jsx
+// src/pages/About.jsx - CÓDIGO FINAL COM DESTAQUE DE TEXTO
 
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/About.css";
@@ -32,25 +32,23 @@ const categorizedSkills = {
     { Icon: SiTypescript, name: "TypeScript" },
     { Icon: DiHtml5, name: "HTML5" },
     { Icon: DiCss3, name: "CSS3" },
-    // Adicione outras linguagens aqui (ex: Python)
   ],
   "Frameworks & Libraries": [
     { Icon: DiReact, name: "ReactJS" },
     { Icon: SiNextdotjs, name: "Next.js" },
-    { Icon: SiRedux, name: "Redux" },
+    // alguns estão desabilitados, pois ainda não tenho experiência com eles
+    { Icon: SiRedux, name: "Redux", disabled: true },
     { Icon: SiNodedotjs, name: "Node.js" },
     { Icon: FaBootstrap, name: "Bootstrap" },
-    { Icon: FaSass, name: "Sass" },
+    { Icon: FaSass, name: "Sass", disabled: true },
   ],
   "Databases & Backend": [
     { Icon: DiPostgresql, name: "PostgreSQL" },
     { Icon: DiMongodb, name: "MongoDB" },
-    // Adicione outros aqui (ex: MySQL, Firebase)
   ],
   "Tools & Services": [
     { Icon: DiGit, name: "Git" },
-    { Icon: TbBrandVscode, name: "VS Code" }, // 🚨 ÍCONE CORRIGIDO AQUI
-    // Adicione outras ferramentas aqui (ex: Docker, Figma, Webpack)
+    { Icon: TbBrandVscode, name: "VS Code" },
   ],
 };
 
@@ -99,17 +97,38 @@ const About = () => {
         <div className="profile-section">
           <img src={ProfileImage} alt="Foto de perfil de Camilo Ruas" className="profile-photo" />
           <div className="bio-summary">
-            <h2 className="quem-sou-eu">Olá, eu sou Camilo Ruas!</h2>
-            <h3>Desenvolvedor Front-end | Focado em React e JavaScript</h3>
-            <p>Apaixonado por criar interfaces web modernas e responsivas. Minha jornada na programação começou com... [**Insira aqui um resumo de 2-3 linhas sobre sua paixão e objetivo!**]</p>
+            {/* CÓDIGO ATUALIZADO AQUI: H2 com spans para destaque */}
+            <h2 className="quem-sou-eu">
+              <span className="giant-hello">Olá!</span> Eu sou <span className="highlight-name">Camilo Ruas</span>!
+            </h2>
+
+            {/* CÓDIGO ATUALIZADO AQUI: H3 com spans para destaque */}
+            <h3>
+              Desenvolvedor <span className="highlight-keyword">Full Stack</span> | Explorando tecnologias como <span className="highlight-keyword">Node.js</span>, <span className="highlight-keyword">TypeScript</span>, <span className="highlight-keyword">React</span> e{" "}
+              <span className="highlight-keyword">PostgreSQL</span>
+            </h3>
+
+            <p>Apaixonado por tecnologia e movido pelo desejo de criar soluções úteis e funcionais, estou sempre em busca de aprender e aplicar novos conhecimentos. Meu objetivo é unir lógica, criatividade e propósito para transformar ideias em sistemas que realmente fazem a diferença. </p>
           </div>
         </div>
 
         {/* 2. SEÇÃO DE BIOGRAFIA DETALHADA */}
         <div className="detailed-bio">
           <h3>Minha Trajetória</h3>
-          <p>[**Insira aqui um parágrafo maior sobre sua experiência de aprendizado, projetos importantes e sua filosofia de trabalho.**]</p>
-          <p>[**Mais um parágrafo sobre seus objetivos futuros e como você busca desafios.**]</p>
+          <p>
+            Minha jornada na tecnologia começou antes mesmo da formatura em <span>Sistemas de Informação</span> , em 2010. Desde então, atuei por mais de uma década em empresas de grande porte como <span className="highlight-keyword">Proxxi Tecnologia IBM&reg; </span> e{" "}
+            <span className="highlight-keyword">Bradesco</span> , onde aprendi o valor da responsabilidade, da precisão e do trabalho em equipe. Essa experiência me formou como profissional e me ensinou a importância de buscar excelência em tudo o que faço.
+          </p>
+          <p>
+            Depois de anos dedicados à <span className="negrito"> infraestrutura</span>, decidi seguir um novo caminho, o do <span className="negrito">Desenvolvimento Web</span> , unindo lógica, criatividade e propósito. Hoje, estudo e desenvolvo projetos com{" "}
+            <span className="negrito"> Node.js, TypeScript, React e PostgreSQL </span>, aplicando o que aprendi sobre disciplina e comprometimento para criar soluções funcionais e de impacto. Estou em constante aprendizado, sempre buscando me atualizar e dominar novas{" "}
+            <span className="negrito"> linguagens, frameworks e tecnologias </span> que o mercado demanda, com o objetivo de evoluir continuamente como desenvolvedor e entregar resultados cada vez mais completos e alinhados às necessidades do setor.
+          </p>
+          <h3>Meus Objetivos e Desafios</h3>
+          <p>
+            Meu foco é consolidar minha atuação como desenvolvedor <span className="negrito">Full Stack</span> e participar de projetos que desafiem minha capacidade técnica e criativa. Busco oportunidades que me permitam crescer profissionalmente, colaborar com equipes que valorizem boas práticas
+            de código e contribuir para soluções inovadoras. Tenho um perfil realizador e gosto de ver o resultado do meu trabalho ganhando vida. por isso, encaro cada desafio como uma chance de aprender, evoluir e entregar valor real através da tecnologia.
+          </p>
         </div>
 
         {/* 3. SEÇÃO DE HABILIDADES (TECH STACK) - ORGANIZADA POR SETORES */}
@@ -124,9 +143,12 @@ const About = () => {
 
               {/* Ícones do Setor */}
               <div className="skills-list">
-                {skills.map((skill, index) => (
-                  <SkillIcon key={index} Icon={skill.Icon} name={skill.name} />
-                ))}
+                {/* 🚀 IMPLEMENTAÇÃO: Filtra os itens desabilitados antes de mapear */}
+                {skills
+                  .filter((skill) => !skill.disabled)
+                  .map((skill, index) => (
+                    <SkillIcon key={index} Icon={skill.Icon} name={skill.name} />
+                  ))}
               </div>
             </div>
           ))}

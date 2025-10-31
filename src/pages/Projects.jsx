@@ -1,18 +1,19 @@
-// src/pages/Projects.jsx - CORRIGIDO E ESTRUTURADO PARA FILTROS E CARTÕES
+// src/pages/Projects.jsx - FINALIZADO: COM ORDENAÇÃO MANUAL
 
 import React, { useState, useEffect } from "react";
-import useScrollReveal from "../hooks/useScrollReveal"; // Assumindo que você o tem
+import useScrollReveal from "../hooks/useScrollReveal";
+// Mantenha suas importações de serviço
 import { getRepositories, GITHUB_USERNAME } from "../services/githubApi";
 import "../styles/Projects.css";
 // Importe ícones se for usá-los nos links/botões
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // ----------------------------------------------------
-// 1. IMPORTAÇÃO DE IMAGENS (Seus imports mantidos)
+// 1. IMPORTAÇÃO DE IMAGENS
 // ----------------------------------------------------
+// ... (Suas 15 importações de imagem estão aqui) ...
 import Project1Image from "../assets/project-images/agenda-express-mongo.jpeg";
 import Project2Image from "../assets/project-images/javascript-form-validation.jpeg";
-// ... (Mantenha o restante das suas 21 importações de imagem aqui) ...
 import Project3Image from "../assets/project-images/node-express-api-rest.jpeg";
 import Project4Image from "../assets/project-images/portifolio-Single-Page.gif";
 import Project5Image from "../assets/project-images/react-cpf-validator.png";
@@ -25,31 +26,37 @@ import Project11Image from "../assets/project-images/blog-app-capstone-node.png"
 import Project12Image from "../assets/project-images/simon-game-challenge.png";
 import Project13Image from "../assets/project-images/english-alphabet-audio.png";
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
-import Project15Image from "../assets/project-images/Camiloruas.png";
+import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 
 // ----------------------------------------------------
-// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS (Seu array mantido)
+// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS
 // ----------------------------------------------------
+/*
+ * 🚨 IMPORTANTE: A ORDEM DEFINIDA NESTE ARRAY DIZ A ORDEM DE EXIBIÇÃO!
+ */
 const projectDetails = [
-  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "camiloruas.dev", languageFilter: "React" },
-  { repoName: "node-express-api-rest", imageUrl: Project3Image, deployUrl: "https://github.com/Camiloruas/node-express-api-rest", languageFilter: "Node.js" },
-  { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "Node.js" },
-  { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
-  { repoName: "react-cpf-validator", imageUrl: Project5Image, deployUrl: "https://camiloruas.github.io/react-cpf-validator/", languageFilter: "React" },
-  { repoName: "calcauladora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "JavaScript" },
+  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "www.camiloruas.dev", languageFilter: "React" },
+  { repoName: "weather-now", imageUrl: Project10Image, deployUrl: "https://weather-now-ashy.vercel.app/", languageFilter: "React" },
   { repoName: "pomodoro-timer", imageUrl: Project7Image, deployUrl: "https://pomodoro-timer-six-sage.vercel.app/", languageFilter: "React" },
+  { repoName: "simon-game-challenge", imageUrl: Project12Image, deployUrl: "https://camiloruas.github.io/simon-game-challenge/", languageFilter: "JavaScript" },
+  { repoName: "react-cpf-validator", imageUrl: Project5Image, deployUrl: "https://camiloruas.github.io/react-cpf-validator/", languageFilter: "React" },
+  { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "JavaScript" },
+  { repoName: "calcauladora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "JavaScript" },
+  { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
+  { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "Node.js" },
   { repoName: "react-flow-tasks", imageUrl: Project8Image, deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/", languageFilter: "React" },
   { repoName: "task-CRUD", imageUrl: Project9Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
-  { repoName: "weather-now", imageUrl: Project10Image, deployUrl: "https://weather-now-ashy.vercel.app/", languageFilter: "React" },
+  { repoName: "node-express-api-rest", imageUrl: Project3Image, deployUrl: "https://github.com/Camiloruas/node-express-api-rest", languageFilter: "Node.js" },
   { repoName: "blog-app-capstone-node", imageUrl: Project11Image, deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node", languageFilter: "Node.js" },
-  { repoName: "simon-game-challenge", imageUrl: Project12Image, deployUrl: "https://camiloruas.github.io/simon-game-challenge/", languageFilter: "JavaScript" },
-  { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "JavaScript" },
   { repoName: "Capstone-Project-1", imageUrl: Project14Image, deployUrl: "https://camiloruas.github.io/Capstone-Project-1/", languageFilter: "React" },
   { repoName: "Camiloruas", imageUrl: Project15Image, deployUrl: "https://github.com/Camiloruas/Camiloruas", languageFilter: "Outros" },
-  // ATENÇÃO: Verifique os nomes de repositório e os links de deploy que estão incorretos/repetidos no seu array original.
 ];
+
+// ----------------------------------------------------
+// 3. COMPONENTE PROJECT CARD
+// ----------------------------------------------------
 const ProjectCard = ({ repo }) => {
-  // 🚨 Aplica a animação Scroll Reveal em cada cartão individualmente
+  // Aplica a animação Scroll Reveal em cada cartão individualmente
   useScrollReveal(`#card-${repo.id}`, {
     origin: "bottom",
     distance: "40px",
@@ -69,10 +76,9 @@ const ProjectCard = ({ repo }) => {
       <div className="repo-content">
         <h3>{repo.name}</h3>
         <p>{repo.description || "Sem descrição disponível."}</p>
-        <div className="card-info">
-          <span className="language">Linguagem: **{repo.language || "N/A"}**</span>
-          {repo.languageFilter && <span className="filter-tag">{repo.languageFilter}</span>}
-        </div>
+
+        {/* Exibe a linguagem principal do GitHub (limpo e elegante) */}
+        <div className="card-info">{repo.language && <span className="language-tag">{repo.language}</span>}</div>
 
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
@@ -92,10 +98,13 @@ const ProjectCard = ({ repo }) => {
   );
 };
 
+// ----------------------------------------------------
+// 4. COMPONENTE PROJECTS (COM LÓGICA DE FILTRAGEM E NOVA ORDENAÇÃO)
+// ----------------------------------------------------
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filter, setFilter] = useState("Todos"); // 🚨 NOVO: Estado para o filtro
+  const [filter, setFilter] = useState("Todos");
 
   // Lista de filtros, extraída das languagesFilter, mais 'Todos'
   const availableFilters = ["Todos", ...new Set(projectDetails.map((d) => d.languageFilter).filter(Boolean))];
@@ -105,28 +114,51 @@ const Projects = () => {
       setIsLoading(true);
       const githubRepos = await getRepositories();
 
-      // Lógica de Mesclagem
-      const mergedRepos = githubRepos
-        .map((repo) => {
-          const manualDetails = projectDetails.find((detail) => detail.repoName === repo.name);
-          return {
-            ...repo,
-            imageUrl: manualDetails ? manualDetails.imageUrl : null,
-            deployUrl: manualDetails ? manualDetails.deployUrl : null,
-            // Adiciona o filtro manual para garantir que todos os cards tenham um
-            languageFilter: manualDetails ? manualDetails.languageFilter : repo.language || "Outros",
-          };
-        })
-        .filter((repo) => repo.languageFilter); // Remove repos sem languageFilter
+      // 1. Mapeia todos os repositórios da API para busca rápida e controle de exclusão
+      const githubMap = new Map();
+      githubRepos.forEach((repo) => githubMap.set(repo.name, repo));
 
-      setRepos(mergedRepos);
+      let orderedRepos = [];
+
+      // 2. FASE 1: Prioriza e ordena os projetos com detalhes manuais (projectDetails)
+      projectDetails.forEach((detail) => {
+        const repoFromGithub = githubMap.get(detail.repoName);
+
+        if (repoFromGithub) {
+          // Mescla os detalhes e adiciona ao array final na ordem do projectDetails
+          orderedRepos.push({
+            ...repoFromGithub,
+            imageUrl: detail.imageUrl,
+            deployUrl: detail.deployUrl,
+            languageFilter: detail.languageFilter,
+          });
+          // Remove do mapa para que não seja adicionado novamente
+          githubMap.delete(detail.repoName);
+        }
+      });
+
+      // 3. FASE 2: Adiciona o restante dos repositórios do GitHub (sem detalhes manuais)
+      // Ordena o restante por data de push para que os mais recentes venham primeiro, se quiser uma ordenação secundária
+      const remainingRepos = Array.from(githubMap.values())
+        // Opcional: Você pode querer ordenar o restante por data de push ou criação
+        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+        .map((repo) => ({
+          ...repo,
+          imageUrl: null,
+          deployUrl: null,
+          languageFilter: repo.language || "Outros",
+        }));
+
+      orderedRepos = [...orderedRepos, ...remainingRepos];
+
+      setRepos(orderedRepos);
       setIsLoading(false);
     };
 
     fetchRepos();
-  }, []);
+  }, []); // Fim do useEffect
 
-  // 🚨 NOVO: Lógica de Filtro
+  // Lógica de Filtro
   const filteredRepos = repos.filter((repo) => {
     return filter === "Todos" || repo.languageFilter === filter;
   });
@@ -152,7 +184,7 @@ const Projects = () => {
     <section className="projects-page">
       <h2 className="page-title">Meus Projetos Recentes</h2>
 
-      {/* 🚨 NOVO: BARRA DE FILTROS COM ESPAÇAMENTO */}
+      {/* BARRA DE FILTROS */}
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
           <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
