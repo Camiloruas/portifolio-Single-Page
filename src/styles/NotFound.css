@@ -1,0 +1,41 @@
+/* src/styles/NotFound.css (ou o seu arquivo CSS global) */
+
+.not-found-page {
+    /* Garante que ocupe todo o espaço disponível na tela principal */
+    min-height: 80vh; 
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center;
+}
+
+.not-found-content {
+    padding: 40px;
+    border-radius: 8px;
+    /* Efeito sutil para destaque */
+    background-color: var(--color-background-secondary); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-title {
+    font-size: 5rem; /* Fonte bem grande para o 404 */
+    color: var(--color-primary); /* Use a cor principal do seu tema */
+    margin: 0.2em 0;
+    font-weight: 700;
+}
+
+.not-found-icon {
+    font-size: 3rem;
+    color: var(--color-text-secondary); /* Um cinza ou cor secundária */
+    margin-bottom: 10px;
+}
+
+.not-found-message {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+.not-found-link {
+    /* Estilo do botão já definido na classe .btn-base e .btn-primary */
+    padding: 10px 20px;
+}

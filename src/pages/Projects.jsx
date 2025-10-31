@@ -29,23 +29,24 @@ import Project14Image from "../assets/project-images/Capstone-Project-1.png";
 import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 
 // ----------------------------------------------------
-// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS
+// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
 /*
- * 🚨 IMPORTANTE: A ORDEM DEFINIDA NESTE ARRAY DIZ A ORDEM DE EXIBIÇÃO!
+ * 🚨 CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
-  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "www.camiloruas.dev", languageFilter: "React" },
+  // CORREÇÃO AQUI
+  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "https://www.camiloruas.dev", languageFilter: "React" },
   { repoName: "weather-now", imageUrl: Project10Image, deployUrl: "https://weather-now-ashy.vercel.app/", languageFilter: "React" },
   { repoName: "pomodoro-timer", imageUrl: Project7Image, deployUrl: "https://pomodoro-timer-six-sage.vercel.app/", languageFilter: "React" },
   { repoName: "react-cpf-validator", imageUrl: Project5Image, deployUrl: "https://camiloruas.github.io/react-cpf-validator/", languageFilter: "React" },
   { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "JavaScript" },
   { repoName: "calcauladora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "JavaScript" },
-  { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
-  { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "Node.js" },
+  { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/javascript-form-validation/", languageFilter: "JavaScript" },
+  { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://github.com/Camiloruas/agenda-express-mongo", languageFilter: "Node.js" },
   { repoName: "simon-game-challenge", imageUrl: Project12Image, deployUrl: "https://camiloruas.github.io/simon-game-challenge/", languageFilter: "JavaScript" },
   { repoName: "react-flow-tasks", imageUrl: Project8Image, deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/", languageFilter: "React" },
-  { repoName: "task-CRUD", imageUrl: Project9Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
+  { repoName: "task-CRUD", imageUrl: Project9Image, deployUrl: "https://github.com/Camiloruas/task-CRUD", languageFilter: "JavaScript" },
   { repoName: "node-express-api-rest", imageUrl: Project3Image, deployUrl: "https://github.com/Camiloruas/node-express-api-rest", languageFilter: "Node.js" },
   { repoName: "blog-app-capstone-node", imageUrl: Project11Image, deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node", languageFilter: "Node.js" },
   { repoName: "Capstone-Project-1", imageUrl: Project14Image, deployUrl: "https://camiloruas.github.io/Capstone-Project-1/", languageFilter: "React" },
@@ -53,7 +54,7 @@ const projectDetails = [
 ];
 
 // ----------------------------------------------------
-// 3. COMPONENTE PROJECT CARD
+// 3. COMPONENTE PROJECT CARD - CORREÇÃO DE SEGURANÇA APLICADA
 // ----------------------------------------------------
 const ProjectCard = ({ repo }) => {
   // Aplica a animação Scroll Reveal em cada cartão individualmente
@@ -64,6 +65,9 @@ const ProjectCard = ({ repo }) => {
     delay: 50,
     opacity: 0,
   });
+
+  // Lógica para garantir que o link de deploy comece com http/https
+  const deployLink = repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://")) ? repo.deployUrl : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
 
   return (
     <div id={`card-${repo.id}`} className="repo-card">
@@ -88,7 +92,13 @@ const ProjectCard = ({ repo }) => {
 
           {/* Link para o Projeto Online (Só aparece se o deployUrl existir) */}
           {repo.deployUrl && (
-            <a href={repo.deployUrl} target="_blank" rel="noopener noreferrer" className="btn-base btn-primary deploy-link">
+            <a
+              // Usa a variável de link segura 'deployLink'
+              href={deployLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-base btn-primary deploy-link"
+            >
               <FaExternalLinkAlt /> Live
             </a>
           )}
