@@ -1,14 +1,14 @@
-// src/pages/Projects.jsx - CORRIGIDO E ESTRUTURADO PARA FILTROS E CARTÕES
+// src/pages/Projects.jsx - FINALIZADO: APENAS LINGUAGEM PRINCIPAL
 
 import React, { useState, useEffect } from "react";
-import useScrollReveal from "../hooks/useScrollReveal"; // Assumindo que você o tem
+import useScrollReveal from "../hooks/useScrollReveal";
 import { getRepositories, GITHUB_USERNAME } from "../services/githubApi";
 import "../styles/Projects.css";
 // Importe ícones se for usá-los nos links/botões
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // ----------------------------------------------------
-// 1. IMPORTAÇÃO DE IMAGENS (Seus imports mantidos)
+// 1. IMPORTAÇÃO DE IMAGENS
 // ----------------------------------------------------
 import Project1Image from "../assets/project-images/agenda-express-mongo.jpeg";
 import Project2Image from "../assets/project-images/javascript-form-validation.jpeg";
@@ -25,13 +25,13 @@ import Project11Image from "../assets/project-images/blog-app-capstone-node.png"
 import Project12Image from "../assets/project-images/simon-game-challenge.png";
 import Project13Image from "../assets/project-images/english-alphabet-audio.png";
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
-import Project15Image from "../assets/project-images/Camiloruas.png";
+import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 
 // ----------------------------------------------------
-// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS (Seu array mantido)
+// 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS
 // ----------------------------------------------------
 const projectDetails = [
-  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "camiloruas.dev", languageFilter: "React" },
+  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "www.camiloruas.dev", languageFilter: "React" },
   { repoName: "node-express-api-rest", imageUrl: Project3Image, deployUrl: "https://github.com/Camiloruas/node-express-api-rest", languageFilter: "Node.js" },
   { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "Node.js" },
   { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/TrybeTunes/", languageFilter: "JavaScript" },
@@ -46,10 +46,13 @@ const projectDetails = [
   { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "JavaScript" },
   { repoName: "Capstone-Project-1", imageUrl: Project14Image, deployUrl: "https://camiloruas.github.io/Capstone-Project-1/", languageFilter: "React" },
   { repoName: "Camiloruas", imageUrl: Project15Image, deployUrl: "https://github.com/Camiloruas/Camiloruas", languageFilter: "Outros" },
-  // ATENÇÃO: Verifique os nomes de repositório e os links de deploy que estão incorretos/repetidos no seu array original.
 ];
+
+// ----------------------------------------------------
+// 3. COMPONENTE PROJECT CARD
+// ----------------------------------------------------
 const ProjectCard = ({ repo }) => {
-  // 🚨 Aplica a animação Scroll Reveal em cada cartão individualmente
+  // Aplica a animação Scroll Reveal em cada cartão individualmente
   useScrollReveal(`#card-${repo.id}`, {
     origin: "bottom",
     distance: "40px",
@@ -69,10 +72,10 @@ const ProjectCard = ({ repo }) => {
       <div className="repo-content">
         <h3>{repo.name}</h3>
         <p>{repo.description || "Sem descrição disponível."}</p>
-        <div className="card-info">
-          <span className="language">Linguagem: **{repo.language || "N/A"}**</span>
-          {repo.languageFilter && <span className="filter-tag">{repo.languageFilter}</span>}
-        </div>
+
+        {/* 🚨 FINALIZADO: Exibe APENAS a linguagem principal do GitHub (limpo e elegante) */}
+        <div className="card-info">{repo.language && <span className="language-tag">{repo.language}</span>}</div>
+        {/* FIM DO BLOCO FINALIZADO */}
 
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
@@ -92,10 +95,13 @@ const ProjectCard = ({ repo }) => {
   );
 };
 
+// ----------------------------------------------------
+// 4. COMPONENTE PROJECTS (COM LÓGICA DE FILTRAGEM)
+// ----------------------------------------------------
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filter, setFilter] = useState("Todos"); // 🚨 NOVO: Estado para o filtro
+  const [filter, setFilter] = useState("Todos");
 
   // Lista de filtros, extraída das languagesFilter, mais 'Todos'
   const availableFilters = ["Todos", ...new Set(projectDetails.map((d) => d.languageFilter).filter(Boolean))];
@@ -113,7 +119,7 @@ const Projects = () => {
             ...repo,
             imageUrl: manualDetails ? manualDetails.imageUrl : null,
             deployUrl: manualDetails ? manualDetails.deployUrl : null,
-            // Adiciona o filtro manual para garantir que todos os cards tenham um
+            // Adiciona o filtro manual para garantir que a FILTRAGEM funcione
             languageFilter: manualDetails ? manualDetails.languageFilter : repo.language || "Outros",
           };
         })
@@ -126,7 +132,7 @@ const Projects = () => {
     fetchRepos();
   }, []);
 
-  // 🚨 NOVO: Lógica de Filtro
+  // Lógica de Filtro
   const filteredRepos = repos.filter((repo) => {
     return filter === "Todos" || repo.languageFilter === filter;
   });
@@ -152,7 +158,7 @@ const Projects = () => {
     <section className="projects-page">
       <h2 className="page-title">Meus Projetos Recentes</h2>
 
-      {/* 🚨 NOVO: BARRA DE FILTROS COM ESPAÇAMENTO */}
+      {/* BARRA DE FILTROS */}
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
           <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>

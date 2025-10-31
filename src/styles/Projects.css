@@ -1,4 +1,4 @@
-/* src/styles/Projects.css - AJUSTADO PARA TEMA ESCURO, TRANPARÊNCIA E CENTRALIZAÇÃO */
+/* src/styles/Projects.css - VERSÃO FINAL E DEFINITIVA */
 
 .projects-page {
   padding: 3rem 2rem;
@@ -36,7 +36,7 @@
 }
 
 .repo-card {
-  /* 🚨 CORREÇÃO 1: Mais transparência no fundo do card (0.6 = 60% opaco) */
+  /* Transparência no fundo do card (0.6 = 60% opaco) */
   background-color: rgba(10, 10, 10, 0.6);
   border: 1px solid var(--cor-borda-suave);
   padding: 20px;
@@ -64,21 +64,36 @@
   margin-bottom: 15px;
 }
 
+/* BLOCO FINAL DAS TAGS: Apenas uma tag por cartão */
 .card-info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+
+  /* Garante que o conteúdo comece na borda esquerda */
+  justify-content: flex-start;
+
+  /* A PROPRIEDADE CHAVE: Alinha o item na base da linha flex. */
+  /* Isso pode corrigir qualquer diferença de altura de linha ou margem implícita */
+  align-items: flex-start;
+
+  /* Zera a margem que pode estar empurrando de volta */
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px; /* Mantém o espaçamento para o bloco de botões abaixo */
 }
 
-.repo-card .language,
+/* Estiliza a tag de linguagem principal e a tag de filtro dos botões */
+.language-tag,
 .filter-tag {
-  font-weight: bold;
+  font-weight: 500;
   color: var(--cor-texto-principal);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   padding: 5px 10px;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 170, 0.1);
+  border-radius: 6px;
+  background-color: rgba(0, 255, 170, 0.2);
+  border: none;
+
+  /* Zera as margens da tag para que ela obedeça apenas o .card-info */
+  margin: 0;
 }
 
 /* ------------------------------------- */
@@ -90,7 +105,7 @@
   gap: 10px;
   margin-top: 15px;
 
-  /* 🚨 CORREÇÃO 2: Centraliza os botões */
+  /* Centraliza os botões */
   justify-content: center;
 
   .btn-primary svg {
