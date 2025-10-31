@@ -3,7 +3,7 @@ import React from "react";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/Home.css";
 // Ajuste o caminho da sua foto se necessário
-import profilePhoto from "../assets/project-images/Imagem-capa.png";
+import profilePhoto from "../assets/project-images/magem-capa.jpeg";
 
 const Home = () => {
   // ANIMAÇÕES SCROLL REVEAL - DISTÂNCIA E DURAÇÃO AJUSTADAS POR VOCÊ

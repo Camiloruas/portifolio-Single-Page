@@ -36,19 +36,20 @@
   display: flex;
   justify-content: flex-end; /* Alinha a imagem à direita do container */
   align-items: center;
+  opacity: .7;
 }
 
 /* 🚨 SEUS ESTILOS DE IMAGEM RECUPERADOS: Sem border-radius e tamanho grande */
 .new-profile-photo {
   /* Aumentei o tamanho para refletir sua intenção de ser 'bem grande' */
-  width: 450px;
+  width: 350px;
   height: 650px;
 
   /* REMOVIDO: border-radius: 50%; */
   border-radius: 10px; /* Mantendo um leve arredondamento nas bordas, se for o caso */
 
   object-fit: cover;
-  border: 5px solid var(--cor-principal);
+  border: 1px solid var(--cor-principal);
   box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
 }
 
