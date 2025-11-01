@@ -1,11 +1,8 @@
 // src/pages/Contact.jsx
-import React from "react"; // Não precisamos mais do useState
-import "../styles/Contact.css"; // Vamos criar este estilo no próximo passo
-
-// 🚨 NOTA SOBRE ÍCONES:
-// Para usar ícones bonitos (como do Font Awesome, React Icons, etc.),
-// você precisará instalar a biblioteca (ex: npm install react-icons)
-// e importá-los aqui, substituindo os textos dos links.
+import React from "react";
+// Importando os ícones que precisamos
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import "../styles/Contact.css";
 
 const Contact = () => {
   return (
@@ -21,25 +18,26 @@ const Contact = () => {
           <ul className="social-links-list">
             <li>
               <a href="https://linkedin.com/in/camiloruas" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
-                {/* 🔗 Substitua este texto pelo ícone do LinkedIn */}
+                <FaLinkedin className="link-icon" />
                 LinkedIn
               </a>
             </li>
             <li>
               <a href="https://github.com/camiloruas" target="_blank" rel="noopener noreferrer" className="social-link github">
-                {/* 🐙 Substitua este texto pelo ícone do GitHub */}
+                <FaGithub className="link-icon" />
                 GitHub
               </a>
             </li>
             <li>
-              <a href="tel:+5511999999999" className="social-link phone">
-                {/* 📞 Substitua este texto pelo ícone de Telefone/WhatsApp */}
+              {/* NOTA: Alterei para um link WhatsApp padrão, se for apenas telefone/whatsapp, ajuste o href. */}
+              <a href="https://api.whatsapp.com/send?phone=5511999999999" target="_blank" rel="noopener noreferrer" className="social-link phone">
+                <FaWhatsapp className="link-icon" />
                 Telefone/WhatsApp
               </a>
             </li>
             <li>
               <a href="mailto:seu.email@exemplo.com" className="social-link email">
-                {/* 📧 Substitua este texto pelo ícone de Email */}
+                <FaEnvelope className="link-icon" />
                 Enviar Email
               </a>
             </li>
