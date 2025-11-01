@@ -79,3 +79,31 @@ a:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 255, 170, 0.4);
 }
+
+/* Media Query para dispositivos com largura máxima de 768px (Mobile) */
+
+@media (max-width: 768px) {
+
+    
+
+    /* 1. SOCIAL SIDEBAR: Oculta a barra lateral social */
+
+    .social-sidebar {
+
+        display: none;
+
+    }
+
+
+
+    /* 2. MAIN: Ajusta o padding principal para recuperar o espaço */
+
+    /* Se a sua tag <main> tem um padding-left para compensar a sidebar, remova aqui. */
+
+    main {
+
+        padding: 80px 20px 20px 20px; /* Garante que o conteúdo não fique debaixo do header e adiciona padding lateral */
+
+    }
+
+}
