@@ -120,8 +120,8 @@
   .social-links-list {
     flex-direction: column; /* Empilha os links em telas pequenas */
     gap: 30px;
-    margin-left: 0px;
-    margin-right: 10px;
+    margin-left: -20px;
+    margin-right: 0px;
   }
   .social-link {
     width: 90%; /* Ocupa a largura mais adequada para mobile */
