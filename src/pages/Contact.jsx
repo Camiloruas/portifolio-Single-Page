@@ -17,24 +17,42 @@ const Contact = () => {
 
           <ul className="social-links-list">
             <li>
-              <a href="https://www.linkedin.com/in/camilo-ruas-3a2a6425/" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
+              {/* LINKEDIN — tenta abrir o app e, se não conseguir, abre o site */}
+              <a
+                href="linkedin://in/camilo-ruas-3a2a6425"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+                    window.location = "linkedin://in/camilo-ruas-3a2a6425";
+                    setTimeout(() => {
+                      window.open("https://www.linkedin.com/in/camilo-ruas-3a2a6425", "_blank");
+                    }, 500);
+                  } else {
+                    window.open("https://www.linkedin.com/in/camilo-ruas-3a2a6425", "_blank");
+                  }
+                }}
+                className="social-link linkedin"
+              >
                 <FaLinkedin className="link-icon" />
                 LinkedIn
               </a>
             </li>
+
             <li>
               <a href="https://github.com/Camiloruas" target="_blank" rel="noopener noreferrer" className="social-link github">
                 <FaGithub className="link-icon" />
                 GitHub
               </a>
             </li>
+
             <li>
-              {/* NOTA: Alterei para um link WhatsApp padrão, se for apenas telefone/whatsapp, ajuste o href. */}
+              {/* Link WhatsApp direto */}
               <a href="https://wa.me/5579998448030" target="_blank" rel="noopener noreferrer" className="social-link phone">
                 <FaWhatsapp className="link-icon" />
                 Telefone/WhatsApp
               </a>
             </li>
+
             <li>
               <a href="mailto:miloruas@gmail.com" className="social-link email">
                 <FaEnvelope className="link-icon" />
