@@ -41,7 +41,7 @@ const projectDetails = [
   { repoName: "pomodoro-timer", imageUrl: Project7Image, deployUrl: "https://pomodoro-timer-six-sage.vercel.app/", languageFilter: "React" },
   { repoName: "react-cpf-validator", imageUrl: Project5Image, deployUrl: "https://camiloruas.github.io/react-cpf-validator/", languageFilter: "React" },
   { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "JavaScript" },
-  { repoName: "calcauladora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "JavaScript" },
+  { repoName: "calculadora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "JavaScript" },
   { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/javascript-form-validation/", languageFilter: "JavaScript" },
   { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://github.com/Camiloruas/agenda-express-mongo", languageFilter: "Node.js" },
   { repoName: "simon-game-challenge", imageUrl: Project12Image, deployUrl: "https://camiloruas.github.io/simon-game-challenge/", languageFilter: "JavaScript" },

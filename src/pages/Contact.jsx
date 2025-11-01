@@ -1,11 +1,8 @@
 // src/pages/Contact.jsx
-import React from "react"; // Não precisamos mais do useState
-import "../styles/Contact.css"; // Vamos criar este estilo no próximo passo
-
-// 🚨 NOTA SOBRE ÍCONES:
-// Para usar ícones bonitos (como do Font Awesome, React Icons, etc.),
-// você precisará instalar a biblioteca (ex: npm install react-icons)
-// e importá-los aqui, substituindo os textos dos links.
+import React from "react";
+// Importando os ícones que precisamos
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import "../styles/Contact.css";
 
 const Contact = () => {
   return (
@@ -20,26 +17,45 @@ const Contact = () => {
 
           <ul className="social-links-list">
             <li>
-              <a href="https://linkedin.com/in/camiloruas" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
-                {/* 🔗 Substitua este texto pelo ícone do LinkedIn */}
+              {/* LINKEDIN — tenta abrir o app e, se não conseguir, abre o site */}
+              <a
+                href="linkedin://in/camilo-ruas-3a2a6425"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/)) {
+                    window.location = "linkedin://in/camilo-ruas-3a2a6425";
+                    setTimeout(() => {
+                      window.open("https://www.linkedin.com/in/camilo-ruas-3a2a6425", "_blank");
+                    }, 500);
+                  } else {
+                    window.open("https://www.linkedin.com/in/camilo-ruas-3a2a6425", "_blank");
+                  }
+                }}
+                className="social-link linkedin"
+              >
+                <FaLinkedin className="link-icon" />
                 LinkedIn
               </a>
             </li>
+
             <li>
-              <a href="https://github.com/camiloruas" target="_blank" rel="noopener noreferrer" className="social-link github">
-                {/* 🐙 Substitua este texto pelo ícone do GitHub */}
+              <a href="https://github.com/Camiloruas" target="_blank" rel="noopener noreferrer" className="social-link github">
+                <FaGithub className="link-icon" />
                 GitHub
               </a>
             </li>
+
             <li>
-              <a href="tel:+5511999999999" className="social-link phone">
-                {/* 📞 Substitua este texto pelo ícone de Telefone/WhatsApp */}
+              {/* Link WhatsApp direto */}
+              <a href="https://wa.me/5579998448030" target="_blank" rel="noopener noreferrer" className="social-link phone">
+                <FaWhatsapp className="link-icon" />
                 Telefone/WhatsApp
               </a>
             </li>
+
             <li>
-              <a href="mailto:seu.email@exemplo.com" className="social-link email">
-                {/* 📧 Substitua este texto pelo ícone de Email */}
+              <a href="mailto:miloruas@gmail.com" className="social-link email">
+                <FaEnvelope className="link-icon" />
                 Enviar Email
               </a>
             </li>
