@@ -33,7 +33,9 @@
   /* USANDO VARIÁVEL: Linha de separação suave */
   border-bottom: 1px solid var(--cor-borda-suave);
 }
-
+p{
+  text-align: justify
+}
 .profile-photo {
   width: 200px;
   height: 200px;
@@ -207,8 +209,8 @@
   }
 
   .profile-photo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 250px;
   }
 
   /* Ajuste para o Olá! gigante em telas pequenas */
