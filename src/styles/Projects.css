@@ -150,4 +150,41 @@
   .card-links {
     justify-content: center;
   }
+
+  .repo-card {
+    /* Transparência no fundo do card (0.6 = 60% opaco) */
+
+    height: 450px;
+    width: 350px;
+  }
+
+  .repo-card h3 {
+    font-size: 1rem;
+    color: var(--cor-principal);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .repo-card p {
+    font-size: 15px;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 10px;
+  }
+
+  /* BLOCO FINAL DAS TAGS: Apenas uma tag por cartão */
+  .card-info {
+    display: flex;
+
+    /* Garante que o conteúdo comece na borda esquerda */
+
+    justify-content: center;
+    /* A PROPRIEDADE CHAVE: Alinha o item na base da linha flex. */
+    /* Isso pode corrigir qualquer diferença de altura de linha ou margem implícita */
+    align-items: flex-start;
+
+    /* Zera a margem que pode estar empurrando de volta */
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px; /* Mantém o espaçamento para o bloco de botões abaixo */
+  }
 }

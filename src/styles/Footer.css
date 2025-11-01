@@ -22,3 +22,26 @@
 .main-footer:hover {
   color: var(--cor-principal);
 }
+
+
+@media (max-width: 600px) {
+.main-footer {
+  /* Posição padrão: Ocupa a largura total */
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+
+  /* Estilo sutil */
+  font-size: 0.5rem;
+  letter-spacing: 0.0rem;
+  text-transform: uppercase;
+
+  /* Cor discreta, mas legível */
+  color: var(--cor-texto-secundario);
+
+  /* Garante que o fundo seja transparente para ver o background abstrato */
+  background-color: transparent;
+}
+
+
+}
