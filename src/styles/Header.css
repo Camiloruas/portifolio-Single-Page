@@ -71,6 +71,11 @@
 /* ------------------------------------------------ */
 
 @media (max-width: 768px) {
+  ::selection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
   .main-nav {
     position: fixed;
     top: 0;
@@ -118,14 +123,14 @@
     margin: 0; /* Remove margens extras que podem estar centralizando-o */
     z-index: 1000;
   }
-  
+
   .main-nav ul {
-  list-style: none;
-  padding: 0px;
-  margin-right: -250px;
-  margin-left: -50px;
-  display: flex;
-  justify-content: center; /* Centers items horizontally */
-  gap: 20px; /* Reduced gap for more uniform spacing */
-}
+    list-style: none;
+    padding: 0px;
+    margin-right: -250px;
+    margin-left: -50px;
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    gap: 20px; /* Reduced gap for more uniform spacing */
+  }
 }

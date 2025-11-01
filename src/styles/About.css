@@ -208,6 +208,10 @@ p {
     flex-direction: column;
     text-align: center;
   }
+  p, h3 { 
+    margin-left: 5x;
+    margin-right: -10px;
+  }
 
   .profile-photo {
     margin-top: 120px;

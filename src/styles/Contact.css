@@ -103,50 +103,18 @@
 /* RESPONSIVIDADE */
 /* ------------------------------------- */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .social-links-list {
     flex-direction: column; /* Empilha os links em telas pequenas */
-    gap: 15px;
+    gap: 30px;
+    margin-left: 5px;
+    margin-right: -15px;
   }
   .social-link {
-    width: 100%; /* Ocupa a largura total em mobile */
+    width: 80%; /* Ocupa a largura total em mobile */
   }
 
-  .social-link {
-    margin-right: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  
 
-    /* Tamanho e Estilo do Botão */
-    width: 220px; /* Largura fixa para cada botão */
-    padding: 15px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    /* MANTIDO: Cor do texto branca, pois os fundos são escuros */
-    color: white;
-
-    transition: transform 0.3s, box-shadow 0.3s;
-
-    /* Sombra ajustada para ser sutil em fundo escuro */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-
-  }
-
-.contact-info-container h3 {
-  font-size: 1.4rem;
-  /* USANDO VARIÁVEL */
-  color: var(--cor-texto-principal);
-  margin-bottom: 5px;
-}
-
-.contact-page h2 {
-  font-size: 3rem;
-  /* USANDO VARIÁVEL */
-  color: var(--cor-texto-principal);
-  margin-bottom: 0px;
-}
-
+  
 }
