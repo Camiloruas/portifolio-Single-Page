@@ -63,6 +63,7 @@
   color: var(--cor-principal);
   padding: 10px;
   z-index: 10; /* 🚨 Z-INDEX ALTO! */
+  margin: 0;
 }
 
 /* ------------------------------------------------ */
@@ -100,4 +101,31 @@
   .menu-toggle {
     display: block; /* 🚨 NO MOBILE, ELE É EXIBIDO */
   }
+  .menu-toggle {
+    position: fixed;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--cor-principal);
+    padding: 10px;
+
+    top: 5px; /* Distância do topo da tela (ajuste conforme necessário) */
+    right: 10px; /* Distância da direita da tela (ajuste para o canto direito) */
+    /* Ou, se quiser no canto esquerdo: */
+    /* left: 10px; */
+    /* right: auto; */
+    margin: 0; /* Remove margens extras que podem estar centralizando-o */
+    z-index: 1000;
+  }
+  
+  .main-nav ul {
+  list-style: none;
+  padding: 0px;
+  margin-right: -250px;
+  margin-left: -50px;
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  gap: 20px; /* Reduced gap for more uniform spacing */
+}
 }

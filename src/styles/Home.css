@@ -119,10 +119,10 @@
 }
 @media (max-width: 600px) {
   .home-name-1 {
+    
     font-size: 3rem;
-    letter-spacing: 0.8rem;
-     margin-bottom: -2%;
-  }
+    letter-spacing: 0.10rem;
+       }
   .home-name-2 {
     font-size: 2rem;
     letter-spacing: 2rem;
