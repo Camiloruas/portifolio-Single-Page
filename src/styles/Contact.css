@@ -22,7 +22,7 @@
   font-size: 1.8rem;
   /* USANDO VARIÁVEL */
   color: var(--cor-texto-principal);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .contact-intro {
@@ -43,10 +43,12 @@
   justify-content: center; /* Centraliza os links horizontalmente */
   flex-wrap: wrap;
   gap: 20px; /* Espaço entre os links */
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin-right: 50px;
 }
 
 .social-link {
+  margin-right: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,5 +110,27 @@
   }
   .social-link {
     width: 100%; /* Ocupa a largura total em mobile */
+  }
+
+  .social-link {
+    margin-right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Tamanho e Estilo do Botão */
+    width: 195px; /* Largura fixa para cada botão */
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    /* MANTIDO: Cor do texto branca, pois os fundos são escuros */
+    color: white;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    /* Sombra ajustada para ser sutil em fundo escuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   }
 }
