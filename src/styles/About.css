@@ -33,8 +33,9 @@
   /* USANDO VARIÁVEL: Linha de separação suave */
   border-bottom: 1px solid var(--cor-borda-suave);
 }
-p{
-  text-align: justify
+p {
+  text-align: justify;
+  margin-right: 15px;
 }
 .profile-photo {
   width: 200px;
