@@ -187,4 +187,15 @@
     padding: 0;
     margin-bottom: 15px; /* Mantém o espaçamento para o bloco de botões abaixo */
   }
+
+  .projects-page .page-title {
+    font-size: 2rem;
+  }
+  .filter-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduced gap between buttons */
+    margin-bottom: 10px; /* Reduced bottom margin */
+    transform: scale(0.7); /* Makes buttons 90% of their original size */
+  }
 }
