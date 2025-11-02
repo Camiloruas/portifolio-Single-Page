@@ -1,19 +1,21 @@
 // src/pages/Contact.jsx
 import React from "react";
+import { useTranslation } from "react-i18next";
 // Importando os ícones que precisamos
 import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import "../styles/Contact.css";
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <section className="contact-page">
-      <h2>Entre em Contato</h2>
+      <h2>{t("contact.title")}</h2>
 
       <div className="contact-container">
         {/* SEÇÃO DE LINKS SOCIAIS E INFORMAÇÕES */}
         <div className="contact-info-container">
-          <h3>Vamos nos conectar!</h3>
-          <p className="contact-intro">Me encontre nestas plataformas ou me envie uma mensagem direta:</p>
+          <h3>{t("contact.connect")}</h3>
+          <p className="contact-intro">{t("contact.findMe")}</p>
 
           <ul className="social-links-list">
             <li>
@@ -49,19 +51,19 @@ const Contact = () => {
               {/* Link WhatsApp direto */}
               <a href="https://wa.me/5579998448030" target="_blank" rel="noopener noreferrer" className="social-link phone">
                 <FaWhatsapp className="link-icon" />
-                Telefone/WhatsApp
+                {t("contact.phone")}
               </a>
             </li>
 
             <li>
               <a href="mailto:miloruas@gmail.com" className="social-link email">
                 <FaEnvelope className="link-icon" />
-                Enviar Email
+                {t("contact.sendEmail")}
               </a>
             </li>
           </ul>
 
-          <p className="contact-footer-note">Estou sempre aberto a novas oportunidades e colaborações.</p>
+          <p className="contact-footer-note">{t("contact.openToWork")}</p>
         </div>
       </div>
     </section>

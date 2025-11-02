@@ -1,5 +1,11 @@
 /* src/styles/Header.css - FINAL E CORRIGIDO */
 
+::selection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
 .main-header {
   background: transparent;
   width: 100%;
@@ -71,11 +77,6 @@
 /* ------------------------------------------------ */
 
 @media (max-width: 768px) {
-  ::selection {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
   .main-nav {
     position: fixed;
     top: 0;
@@ -105,8 +106,6 @@
 
   .menu-toggle {
     display: block; /* 🚨 NO MOBILE, ELE É EXIBIDO */
-  }
-  .menu-toggle {
     position: fixed;
     background: none;
     border: none;
@@ -114,23 +113,31 @@
     font-size: 2rem;
     color: var(--cor-principal);
     padding: 10px;
-
     top: 5px; /* Distância do topo da tela (ajuste conforme necessário) */
     right: 10px; /* Distância da direita da tela (ajuste para o canto direito) */
-    /* Ou, se quiser no canto esquerdo: */
-    /* left: 10px; */
-    /* right: auto; */
     margin: 0; /* Remove margens extras que podem estar centralizando-o */
     z-index: 1000;
   }
+}
 
-  .main-nav ul {
-    list-style: none;
-    padding: 0px;
-    margin-right: -250px;
-    margin-left: -50px;
-    display: flex;
-    justify-content: center; /* Centers items horizontally */
-    gap: 20px; /* Reduced gap for more uniform spacing */
-  }
+.language-switcher {
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  right: 80px;
+  top: 20px;
+}
+
+.language-switcher button {
+  background: none;
+  border: 1px solid var(--cor-principal);
+  color: var(--cor-texto-principal);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.language-switcher button:hover {
+  background: var(--cor-principal);
+  color: var(--cor-texto-contraste);
 }
