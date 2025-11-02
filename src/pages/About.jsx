@@ -106,7 +106,7 @@ const About = () => {
             <h3>
               <Trans i18nKey="about.subtitle" components={[<span className="highlight-keyword" />, <span className="highlight-keyword" />]} />
             </h3>
-            <p>{t('about.passion')}</p>
+            <p className="passion-paragraph">{t('about.passion')}</p>
           </div>
         </div>
 
