@@ -142,7 +142,7 @@
 @media (max-width: 768px) {
   .home-main-content {
     padding: 20px 15px;
-    margin-top: 5vh; /* Ajusta o espaçamento superior */
+    margin-top: -20vh; /* Ajusta o espaçamento superior */
   }
 
   .new-profile-photo {
@@ -154,7 +154,7 @@
   .home-name-1,
   .home-name-2,
   .habilidades {
-    margin-left: 25px;
+    margin-left: 40px;
   }
 
   .home-name-1 {
@@ -163,8 +163,10 @@
     margin-bottom: -3%;
   }
   .home-name-2 {
+    
     font-size: 2.5rem;
-    letter-spacing: zrem;
+    letter-spacing: 3.2rem;
+
   }
   .habilidades {
     font-size: 1rem;

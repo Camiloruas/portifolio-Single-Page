@@ -78,7 +78,7 @@
 
 @media (max-width: 768px) {
   .main-nav {
-    position: fixed;
+    position:absolute;
     top: 0;
     left: -100%; /* Começa fora da tela (para a esquerda) */
     width: 100%; /* Use 100% width for full screen */
@@ -87,7 +87,8 @@
     transition: left 0.3s ease-in-out; /* Transição para a propriedade left */
     z-index: 1000;
     display: flex;
-    justify-content: flex-start; /* Align to the left */
+    
+    justify-content: flex-start;
     align-items: flex-start;
     padding-top: 80px;
   }
@@ -102,9 +103,9 @@
     flex-wrap: wrap; /* Added to allow items to wrap if needed */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    gap: 10px; /* Reduced gap for row layout */
+    gap: 20px; /* Reduced gap for row layout */
     margin: 0;
-    padding: 0 10px; /* Added horizontal padding */
+    padding:0  60px; /* Added horizontal padding */
     text-align: center; /* Center text */
   }
 
