@@ -152,7 +152,7 @@
 
   /* Redução máxima do tamanho do nome para que caiba no celular */
   .home-name-1,
-  .home-name-2,
+  
   .habilidades {
     margin-left: 40px;
   }
@@ -165,6 +165,7 @@
   .home-name-2 {
     font-size: 2.5rem;
     letter-spacing: 3.2rem;
+  margin-left: 45px;
   }
   .habilidades {
     font-size: 1rem;
