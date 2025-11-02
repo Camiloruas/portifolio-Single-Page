@@ -80,16 +80,9 @@
   .main-nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Começa fora da tela */
-    width: 100%;
+    width: 25%;
     height: 100vh;
-    background: var(--cor-de-fundo);
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha os itens no topo */
-    padding-top: 80px; /* Adiciona espaço no topo */
+    padding-top: 70px;
   }
 
   .main-nav.mobile-open {
@@ -97,26 +90,23 @@
   }
 
   .main-nav ul {
-    flex-direction: column;
-    gap: 40px;
+    
+    flex-wrap: wrap; 
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Center items vertically */
+    gap: 12px; /* Reduced gap for row layout */
     margin: 0;
-    padding: 0;
-    text-align: center;
+    padding: 0 10px; /* Added horizontal padding */
+    text-align: left; /* Align text to left */
   }
 
   .menu-toggle {
     display: block; /* 🚨 NO MOBILE, ELE É EXIBIDO */
     position: fixed;
-    background: none;
-    border: none;
-    cursor: pointer;
     font-size: 2rem;
-    color: var(--cor-principal);
-    padding: 10px;
-    top: 5px; /* Distância do topo da tela (ajuste conforme necessário) */
-    right: 10px; /* Distância da direita da tela (ajuste para o canto direito) */
-    margin: 0; /* Remove margens extras que podem estar centralizando-o */
-    z-index: 1000;
+     top: 5px;
+    right: 10px; 
+       
   }
 }
 
@@ -141,3 +131,4 @@
   background: var(--cor-principal);
   color: var(--cor-texto-contraste);
 }
+
