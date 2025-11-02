@@ -44,8 +44,8 @@
     }
   },
   "contact": {
-    "title": "Get in Touch",
-    "connect": "Let's connect!",
+    "title": "Let's connect!",
+    "connect": "",
     "findMe": "Find me on these platforms or send me a direct message:",
     "phone": "Phone/WhatsApp",
     "sendEmail": "Send Email",

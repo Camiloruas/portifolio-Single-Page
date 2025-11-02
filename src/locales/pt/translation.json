@@ -44,8 +44,8 @@
     }
   },
   "contact": {
-    "title": "Entre em Contato",
-    "connect": "Vamos nos conectar!",
+    "title": "Vamos nos conectar!",
+    "connect": "",
     "findMe": "Me encontre nestas plataformas ou me envie uma mensagem direta:",
     "phone": "Telefone/WhatsApp",
     "sendEmail": "Enviar Email",

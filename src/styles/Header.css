@@ -80,33 +80,47 @@
   .main-nav {
     position: fixed;
     top: 0;
-    width: 25%;
+    left: -100%; /* Começa fora da tela (para a esquerda) */
+    width: 100%; /* Use 100% width for full screen */
     height: 100vh;
-    padding-top: 70px;
+    background: var(--cor-de-fundo);
+    transition: left 0.3s ease-in-out; /* Transição para a propriedade left */
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: flex-start;
+    padding-top: 80px;
   }
 
   .main-nav.mobile-open {
-    right: 0; /* Puxa o menu para a tela */
+    left: 0; /* Puxa o menu para a tela (da esquerda) */
   }
 
   .main-nav ul {
-    
-    flex-wrap: wrap; 
-    justify-content: flex-start; /* Align items to the start */
+    display: flex;
+    flex-direction: row; /* Changed to row */
+    flex-wrap: wrap; /* Added to allow items to wrap if needed */
+    justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    gap: 12px; /* Reduced gap for row layout */
+    gap: 10px; /* Reduced gap for row layout */
     margin: 0;
     padding: 0 10px; /* Added horizontal padding */
-    text-align: left; /* Align text to left */
+    text-align: center; /* Center text */
   }
 
   .menu-toggle {
     display: block; /* 🚨 NO MOBILE, ELE É EXIBIDO */
     position: fixed;
+    background: none;
+    border: none;
+    cursor: pointer;
     font-size: 2rem;
-     top: 5px;
-    right: 10px; 
-       
+    color: var(--cor-principal);
+    padding: 10px;
+    top: 5px; /* Distância do topo da tela (ajuste conforme necessário) */
+    right: 10px; /* Distância da direita da tela (ajuste para o canto direito) */
+    margin: 0; /* Remove margens extras que podem estar centralizando-o */
+    z-index: 1000;
   }
 }
 

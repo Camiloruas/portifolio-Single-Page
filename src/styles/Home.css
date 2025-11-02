@@ -158,15 +158,13 @@
   }
 
   .home-name-1 {
-    margin-top: 0;
     font-size: 3.5rem;
     letter-spacing: 0.5rem;
     margin-bottom: -3%;
   }
   .home-name-2 {
-    font-size: 2.4rem;
-    letter-spacing: 3.1rem;
-    margin-left: 35px;
+    font-size: 2.5rem;
+    letter-spacing: zrem;
   }
   .habilidades {
     font-size: 1rem;
