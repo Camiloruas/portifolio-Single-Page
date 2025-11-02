@@ -130,7 +130,7 @@ const About = () => {
 
         {/* 3. SEÇÃO DE HABILIDADES (TECH STACK) - ORGANIZADA POR SETORES */}
         <div className="tech-stack-section">
-          <h3>Minhas Habilidades (Tech Stack)</h3>
+          <h3>Minhas Habilidades </h3>
 
           {/* Mapeia e renderiza cada setor de habilidades */}
           {Object.entries(categorizedSkills).map(([category, skills]) => (
