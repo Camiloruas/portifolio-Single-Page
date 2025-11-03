@@ -205,21 +205,19 @@ p {
 @media (max-width: 768px) {
   /* Regras anteriores de responsividade mantidas */
   .profile-section {
-     margin-top: -10vh;
+    margin-top: -10vh;
     flex-direction: column;
     text-align: center;
   }
 
-  .quem-sou-eu{
+  .quem-sou-eu {
     margin-bottom: 10px;
     margin-top: 10px;
   }
-  
-  
-  
-  p, h3 { 
-    margin-left: 5px; /* Fixed invalid CSS */
-    /* margin-right: -10px; Removed negative margin */
+
+  h3 {
+    margin-left: 0px; /* Fixed invalid CSS */
+    margin-right: 15px;
   }
   .bio-summary p {
     margin-top: 20px; /* Added margin-top to prevent overlap */
@@ -264,5 +262,20 @@ p {
 
   .skills-group h4 {
     font-size: 1.3rem;
+  }
+  .detailed-bio h3 {
+    /* Garante que o H3 de Minha Trajetória e Objetivos tenham espaço em cima */
+    margin-top: 30px;
+    /* Mantém o espaçamento inferior */
+    margin-bottom: 15px;
+  }
+
+  .detailed-bio p {
+    /* Garante que o parágrafo tenha margem inferior decente (aumentada de 15px) */
+    margin-bottom: 30px;
+  }
+  .detailed-bio {
+    /* Adiciona margem na parte inferior para empurrar a seção de habilidades */
+    margin-bottom: 50px;
   }
 }

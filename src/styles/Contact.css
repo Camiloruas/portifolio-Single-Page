@@ -131,10 +131,7 @@
     margin-top: -30px;
     margin-bottom: 10px;
   }
-    h3 {
-    margin-top: -30px;
-    margin-bottom: 0px;
-  }
+    
 
   .social-links-list {
     flex-direction: column; /* Empilha os links em telas pequenas */
