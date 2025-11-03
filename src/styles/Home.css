@@ -140,9 +140,14 @@
 /* 3. 📲 Celulares (max-width: 600px) */
 /* Estilos finais para telas muito pequenas, priorizando a leitura */
 @media (max-width: 768px) {
+  /* 🚨 NOVO: Correção de segurança para eliminar qualquer sobra horizontal no container */
+  .home-page {
+    overflow-x: hidden; /* Evita que elementos internos empurrem a largura da página */
+  }
+
   .home-main-content {
     padding: 20px 15px;
-    margin-top: 5vh; /* Ajusta o espaçamento superior */
+    margin-top: -10vh; /* Ajusta o espaçamento superior */
   }
 
   .new-profile-photo {
@@ -150,24 +155,36 @@
     width: 200px;
   }
 
-  /* Redução máxima do tamanho do nome para que caiba no celular */
+  /* 🚨 CORRIGIDO: Remove os margin-left desnecessários, use padding-left no .text-content se precisar */
   .home-name-1,
   .home-name-2,
   .habilidades {
-    margin-left: 25px;
+    /* Remove os margins problemáticos que esticam a tela */
+    margin-left: 20px;
+    padding-left: 0;
   }
 
   .home-name-1 {
-    font-size: 3.5rem;
-    letter-spacing: 0.5rem;
+    font-size: 3rem; /* Redução para garantir que caiba */
+    letter-spacing: 0.3rem; /* Reduzido */
     margin-bottom: -3%;
+    text-align: center;
   }
   .home-name-2 {
-    font-size: 2.5rem;
-    letter-spacing: 3rem;
+    margin-left: 40px;
+    font-size: 2rem; /* Redução para garantir que caiba */
+    letter-spacing: 2.6rem; /* Reduzido drasticamente */
+    text-align: center;
   }
   .habilidades {
     font-size: 1rem;
     letter-spacing: 0.1rem;
+    text-align: center;
+  }
+
+  /* 🚨 NOVO: Garante que o container de texto esteja centralizado */
+  .text-content {
+    align-items: center;
+    text-align: center;
   }
 }

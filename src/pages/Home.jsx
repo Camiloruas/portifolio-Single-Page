@@ -1,11 +1,13 @@
 // src/pages/Home.jsx
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/Home.css";
 // Ajuste o caminho da sua foto se necessário
 import profilePhoto from "../assets/project-images/magem-capa.jpeg";
 
 const Home = () => {
+  const { t } = useTranslation();
   // ANIMAÇÕES SCROLL REVEAL - DISTÂNCIA E DURAÇÃO AJUSTADAS POR VOCÊ
   useScrollReveal(".text-content .home-name-1", {
     origin: "left",
@@ -38,7 +40,7 @@ const Home = () => {
         <div className="text-content">
           <p className="home-name-1">Camilo</p>
           <p className="home-name-2">Ruas</p>
-          <p className="habilidades">Desenvolvedor Full Stack</p>
+          <p className="habilidades">{t('home.role')}</p>
         </div>
 
         <div className="image-content">

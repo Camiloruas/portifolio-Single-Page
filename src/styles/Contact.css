@@ -24,9 +24,10 @@
 }
 
 .contact-intro {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--cor-texto-secundario);
   margin-bottom: 40px;
+  text-align: center;
 }
 
 /* ------------------------------------- */
@@ -108,8 +109,10 @@
 }
 
 .contact-footer-note {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
+
   color: var(--cor-texto-secundario);
+  text-align: center;
 }
 
 /* ------------------------------------- */
@@ -117,6 +120,19 @@
 /* ------------------------------------- */
 
 @media (max-width: 768px) {
+  .contact-page {
+    margin-top: -15vh;
+  }
+  .contact-intro{
+    text-align: justify;
+    margin-top: 0px;
+  }
+  .contact-info-container {
+    margin-top: -30px;
+    margin-bottom: 10px;
+  }
+    
+
   .social-links-list {
     flex-direction: column; /* Empilha os links em telas pequenas */
     gap: 30px;

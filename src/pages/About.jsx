@@ -1,5 +1,5 @@
 // src/pages/About.jsx - CÓDIGO FINAL COM DESTAQUE DE TEXTO
-
+import { useTranslation, Trans } from 'react-i18next';
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/About.css";
 
@@ -53,6 +53,7 @@ const categorizedSkills = {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   // ----------------------------------------------------
   // ANIMAÇÕES SCROLL REVEAL - Aplicadas
   // ----------------------------------------------------
@@ -99,47 +100,42 @@ const About = () => {
           <div className="bio-summary">
             {/* CÓDIGO ATUALIZADO AQUI: H2 com spans para destaque */}
             <h2 className="quem-sou-eu">
-              <span className="giant-hello">Olá!</span> Eu sou <span className="highlight-name">Camilo Ruas</span>!
+              <span className="giant-hello">{t('about.greeting')}</span>
+              <Trans i18nKey="about.intro" components={[<span className="highlight-name" />]} />
             </h2>
-
-            {/* CÓDIGO ATUALIZADO AQUI: H3 com spans para destaque */}
             <h3>
-              Desenvolvedor <span className="highlight-keyword">Full Stack</span> | Explorando tecnologias como <span className="highlight-keyword">Node.js</span>, <span className="highlight-keyword">TypeScript</span>, <span className="highlight-keyword">React</span> e{" "}
-              <span className="highlight-keyword">PostgreSQL</span>
+              <Trans i18nKey="about.subtitle" components={[<span className="highlight-keyword" />, <span className="highlight-keyword" />]} />
             </h3>
-
-            <p>Apaixonado por tecnologia e movido pelo desejo de criar soluções úteis e funcionais, estou sempre em busca de aprender e aplicar novos conhecimentos. Meu objetivo é unir lógica, criatividade e propósito para transformar ideias em sistemas que realmente fazem a diferença. </p>
+            <p className="passion-paragraph">{t('about.passion')}</p>
           </div>
         </div>
 
         {/* 2. SEÇÃO DE BIOGRAFIA DETALHADA */}
         <div className="detailed-bio">
-          <h3>Minha Trajetória</h3>
+          <h3>{t('about.journeyTitle')}</h3>
           <p>
-            Minha jornada na tecnologia começou antes mesmo da formatura em <span>Sistemas de Informação</span> , em 2010. Desde então, atuei por mais de uma década em empresas de grande porte como <span className="highlight-keyword">Proxxi Tecnologia IBM&reg; </span> e{" "}
-            <span className="highlight-keyword">Bradesco</span> , onde aprendi o valor da responsabilidade, da precisão e do trabalho em equipe. Essa experiência me formou como profissional e me ensinou a importância de buscar excelência em tudo o que faço.
+            <Trans i18nKey="about.journey1" components={[<span />, <span className="highlight-keyword" />, <span className="highlight-keyword" />]} />
           </p>
+
           <p>
-            Depois de anos dedicados à <span className="negrito"> infraestrutura</span>, decidi seguir um novo caminho, o do <span className="negrito">Desenvolvimento Web</span> , unindo lógica, criatividade e propósito. Hoje, estudo e desenvolvo projetos com{" "}
-            <span className="negrito"> Node.js, TypeScript, React e PostgreSQL </span>, aplicando o que aprendi sobre disciplina e comprometimento para criar soluções funcionais e de impacto. Estou em constante aprendizado, sempre buscando me atualizar e dominar novas{" "}
-            <span className="negrito"> linguagens, frameworks e tecnologias </span> que o mercado demanda, com o objetivo de evoluir continuamente como desenvolvedor e entregar resultados cada vez mais completos e alinhados às necessidades do setor.
+            <Trans i18nKey="about.journey2" components={[<span className="negrito" />, <span className="negrito" />]} />
           </p>
-          <h3>Meus Objetivos e Desafios</h3>
+
+          <h3>{t('about.goalsTitle')}</h3>
           <p>
-            Meu foco é consolidar minha atuação como desenvolvedor <span className="negrito">Full Stack</span> e participar de projetos que desafiem minha capacidade técnica e criativa. Busco oportunidades que me permitam crescer profissionalmente, colaborar com equipes que valorizem boas práticas
-            de código e contribuir para soluções inovadoras. Tenho um perfil realizador e gosto de ver o resultado do meu trabalho ganhando vida. por isso, encaro cada desafio como uma chance de aprender, evoluir e entregar valor real através da tecnologia.
+            <Trans i18nKey="about.goals" components={[<span className="negrito" />]} />
           </p>
         </div>
 
         {/* 3. SEÇÃO DE HABILIDADES (TECH STACK) - ORGANIZADA POR SETORES */}
         <div className="tech-stack-section">
-          <h3>Minhas Habilidades (Tech Stack)</h3>
+          <h3>{t('about.skillsTitle')}</h3>
 
           {/* Mapeia e renderiza cada setor de habilidades */}
           {Object.entries(categorizedSkills).map(([category, skills]) => (
             <div className="skills-group" key={category}>
               {/* Título do Setor */}
-              <h4>{category}</h4>
+              <h4>{t(`about.skillsCategories.${category.toLowerCase().replace(/ & /g, '_')}`)}</h4>
 
               {/* Ícones do Setor */}
               <div className="skills-list">

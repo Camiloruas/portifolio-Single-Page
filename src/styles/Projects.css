@@ -139,6 +139,11 @@
 @media (max-width: 768px) {
   .projects-page .page-title {
     font-size: 2.5rem;
+    
+  }
+  .projects-page{
+    margin-top: -15vh;
+
   }
   .filter-buttons-container {
     justify-content: flex-start;

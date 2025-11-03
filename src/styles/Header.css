@@ -1,6 +1,13 @@
-/* src/styles/Header.css - FINAL E CORRIGIDO */
+/* src/styles/Header.css - FINAL E CORRIGIDO (VERSÃO ESTÁTICA) */
+
+::selection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 
 .main-header {
+  /* REVERTIDO: A navegação não é fixa, rola com a página */
   background: transparent;
   width: 100%;
   display: flex;
@@ -62,7 +69,7 @@
   font-size: 1.5rem;
   color: var(--cor-principal);
   padding: 10px;
-  z-index: 10; /* 🚨 Z-INDEX ALTO! */
+  z-index: 1001; /* Z-INDEX ALTO */
   margin: 0;
 }
 
@@ -71,66 +78,79 @@
 /* ------------------------------------------------ */
 
 @media (max-width: 768px) {
-  ::selection {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
   .main-nav {
-    position: fixed;
+    /* MANTIDO: position: fixed para o overlay lateral */
+    position: fixed; 
     top: 0;
-    right: -100%; /* Começa fora da tela */
+    left: -100%; /* Começa fora da tela */
     width: 100%;
     height: 100vh;
     background: var(--cor-de-fundo);
-    transition: right 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
     z-index: 1000;
+    
+    /* MANTIDO: Usamos COLUMN para que o menu ocupe verticalmente a tela */
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha os itens no topo */
-    padding-top: 80px; /* Adiciona espaço no topo */
+    flex-direction: column; 
+    
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 80px;
   }
 
   .main-nav.mobile-open {
-    right: 0; /* Puxa o menu para a tela */
+    left: 0; /* Puxa o menu para a tela */
   }
 
+  /* 🚨 CORRIGIDO: A navegação UL deve estar em LINHA (ROW) */
   .main-nav ul {
-    flex-direction: column;
-    gap: 40px;
+    display: flex;
+    flex-direction: row; /* 👈 LINKS EM LINHA */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
     margin: 0;
-    padding: 0;
+    padding: 0 60px;
     text-align: center;
   }
 
   .menu-toggle {
-    display: block; /* 🚨 NO MOBILE, ELE É EXIBIDO */
-  }
-  .menu-toggle {
-    position: fixed;
+    display: block; /* É exibido no mobile */
+    position: fixed; /* É fixo no canto da tela */
     background: none;
     border: none;
     cursor: pointer;
     font-size: 2rem;
     color: var(--cor-principal);
     padding: 10px;
-
-    top: 5px; /* Distância do topo da tela (ajuste conforme necessário) */
-    right: 10px; /* Distância da direita da tela (ajuste para o canto direito) */
-    /* Ou, se quiser no canto esquerdo: */
-    /* left: 10px; */
-    /* right: auto; */
-    margin: 0; /* Remove margens extras que podem estar centralizando-o */
-    z-index: 1000;
+    top: 5px; 
+    right: 10px; 
+    margin: 0; 
+    z-index: 1001; 
   }
+}
 
-  .main-nav ul {
-    list-style: none;
-    padding: 0px;
-    margin-right: -250px;
-    margin-left: -50px;
-    display: flex;
-    justify-content: center; /* Centers items horizontally */
-    gap: 20px; /* Reduced gap for more uniform spacing */
-  }
+.language-switcher {
+  display: flex;
+  gap: 10px;
+  /* Fixado para ser sempre visível, assim como o botão hambúrguer */
+  position: fixed;
+  right: 80px;
+  top: 20px;
+  z-index: 1001; 
+}
+
+.language-switcher button {
+  background: none;
+  border: 1px solid var(--cor-principal);
+  color: var(--cor-texto-principal);
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.language-switcher button:hover {
+  background: var(--cor-principal);
+  color: var(--cor-texto-contraste);
 }
