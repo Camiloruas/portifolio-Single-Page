@@ -1,5 +1,5 @@
-// src/pages/About.jsx - CÓDIGO FINAL COM DESTAQUE DE TEXTO
-import { useTranslation, Trans } from 'react-i18next';
+// src/pages/About.jsx - CÓDIGO FINAL COM ÍCONE OLLAMA CORRIGIDO
+import { useTranslation, Trans } from "react-i18next";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/About.css";
 
@@ -7,16 +7,18 @@ import "../styles/About.css";
 // Di (Devicons) - Ícones básicos
 import { DiReact, DiJavascript1, DiHtml5, DiCss3, DiGit, DiNodejs, DiPostgresql, DiMongodb } from "react-icons/di";
 // Fa (Font Awesome) - Ícones gerais
-import { FaSass, FaBootstrap } from "react-icons/fa";
+import { FaSass, FaBootstrap, FaWindows, FaLinux } from "react-icons/fa"; // 🚨 REMOVIDO FaRobot
 // Si (Simple Icons) - Ícones de marcas e tecnologias
-import { SiNextdotjs, SiTypescript, SiNodedotjs, SiRedux } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiNodedotjs, SiRedux, SiDocker, SiN8N } from "react-icons/si";
 // Tb (Tabler Icons) - Ícones do VS Code
 import { TbBrandVscode } from "react-icons/tb";
+import { Ollama } from '@lobehub/icons';
 
 // 🚨 IMPORTAÇÃO DA FOTO: MANTIDO SEU CAMINHO ATUAL
 import ProfileImage from "../assets/project-images/profile.jpg";
 
-// Componente individual para o ícone (com a correção do VS Code)
+// Componente individual para o ícone
+// 🚨 CORREÇÃO DO ESLINT
 // eslint-disable-next-line no-unused-vars
 const SkillIcon = ({ Icon: IconComponent, name }) => (
   <div className="skill-item-icon-wrapper">
@@ -25,7 +27,7 @@ const SkillIcon = ({ Icon: IconComponent, name }) => (
   </div>
 );
 
-// NOVO: Organização das Habilidades por Setor
+// NOVO: Organização das Habilidades por Setor (ATUALIZADA)
 const categorizedSkills = {
   Languages: [
     { Icon: DiJavascript1, name: "JavaScript" },
@@ -45,6 +47,17 @@ const categorizedSkills = {
   "Databases & Backend": [
     { Icon: DiPostgresql, name: "PostgreSQL" },
     { Icon: DiMongodb, name: "MongoDB" },
+  ],
+  // 🚨 NOVA CATEGORIA: IA e Automação
+  "AI & Automation": [
+    { Icon: Ollama, name: "Ollama" }, // 🚨 SUBSTITUÍDO: Usando o SVG importado
+    { Icon: SiN8N, name: "n8n" },
+  ],
+  // Categoria de Sistemas Operacionais e Containers
+  "DevOps & Environments": [
+    { Icon: SiDocker, name: "Docker" },
+    { Icon: FaLinux, name: "Linux" },
+    { Icon: FaWindows, name: "Windows" },
   ],
   "Tools & Services": [
     { Icon: DiGit, name: "Git" },
@@ -100,19 +113,19 @@ const About = () => {
           <div className="bio-summary">
             {/* CÓDIGO ATUALIZADO AQUI: H2 com spans para destaque */}
             <h2 className="quem-sou-eu">
-              <span className="giant-hello">{t('about.greeting')}</span>
+              <span className="giant-hello">{t("about.greeting")}</span>
               <Trans i18nKey="about.intro" components={[<span className="highlight-name" />]} />
             </h2>
             <h3>
               <Trans i18nKey="about.subtitle" components={[<span className="highlight-keyword" />, <span className="highlight-keyword" />]} />
             </h3>
-            <p className="passion-paragraph">{t('about.passion')}</p>
+            <p className="passion-paragraph">{t("about.passion")}</p>
           </div>
         </div>
 
         {/* 2. SEÇÃO DE BIOGRAFIA DETALHADA */}
         <div className="detailed-bio">
-          <h3>{t('about.journeyTitle')}</h3>
+          <h3>{t("about.journeyTitle")}</h3>
           <p>
             <Trans i18nKey="about.journey1" components={[<span />, <span className="highlight-keyword" />, <span className="highlight-keyword" />]} />
           </p>
@@ -121,7 +134,7 @@ const About = () => {
             <Trans i18nKey="about.journey2" components={[<span className="negrito" />, <span className="negrito" />]} />
           </p>
 
-          <h3>{t('about.goalsTitle')}</h3>
+          <h3>{t("about.goalsTitle")}</h3>
           <p>
             <Trans i18nKey="about.goals" components={[<span className="negrito" />]} />
           </p>
@@ -129,13 +142,13 @@ const About = () => {
 
         {/* 3. SEÇÃO DE HABILIDADES (TECH STACK) - ORGANIZADA POR SETORES */}
         <div className="tech-stack-section">
-          <h3>{t('about.skillsTitle')}</h3>
+          <h3>{t("about.skillsTitle")}</h3>
 
           {/* Mapeia e renderiza cada setor de habilidades */}
           {Object.entries(categorizedSkills).map(([category, skills]) => (
             <div className="skills-group" key={category}>
               {/* Título do Setor */}
-              <h4>{t(`about.skillsCategories.${category.toLowerCase().replace(/ & /g, '_')}`)}</h4>
+              <h4>{t(`about.skillsCategories.${category.toLowerCase().replace(/ & /g, "_")}`)}</h4>
 
               {/* Ícones do Setor */}
               <div className="skills-list">
