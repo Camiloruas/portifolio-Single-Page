@@ -21,9 +21,11 @@
     "skillsTitle": "Minhas Habilidades",
     "skillsCategories": {
       "languages": "Linguagens",
-      "frameworks_libraries": "Frameworks & Bibliotecas",
-      "databases_backend": "Bancos de Dados & Backend",
-      "tools_services": "Ferramentas & Serviços"
+      "frameworks_libraries": "Frameworks e Bibliotecas",
+      "databases_backend": "Bancos de Dados e Backend",
+      "ai_automation": "IA & Automação",
+      "devops_environments": "Sistemas Operacionais e DevOps",
+      "tools_services": "Ferramentas e Serviços"
     }
   },
   "projects": {

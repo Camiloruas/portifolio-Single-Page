@@ -23,6 +23,8 @@
       "languages": "Languages",
       "frameworks_libraries": "Frameworks & Libraries",
       "databases_backend": "Databases & Backend",
+      "ai_automation": "AI & Automation",
+      "devops_environments": "Operating Systems & DevOps",
       "tools_services": "Tools & Services"
     }
   },
