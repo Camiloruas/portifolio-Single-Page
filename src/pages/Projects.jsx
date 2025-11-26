@@ -28,7 +28,7 @@ import Project12Image from "../assets/project-images/simon-game-challenge.png";
 import Project13Image from "../assets/project-images/english-alphabet-audio.png";
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
 import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
-
+import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -36,22 +36,106 @@ import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei
  * 🚨 CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
-  // CORREÇÃO AQUI
-  { repoName: "portifolio-Single-Page", imageUrl: Project4Image, deployUrl: "https://www.camiloruas.dev", languageFilter: "react" },
-  { repoName: "weather-now", imageUrl: Project10Image, deployUrl: "https://weather-now-ashy.vercel.app/", languageFilter: "react" },
-  { repoName: "pomodoro-timer", imageUrl: Project7Image, deployUrl: "https://pomodoro-timer-six-sage.vercel.app/", languageFilter: "react" },
-  { repoName: "react-cpf-validator", imageUrl: Project5Image, deployUrl: "https://camiloruas.github.io/react-cpf-validator/", languageFilter: "react" },
-  { repoName: "english-alphabet-audio", imageUrl: Project13Image, deployUrl: "https://camiloruas.github.io/english-alphabet-audio/", languageFilter: "javascript" },
-  { repoName: "calculadora", imageUrl: Project6Image, deployUrl: "https://camiloruas.github.io/calcauladora/", languageFilter: "javascript" },
-  { repoName: "javascript-form-validation", imageUrl: Project2Image, deployUrl: "https://camiloruas.github.io/javascript-form-validation/", languageFilter: "javascript" },
-  { repoName: "agenda-express-mongo", imageUrl: Project1Image, deployUrl: "https://github.com/Camiloruas/agenda-express-mongo", languageFilter: "nodejs" },
-  { repoName: "simon-game-challenge", imageUrl: Project12Image, deployUrl: "https://camiloruas.github.io/simon-game-challenge/", languageFilter: "javascript" },
-  { repoName: "react-flow-tasks", imageUrl: Project8Image, deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/", languageFilter: "react" },
-  { repoName: "task-CRUD", imageUrl: Project9Image, deployUrl: "https://github.com/Camiloruas/task-CRUD", languageFilter: "javascript" },
-  { repoName: "node-express-api-rest", imageUrl: Project3Image, deployUrl: "https://github.com/Camiloruas/node-express-api-rest", languageFilter: "nodejs" },
-  { repoName: "blog-app-capstone-node", imageUrl: Project11Image, deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node", languageFilter: "nodejs" },
-  { repoName: "Capstone-Project-1", imageUrl: Project14Image, deployUrl: "https://camiloruas.github.io/Capstone-Project-1/", languageFilter: "react" },
-  { repoName: "Camiloruas", imageUrl: Project15Image, deployUrl: "https://github.com/Camiloruas/Camiloruas", languageFilter: "outros" },
+  // CORREÇÃO: O primeiro item agora é um objeto limpo.
+  {
+    repoName: "agendamento-bot",
+    imageUrl: Project16Image,
+    deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
+    languageFilter: "outros",
+  },
+  // CORREÇÃO: O segundo item ("portifolio-Single-Page") foi separado e corrigido, se estava
+  // destinado a ser um item separado. Se o projeto "portifolio-Single-Page" deveria
+  // estar logo abaixo do "agendamento-bot", ele deve ser definido como um novo objeto.
+  {
+    repoName: "portifolio-Single-Page",
+    imageUrl: Project4Image,
+    deployUrl: "https://www.camiloruas.dev",
+    languageFilter: "react",
+  },
+  {
+    repoName: "weather-now",
+    imageUrl: Project10Image,
+    deployUrl: "https://weather-now-ashy.vercel.app/",
+    languageFilter: "react",
+  },
+  {
+    repoName: "pomodoro-timer",
+    imageUrl: Project7Image,
+    deployUrl: "https://pomodoro-timer-six-sage.vercel.app/",
+    languageFilter: "react",
+  },
+  {
+    repoName: "react-cpf-validator",
+    imageUrl: Project5Image,
+    deployUrl: "https://camiloruas.github.io/react-cpf-validator/",
+    languageFilter: "react",
+  },
+  {
+    repoName: "english-alphabet-audio",
+    imageUrl: Project13Image,
+    deployUrl: "https://camiloruas.github.io/english-alphabet-audio/",
+    languageFilter: "javascript",
+  },
+  {
+    repoName: "calculadora",
+    imageUrl: Project6Image,
+    deployUrl: "https://camiloruas.github.io/calcauladora/",
+    languageFilter: "javascript",
+  },
+  {
+    repoName: "javascript-form-validation",
+    imageUrl: Project2Image,
+    deployUrl: "https://camiloruas.github.io/javascript-form-validation/",
+    languageFilter: "javascript",
+  },
+  {
+    repoName: "agenda-express-mongo",
+    imageUrl: Project1Image,
+    deployUrl: "https://github.com/Camiloruas/agenda-express-mongo",
+    languageFilter: "nodejs",
+  },
+  {
+    repoName: "simon-game-challenge",
+    imageUrl: Project12Image,
+    deployUrl: "https://camiloruas.github.io/simon-game-challenge/",
+    languageFilter: "javascript",
+  },
+  {
+    repoName: "react-flow-tasks",
+    imageUrl: Project8Image,
+    deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/",
+    languageFilter: "react",
+  },
+  {
+    repoName: "task-CRUD",
+    imageUrl: Project9Image,
+    deployUrl: "https://github.com/Camiloruas/task-CRUD",
+    languageFilter: "javascript",
+  },
+  {
+    repoName: "node-express-api-rest",
+    imageUrl: Project3Image,
+    deployUrl: "https://github.com/Camiloruas/node-express-api-rest",
+    languageFilter: "nodejs",
+  },
+  {
+    repoName: "blog-app-capstone-node",
+    imageUrl: Project11Image,
+    deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node",
+    languageFilter: "nodejs",
+  },
+  {
+    repoName: "Capstone-Project-1",
+    imageUrl: Project14Image,
+    deployUrl: "https://camiloruas.github.io/Capstone-Project-1/",
+    languageFilter: "react",
+  },
+  {
+    repoName: "Camiloruas",
+    imageUrl: Project15Image,
+    deployUrl: "https://github.com/Camiloruas/Camiloruas",
+    languageFilter: "outros",
+  },
 ];
 
 // ----------------------------------------------------
@@ -69,13 +153,23 @@ const ProjectCard = ({ repo }) => {
   });
 
   // Lógica para garantir que o link de deploy comece com http/https
-  const deployLink = repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://")) ? repo.deployUrl : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
+  const deployLink =
+    repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://"))
+      ? repo.deployUrl
+      : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
 
   return (
-    <div id={`card-${repo.id}`} className="repo-card">
+    <div
+      id={`card-${repo.id}`}
+      className="repo-card"
+    >
       {repo.imageUrl && (
         <div className="project-image-container">
-          <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
+          <img
+            src={repo.imageUrl}
+            alt={`Captura de tela do projeto ${repo.name}`}
+            className="project-image"
+          />
         </div>
       )}
 
@@ -88,7 +182,12 @@ const ProjectCard = ({ repo }) => {
 
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="btn-base btn-primary github-link">
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-base btn-primary github-link"
+          >
             <FaGithub /> {t("projects.code")}
           </a>
 
@@ -200,7 +299,11 @@ const Projects = () => {
       {/* BARRA DE FILTROS */}
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
-          <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
+          <button
+            key={f}
+            className={`btn-base btn-primary ${filter === f ? "active" : ""}`}
+            onClick={() => setFilter(f)}
+          >
             {t(`projects.filters.${f}`)}
           </button>
         ))}
@@ -208,7 +311,10 @@ const Projects = () => {
 
       <div className="repo-list">
         {filteredRepos.map((repo) => (
-          <ProjectCard key={repo.id} repo={repo} />
+          <ProjectCard
+            key={repo.id}
+            repo={repo}
+          />
         ))}
       </div>
     </section>
