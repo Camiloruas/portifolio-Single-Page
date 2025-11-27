@@ -33,7 +33,7 @@ import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
 /*
- * 🚨 CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
+ * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
