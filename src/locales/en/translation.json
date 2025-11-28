@@ -41,7 +41,7 @@
       "all": "All",
       "react": "React",
       "javascript": "JavaScript",
-      "nodejs": "Node.js",
+      "typescript": "TypeScript",
       "outros": "Others"
     }
   },

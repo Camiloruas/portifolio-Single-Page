@@ -41,7 +41,7 @@ const projectDetails = [
     repoName: "agendamento-bot",
     imageUrl: Project16Image,
     deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
-    languageFilter: "outros",
+    languageFilter: ["typescript", "javascript"],
   },
   // CORREÇÃO: O segundo item ("portifolio-Single-Page") foi separado e corrigido, se estava
   // destinado a ser um item separado. Se o projeto "portifolio-Single-Page" deveria
@@ -50,91 +50,91 @@ const projectDetails = [
     repoName: "portifolio-Single-Page",
     imageUrl: Project4Image,
     deployUrl: "https://www.camiloruas.dev",
-    languageFilter: "react",
+    languageFilter: ["react"],
   },
   {
     repoName: "weather-now",
     imageUrl: Project10Image,
     deployUrl: "https://weather-now-ashy.vercel.app/",
-    languageFilter: "react",
+    languageFilter: ["react"],
   },
   {
     repoName: "pomodoro-timer",
     imageUrl: Project7Image,
     deployUrl: "https://pomodoro-timer-six-sage.vercel.app/",
-    languageFilter: "react",
+    languageFilter: ["react"],
   },
   {
     repoName: "react-cpf-validator",
     imageUrl: Project5Image,
     deployUrl: "https://camiloruas.github.io/react-cpf-validator/",
-    languageFilter: "react",
+    languageFilter: ["react"],
   },
   {
     repoName: "english-alphabet-audio",
     imageUrl: Project13Image,
     deployUrl: "https://camiloruas.github.io/english-alphabet-audio/",
-    languageFilter: "javascript",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "calculadora",
     imageUrl: Project6Image,
     deployUrl: "https://camiloruas.github.io/calcauladora/",
-    languageFilter: "javascript",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "javascript-form-validation",
     imageUrl: Project2Image,
     deployUrl: "https://camiloruas.github.io/javascript-form-validation/",
-    languageFilter: "javascript",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "agenda-express-mongo",
     imageUrl: Project1Image,
     deployUrl: "https://github.com/Camiloruas/agenda-express-mongo",
-    languageFilter: "nodejs",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "simon-game-challenge",
     imageUrl: Project12Image,
     deployUrl: "https://camiloruas.github.io/simon-game-challenge/",
-    languageFilter: "javascript",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "react-flow-tasks",
     imageUrl: Project8Image,
     deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/",
-    languageFilter: "react",
+    languageFilter: ["typescript", "react"],
   },
   {
     repoName: "task-CRUD",
     imageUrl: Project9Image,
     deployUrl: "https://github.com/Camiloruas/task-CRUD",
-    languageFilter: "javascript",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "node-express-api-rest",
     imageUrl: Project3Image,
     deployUrl: "https://github.com/Camiloruas/node-express-api-rest",
-    languageFilter: "nodejs",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "blog-app-capstone-node",
     imageUrl: Project11Image,
     deployUrl: "https://github.com/Camiloruas/blog-app-capstone-node",
-    languageFilter: "nodejs",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "Capstone-Project-1",
     imageUrl: Project14Image,
     deployUrl: "https://camiloruas.github.io/Capstone-Project-1/",
-    languageFilter: "react",
+    languageFilter: ["react"],
   },
   {
     repoName: "Camiloruas",
     imageUrl: Project15Image,
     deployUrl: "https://github.com/Camiloruas/Camiloruas",
-    languageFilter: "outros",
+    languageFilter: ["outros"],
   },
 ];
 
@@ -218,8 +218,7 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("all");
 
-  // Lista de filtros, extraída das languagesFilter, mais 'Todos'
-  const availableFilters = ["all", ...new Set(projectDetails.map((d) => d.languageFilter).filter(Boolean))];
+  const [availableFilters, setAvailableFilters] = useState(["all"]);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -250,18 +249,31 @@ const Projects = () => {
       });
 
       // 3. FASE 2: Adiciona o restante dos repositórios do GitHub (sem detalhes manuais)
-      // Ordena o restante por data de push para que os mais recentes venham primeiro, se quiser uma ordenação secundária
       const remainingRepos = Array.from(githubMap.values())
-        // Opcional: Você pode querer ordenar o restante por data de push ou criação
         .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-        .map((repo) => ({
-          ...repo,
-          imageUrl: null,
-          deployUrl: null,
-          languageFilter: repo.language ? repo.language.toLowerCase().replace(" ", "") : "outros",
-        }));
+        .map((repo) => {
+          const languages = repo.languages_list || [];
+          if (repo.topics.includes("react")) {
+            languages.push("react");
+          }
+          return {
+            ...repo,
+            imageUrl: null,
+            deployUrl: null,
+            languageFilter: languages.length > 0 ? [...new Set(languages)] : ["outros"],
+          };
+        });
 
       orderedRepos = [...orderedRepos, ...remainingRepos];
+
+      // Define os filtros disponíveis
+      const allFilters = new Set(["all"]);
+      orderedRepos.forEach((repo) => {
+        repo.languageFilter.forEach((lang) => allFilters.add(lang));
+      });
+      // Garante a ordem desejada dos filtros
+      const sortedFilters = ["all", "react", "typescript", "javascript", "outros"].filter((f) => allFilters.has(f));
+      setAvailableFilters(sortedFilters);
 
       setRepos(orderedRepos);
       setIsLoading(false);
@@ -272,7 +284,8 @@ const Projects = () => {
 
   // Lógica de Filtro
   const filteredRepos = repos.filter((repo) => {
-    return filter === "all" || repo.languageFilter === filter;
+    if (filter === "all") return true;
+    return repo.languageFilter.includes(filter);
   });
 
   if (isLoading) {
