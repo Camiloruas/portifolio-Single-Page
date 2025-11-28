@@ -6,23 +6,46 @@ const BASE_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
 
 /**
  * Função para buscar os repositórios públicos do usuário no GitHub.
- * @returns {Promise<Array>} Uma promessa que resolve para a lista de repositórios.
+ * Adicionalmente, busca as linguagens de cada repositório.
+ * @returns {Promise<Array>} Uma promessa que resolve para a lista de repositórios com suas linguagens.
  */
 export const getRepositories = async () => {
   try {
     // Busca os repositórios do seu usuário
-    const response = await axios.get(`${BASE_URL}/repos`, {
+    const reposResponse = await axios.get(`${BASE_URL}/repos`, {
       params: {
-        sort: "created", // Ordena por data de criação
-        direction: "desc", // Do mais novo para o mais antigo
+        sort: "pushed", // Ordena por data do último push para ter os mais recentes primeiro
+        direction: "desc",
       },
     });
 
-    // Retorna a lista de repositórios
-    return response.data;
+    const repos = reposResponse.data;
+
+    // Para cada repositório, busca as linguagens usadas
+    const reposWithLanguages = await Promise.all(
+      repos.map(async (repo) => {
+        try {
+          const languagesResponse = await axios.get(repo.languages_url);
+          // Adiciona a lista de linguagens ao objeto do repositório
+          return {
+            ...repo,
+            // Transforma o objeto de linguagens em um array de strings
+            languages_list: Object.keys(languagesResponse.data).map((lang) => lang.toLowerCase()),
+          };
+        } catch (langError) {
+          console.error(`Erro ao buscar linguagens para o repositório ${repo.name}:`, langError);
+          // Retorna o repositório sem a lista de linguagens em caso de erro
+          return {
+            ...repo,
+            languages_list: [],
+          };
+        }
+      })
+    );
+
+    return reposWithLanguages;
   } catch (error) {
     console.error("Erro ao buscar repositórios do GitHub:", error);
-    // Em caso de falha, retorna um array vazio
     return [];
   }
 };
