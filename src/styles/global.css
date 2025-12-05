@@ -4,20 +4,28 @@
 
 :root {
   /* --- CORES DE DESTAQUE --- */
-  --cor-principal: #00ffaa; /* Verde Neon Forte (Melhor contraste para botões) */
-  --cor-secundaria: #29b287; /* Verde Secundário (Ajustado) */
+  --cor-principal: #00ffaa;
+  /* Verde Neon Forte (Melhor contraste para botões) */
+  --cor-secundaria: #29b287;
+  /* Verde Secundário (Ajustado) */
 
   /* --- CORES DE FUNDO --- */
-  --cor-fundo-base: #1a1a1a; /* Fundo base escuro */
-  --cor-fundo-abstrato: #0d1e1c; /* O tom específico do seu fundo (para o body) */
+  --cor-fundo-base: #1a1a1a;
+  /* Fundo base escuro */
+  --cor-fundo-abstrato: #0d1e1c;
+  /* O tom específico do seu fundo (para o body) */
 
   /* --- CORES DE TEXTO E ÍCONES --- */
-  --cor-texto-principal: #f0f0f0; /* Branco Suave (Para títulos e textos primários) */
-  --cor-texto-secundario: #cccccc; /* Cinza Claro (Para parágrafos longos, menor destaque) */
-  --cor-texto-contraste: #1a1a1a; /* Escuro (Para texto que fica em cima de elementos 'var(--cor-principal)') */
+  --cor-texto-principal: #f0f0f0;
+  /* Branco Suave (Para títulos e textos primários) */
+  --cor-texto-secundario: #cccccc;
+  /* Cinza Claro (Para parágrafos longos, menor destaque) */
+  --cor-texto-contraste: #1a1a1a;
+  /* Escuro (Para texto que fica em cima de elementos 'var(--cor-principal)') */
 
   /* --- CORES DE BORDAS E SEPARADORES --- */
-  --cor-borda-suave: rgba(255, 255, 255, 0.2); /* Linhas de divisão sutis em fundo escuro */
+  --cor-borda-suave: rgba(255, 255, 255, 0.2);
+  /* Linhas de divisão sutis em fundo escuro */
 }
 
 body {
@@ -25,15 +33,19 @@ body {
   background-color: var(--cor-fundo-abstrato);
 
   /* 🚨 LINHAS REPETITIVAS: Ajustei o gradiente principal para usar uma cor mais viva */
-  background-image: 
-    /* GRADIENTE PRINCIPAL (de cima para baixo) */ linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, rgba(0, 0, 0, 0.95) 80%),
-    /* LINHAS REPETITIVAS (as ondas) */ repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.08), rgba(0, 255, 170, 0.08) 1px, transparent 1px, transparent 25px);
+  background-image:
+    /* GRADIENTE PRINCIPAL (de cima para baixo) */
+    linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, rgba(0, 0, 0, 0.95) 80%),
+    /* LINHAS REPETITIVAS (as ondas) */
+    repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.08), rgba(0, 255, 170, 0.08) 1px, transparent 1px, transparent 25px);
 
   /* 3. Ajustes e Aplicação de Variáveis de Texto */
   min-height: 100vh;
   margin: 0;
   color: var(--cor-texto-principal);
   font-family: "Montserrat", sans-serif;
+  background-attachment: fixed;
+  /* Mantém o plano de fundo fixo ao rolar */
 }
 
 /* Estilo padrão de links para usar as variáveis de destaque */
@@ -50,7 +62,8 @@ a:hover {
 /* 🚨 NOVO BLOCO: Estilo Base de Botão Global */
 .btn-base {
   padding: 10px 20px;
-  border: 1px solid var(--cor-principal); /* 🚨 CORRIGIDO: Borda reduzida para 1px */
+  border: 1px solid var(--cor-principal);
+  /* 🚨 CORRIGIDO: Borda reduzida para 1px */
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
@@ -58,7 +71,8 @@ a:hover {
   font-weight: 600;
   transition: background-color 0.3s, color 0.3s, transform 0.2s;
   text-align: center;
-  display: inline-flex; /* Garante que 'a' e 'button' se comportem da mesma forma */
+  display: inline-flex;
+  /* Garante que 'a' e 'button' se comportem da mesma forma */
   align-items: center;
   justify-content: center;
 }
@@ -67,15 +81,18 @@ a:hover {
 .btn-primary {
   /* Fundo semi-transparente para o estado normal (MAIOR VISIBILIDADE) */
   background-color: rgba(0, 255, 170, 0.15);
-  color: var(--cor-principal); /* Texto no verde de destaque */
+  color: var(--cor-principal);
+  /* Texto no verde de destaque */
 }
 
 /* Efeito Hover do Botão */
 .btn-primary:hover,
 .btn-primary.active {
   /* 'active' é para o botão de filtro selecionado */
-  background-color: var(--cor-principal); /* Fundo sólido e vibrante no hover/ativo */
-  color: var(--cor-fundo-base); /* Texto escuro para alto contraste */
+  background-color: var(--cor-principal);
+  /* Fundo sólido e vibrante no hover/ativo */
+  color: var(--cor-fundo-base);
+  /* Texto escuro para alto contraste */
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 255, 170, 0.4);
 }
@@ -84,26 +101,27 @@ a:hover {
 
 @media (max-width: 768px) {
 
-    
-
-    /* 1. SOCIAL SIDEBAR: Oculta a barra lateral social */
-
-    .social-sidebar {
-
-        display: none;
-
-    }
 
 
+  /* 1. SOCIAL SIDEBAR: Oculta a barra lateral social */
 
-    /* 2. MAIN: Ajusta o padding principal para recuperar o espaço */
+  .social-sidebar {
 
-    /* Se a sua tag <main> tem um padding-left para compensar a sidebar, remova aqui. */
+    display: none;
 
-    main {
+  }
 
-        padding: 70px 25px 30px 10px; /* Garante que o conteúdo não fique debaixo do header e adiciona padding lateral */
 
-    }
+
+  /* 2. MAIN: Ajusta o padding principal para recuperar o espaço */
+
+  /* Se a sua tag <main> tem um padding-left para compensar a sidebar, remova aqui. */
+
+  main {
+
+    padding: 70px 25px 30px 10px;
+    /* Garante que o conteúdo não fique debaixo do header e adiciona padding lateral */
+
+  }
 
 }
