@@ -3,13 +3,13 @@
 /* --- ESTILOS BASE (APLICÁVEL A DESKTOPS MAIORES) --- */
 
 .home-page {
-  /* Mantém o ajuste de altura */
-  min-height: calc(100vh - 180px);
+  /* Ajustado para compensar o header maior (com margin-top: 50px) e o footer */
+  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 0;
   color: var(--cor-texto-principal);
 }
 
@@ -19,10 +19,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 80px;
   max-width: 1400px;
   width: 100%;
-  padding: 20px 60px;
+  padding: 10px 60px;
 }
 
 .text-content {
@@ -41,9 +41,9 @@
 }
 
 .new-profile-photo {
-  /* Tamanho grande original do desktop */
-  width: 350px;
-  height: 650px;
+  /* Tamanho reduzido para caber na tela com o header maior */
+  width: 300px;
+  height: 500px;
   border-radius: 10px;
   object-fit: cover;
   border: 1px solid var(--cor-principal);
@@ -52,17 +52,17 @@
 
 /* 🚨 Estilos de Texto Grandes (Para Desktop) */
 .home-name-1 {
-  font-size: 9rem;
+  font-size: 8rem;
   font-weight: 700;
-  letter-spacing: 3rem;
+  letter-spacing: 2.5rem;
   margin-bottom: -7%;
   text-transform: uppercase;
 }
 
 .home-name-2 {
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight: 100;
-  letter-spacing: 10rem;
+  letter-spacing: 9rem;
   margin: 0;
   text-transform: uppercase;
 }
@@ -81,20 +81,31 @@
 /* Reduz o tamanho da fonte e o espaçamento para caber melhor em telas menores sem quebrar o layout */
 @media (max-width: 1200px) {
   .home-main-content {
-    gap: 50px; /* Reduz a distância entre texto e imagem */
+    gap: 50px;
+    /* Reduz a distância entre texto e imagem */
     padding: 20px 40px;
   }
+
   .home-name-1 {
-    font-size: 7rem;
+    font-size: 6rem;
     letter-spacing: 2rem;
     margin-bottom: -5%;
   }
+
   .home-name-2 {
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 8rem;
   }
+
+  .habilidades {
+    font-size: 1.20rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0;
+  }
+
   .new-profile-photo {
-    width: 300px; /* Reduz a altura para manter a proporção */
+    width: 300px;
+    /* Reduz a altura para manter a proporção */
     height: 550px;
   }
 }
@@ -103,7 +114,8 @@
 /* O layout ainda é de duas colunas, mas o conteúdo é centralizado e a foto é menor */
 @media (max-width: 900px) {
   .home-main-content {
-    flex-direction: column; /* 👈 Layout de uma coluna (Texto em cima, Imagem embaixo) */
+    flex-direction: column;
+    /* 👈 Layout de uma coluna (Texto em cima, Imagem embaixo) */
     gap: 40px;
     padding: 20px 30px;
   }
@@ -112,7 +124,8 @@
   .image-content {
     max-width: 100%;
     text-align: center;
-    justify-content: center; /* Centraliza a imagem */
+    justify-content: center;
+    /* Centraliza a imagem */
   }
 
   /* Redução mais acentuada da foto para caber bem no topo do tablet */
@@ -127,10 +140,12 @@
     letter-spacing: 1rem;
     margin-bottom: -4%;
   }
+
   .home-name-2 {
     font-size: 4rem;
     letter-spacing: 4rem;
   }
+
   .habilidades {
     font-size: 1.2rem;
     letter-spacing: 0.3rem;
@@ -140,14 +155,17 @@
 /* 3. 📲 Celulares (max-width: 600px) */
 /* Estilos finais para telas muito pequenas, priorizando a leitura */
 @media (max-width: 768px) {
+
   /* 🚨 NOVO: Correção de segurança para eliminar qualquer sobra horizontal no container */
   .home-page {
-    overflow-x: hidden; /* Evita que elementos internos empurrem a largura da página */
+    overflow-x: hidden;
+    /* Evita que elementos internos empurrem a largura da página */
   }
 
   .home-main-content {
     padding: 20px 15px;
-    margin-top: -10vh; /* Ajusta o espaçamento superior */
+    margin-top: -10vh;
+    /* Ajusta o espaçamento superior */
   }
 
   .new-profile-photo {
@@ -165,17 +183,23 @@
   }
 
   .home-name-1 {
-    font-size: 3rem; /* Redução para garantir que caiba */
-    letter-spacing: 0.3rem; /* Reduzido */
+    font-size: 3rem;
+    /* Redução para garantir que caiba */
+    letter-spacing: 0.3rem;
+    /* Reduzido */
     margin-bottom: -3%;
     text-align: center;
   }
+
   .home-name-2 {
     margin-left: 40px;
-    font-size: 2rem; /* Redução para garantir que caiba */
-    letter-spacing: 2.6rem; /* Reduzido drasticamente */
+    font-size: 2rem;
+    /* Redução para garantir que caiba */
+    letter-spacing: 2.6rem;
+    /* Reduzido drasticamente */
     text-align: center;
   }
+
   .habilidades {
     font-size: 1rem;
     letter-spacing: 0.1rem;

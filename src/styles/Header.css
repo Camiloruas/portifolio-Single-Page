@@ -17,14 +17,16 @@
 .header-content {
   max-width: 1400px;
   width: 100%;
-  padding: 0 60px; /* Margem lateral de 60px */
+  padding: 0 60px;
+  /* Margem lateral de 60px */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo-placeholder {
-  min-width: 150px; /* Simula o logo */
+  min-width: 150px;
+  /* Simula o logo */
   height: 100%;
 }
 
@@ -33,9 +35,12 @@
   padding: 15px;
   margin-right: 100px;
   margin-left: -70px;
+  margin-top: 50PX;
   display: flex;
-  justify-content: center; /* Centers items horizontally */
-  gap: 320px; /* Reduced gap for more uniform spacing */
+  justify-content: center;
+  /* Centers items horizontally */
+  gap: 320px;
+  /* Reduced gap for more uniform spacing */
 }
 
 .main-nav a {
@@ -51,10 +56,63 @@
   border-bottom: 2px solid var(--cor-principal);
 }
 
+/* Responsividade para Tablets e Telas Menores */
+
+/* Tablets Grandes e Laptops Pequenos (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .main-nav ul {
+    gap: 200px;
+    /* Reduz o gap para telas menores */
+    margin-top: 50px;
+    /* Mantém o espaçamento vertical */
+    margin-left: auto;
+    /* Centraliza horizontalmente */
+    margin-right: auto;
+    /* Centraliza horizontalmente */
+  }
+}
+
+/* Tablets Médios (max-width: 992px) */
 @media (max-width: 992px) {
   .header-content {
     padding: 0 20px;
   }
+
+  .main-nav ul {
+    gap: 120px;
+    /* Reduz o gap para tablets médios */
+    margin-top: 50px;
+    /* Mantém o espaçamento vertical */
+    margin-left: auto;
+    /* Centraliza horizontalmente */
+    margin-right: auto;
+    /* Centraliza horizontalmente */
+    padding: 10px;
+    justify-content: center;
+    /* Garante centralização */
+  }
+}
+
+/* Tablets Pequenos (max-width: 900px) */
+@media (max-width: 900px) {
+  .main-nav ul {
+    gap: 60px;
+    /* Gap menor para tablets pequenos */
+    margin-top: 50px;
+    /* Mantém o espaçamento vertical */
+    margin-left: auto;
+    /* Centraliza horizontalmente */
+    margin-right: auto;
+    /* Centraliza horizontalmente */
+    padding: 10px;
+    justify-content: center;
+    /* Garante centralização */
+  }
+}
+
+/* Tablet em Modo Retrato (max-width: 820px) */
+@media (max-width: 820px) {
+  .main-nav ul {}
 }
 
 /* ------------------------------------------------ */
@@ -62,14 +120,16 @@
 /* ------------------------------------------------ */
 
 .menu-toggle {
-  display: none; /* 🚨 NO DESKTOP, ELE FICA ESCONDIDO */
+  display: none;
+  /* 🚨 NO DESKTOP, ELE FICA ESCONDIDO */
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--cor-principal);
   padding: 10px;
-  z-index: 1001; /* Z-INDEX ALTO */
+  z-index: 1001;
+  /* Z-INDEX ALTO */
   margin: 0;
 }
 
@@ -82,7 +142,8 @@
     /* MANTIDO: position: fixed para o overlay lateral */
     position: fixed;
     top: 0;
-    left: -100%; /* Começa fora da tela */
+    left: -100%;
+    /* Começa fora da tela */
     width: 100%;
     height: 100vh;
     background: var(--cor-de-fundo);
@@ -99,13 +160,15 @@
   }
 
   .main-nav.mobile-open {
-    left: 0; /* Puxa o menu para a tela */
+    left: 0;
+    /* Puxa o menu para a tela */
   }
 
   /* 🚨 CORRIGIDO: A navegação UL deve estar em LINHA (ROW) */
   .main-nav ul {
     display: flex;
-    flex-direction: row; /* 👈 LINKS EM LINHA */
+    flex-direction: row;
+    /* 👈 LINKS EM LINHA */
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -116,8 +179,10 @@
   }
 
   .menu-toggle {
-    display: block; /* É exibido no mobile */
-    position: fixed; /* É fixo no canto da tela */
+    display: block;
+    /* É exibido no mobile */
+    position: fixed;
+    /* É fixo no canto da tela */
     background: none;
     border: none;
     cursor: pointer;
