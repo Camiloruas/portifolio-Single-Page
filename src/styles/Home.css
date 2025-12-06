@@ -87,14 +87,20 @@
   }
 
   .home-name-1 {
-    font-size: 7rem;
+    font-size: 6rem;
     letter-spacing: 2rem;
     margin-bottom: -5%;
   }
 
   .home-name-2 {
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 8rem;
+  }
+
+  .habilidades {
+    font-size: 1.20rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0;
   }
 
   .new-profile-photo {
