@@ -29,6 +29,7 @@ import Project13Image from "../assets/project-images/english-alphabet-audio.png"
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
 import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
+import Project17Image from "../assets/project-images/mcp-server-integration.png";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -43,14 +44,17 @@ const projectDetails = [
     deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
     languageFilter: ["typescript", "javascript"],
   },
-  // CORREÇÃO: O segundo item ("portifolio-Single-Page") foi separado e corrigido, se estava
-  // destinado a ser um item separado. Se o projeto "portifolio-Single-Page" deveria
-  // estar logo abaixo do "agendamento-bot", ele deve ser definido como um novo objeto.
+  {
+    repoName: "mcp-server-integration",
+    imageUrl: Project17Image,
+    deployUrl: "https://www.camiloruas.dev",
+    languageFilter: ["react"],
+  },
   {
     repoName: "portifolio-Single-Page",
     imageUrl: Project4Image,
-    deployUrl: "https://www.camiloruas.dev",
-    languageFilter: ["react"],
+    deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
+    languageFilter: ["javascript"],
   },
   {
     repoName: "weather-now",
@@ -153,23 +157,13 @@ const ProjectCard = ({ repo }) => {
   });
 
   // Lógica para garantir que o link de deploy comece com http/https
-  const deployLink =
-    repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://"))
-      ? repo.deployUrl
-      : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
+  const deployLink = repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://")) ? repo.deployUrl : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
 
   return (
-    <div
-      id={`card-${repo.id}`}
-      className="repo-card"
-    >
+    <div id={`card-${repo.id}`} className="repo-card">
       {repo.imageUrl && (
         <div className="project-image-container">
-          <img
-            src={repo.imageUrl}
-            alt={`Captura de tela do projeto ${repo.name}`}
-            className="project-image"
-          />
+          <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
         </div>
       )}
 
@@ -182,12 +176,7 @@ const ProjectCard = ({ repo }) => {
 
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
-          <a
-            href={repo.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-base btn-primary github-link"
-          >
+          <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="btn-base btn-primary github-link">
             <FaGithub /> {t("projects.code")}
           </a>
 
@@ -312,11 +301,7 @@ const Projects = () => {
       {/* BARRA DE FILTROS */}
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
-          <button
-            key={f}
-            className={`btn-base btn-primary ${filter === f ? "active" : ""}`}
-            onClick={() => setFilter(f)}
-          >
+          <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
             {t(`projects.filters.${f}`)}
           </button>
         ))}
@@ -324,10 +309,7 @@ const Projects = () => {
 
       <div className="repo-list">
         {filteredRepos.map((repo) => (
-          <ProjectCard
-            key={repo.id}
-            repo={repo}
-          />
+          <ProjectCard key={repo.id} repo={repo} />
         ))}
       </div>
     </section>
