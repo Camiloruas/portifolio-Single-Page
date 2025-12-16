@@ -2,7 +2,12 @@
 import axios from "axios";
 
 export const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_USERNAME;
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 const BASE_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
+
+const api = axios.create({
+  headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {},
+});
 
 /**
  * Função para buscar os repositórios públicos do usuário no GitHub.
@@ -12,7 +17,7 @@ const BASE_URL = `https://api.github.com/users/${GITHUB_USERNAME}`;
 export const getRepositories = async () => {
   try {
     // Busca os repositórios do seu usuário
-    const reposResponse = await axios.get(`${BASE_URL}/repos`, {
+    const reposResponse = await api.get(`${BASE_URL}/repos`, {
       params: {
         sort: "pushed", // Ordena por data do último push para ter os mais recentes primeiro
         direction: "desc",
@@ -25,7 +30,7 @@ export const getRepositories = async () => {
     const reposWithLanguages = await Promise.all(
       repos.map(async (repo) => {
         try {
-          const languagesResponse = await axios.get(repo.languages_url);
+          const languagesResponse = await api.get(repo.languages_url);
           // Adiciona a lista de linguagens ao objeto do repositório
           return {
             ...repo,
