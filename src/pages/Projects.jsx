@@ -39,12 +39,6 @@ import Project17Image from "../assets/project-images/mcp-server-integration.png"
 const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
   {
-    repoName: "agendamento-bot",
-    imageUrl: Project16Image,
-    deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
-    languageFilter: ["typescript", "javascript"],
-  },
-  {
     repoName: "mcp-server-integration",
     imageUrl: Project17Image,
     deployUrl: "https://www.camiloruas.dev",
@@ -56,6 +50,15 @@ const projectDetails = [
     deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
     languageFilter: ["javascript"],
   },
+
+  {
+    repoName: "agendamento-bot",
+    imageUrl: Project16Image,
+    deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
+    languageFilter: ["typescript", "javascript"],
+  },
+
+
   {
     repoName: "weather-now",
     imageUrl: Project10Image,
