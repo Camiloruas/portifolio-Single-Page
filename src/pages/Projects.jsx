@@ -30,6 +30,7 @@ import Project14Image from "../assets/project-images/Capstone-Project-1.png";
 import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 import Project17Image from "../assets/project-images/mcp-server-integration.png";
+import Project18Image from "../assets/project-images/mcp-client.png";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -38,16 +39,24 @@ import Project17Image from "../assets/project-images/mcp-server-integration.png"
  */
 const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
+
+  {
+    repoName: "mcp-client",
+    imageUrl: Project18Image,
+    deployUrl: "https://github.com/Camiloruas/mcp-client",
+    languageFilter: ["react"],
+  },
+
   {
     repoName: "mcp-server-integration",
     imageUrl: Project17Image,
-    deployUrl: "https://www.camiloruas.dev",
+    deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
     languageFilter: ["react"],
   },
   {
     repoName: "portifolio-Single-Page",
     imageUrl: Project4Image,
-    deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
+    deployUrl: "https://www.camiloruas.dev",
     languageFilter: ["javascript"],
   },
 
@@ -57,7 +66,6 @@ const projectDetails = [
     deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
     languageFilter: ["typescript", "javascript"],
   },
-
 
   {
     repoName: "weather-now",
