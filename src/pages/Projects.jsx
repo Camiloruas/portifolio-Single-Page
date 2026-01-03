@@ -191,9 +191,6 @@ const ProjectCard = ({ repo }) => {
         <h3>{repo.name}</h3>
         <p>{repo.description || t("projects.noDescription")}</p>
 
-        {/* Exibe a linguagem principal do GitHub (limpo e elegante) */}
-        <div className="card-info">{repo.language && <span className="language-tag">{repo.language}</span>}</div>
-
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
           <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="btn-base btn-primary github-link">
