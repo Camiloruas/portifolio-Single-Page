@@ -31,6 +31,7 @@ import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 import Project17Image from "../assets/project-images/mcp-server-integration.png";
 import Project18Image from "../assets/project-images/mcp-client.png";
+import Project19Image from "../assets/project-images/comm-solucoes-website.png";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -44,15 +45,23 @@ const projectDetails = [
     repoName: "mcp-client",
     imageUrl: Project18Image,
     deployUrl: "https://github.com/Camiloruas/mcp-client",
-    languageFilter: ["react"],
+    languageFilter: ["javascript"],
   },
 
   {
     repoName: "mcp-server-integration",
     imageUrl: Project17Image,
     deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
-    languageFilter: ["react"],
+    languageFilter: ["typescript"],
   },
+
+  {
+    repoName: "comm-solucoes-website",
+    imageUrl: Project19Image,
+    deployUrl: "https://comm-solucoes-website.vercel.app/",
+    languageFilter: ["javascript"],
+  },
+
   {
     repoName: "portifolio-Single-Page",
     imageUrl: Project4Image,
