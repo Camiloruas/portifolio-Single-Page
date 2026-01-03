@@ -16,7 +16,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Project1Image from "../assets/project-images/agenda-express-mongo.jpeg";
 import Project2Image from "../assets/project-images/javascript-form-validation.jpeg";
 import Project3Image from "../assets/project-images/node-express-api-rest.jpeg";
-import Project4Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project4Image from "../assets/project-images/portifolio-Single-Page.png";
 import Project5Image from "../assets/project-images/react-cpf-validator.png";
 import Project6Image from "../assets/project-images/calcauladora.png";
 import Project7Image from "../assets/project-images/pomodoro-timer.png";
@@ -30,6 +30,7 @@ import Project14Image from "../assets/project-images/Capstone-Project-1.png";
 import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 import Project17Image from "../assets/project-images/mcp-server-integration.png";
+import Project18Image from "../assets/project-images/mcp-client.png";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -38,24 +39,34 @@ import Project17Image from "../assets/project-images/mcp-server-integration.png"
  */
 const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
+
+  {
+    repoName: "mcp-client",
+    imageUrl: Project18Image,
+    deployUrl: "https://github.com/Camiloruas/mcp-client",
+    languageFilter: ["react"],
+  },
+
+  {
+    repoName: "mcp-server-integration",
+    imageUrl: Project17Image,
+    deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
+    languageFilter: ["react"],
+  },
+  {
+    repoName: "portifolio-Single-Page",
+    imageUrl: Project4Image,
+    deployUrl: "https://www.camiloruas.dev",
+    languageFilter: ["javascript"],
+  },
+
   {
     repoName: "agendamento-bot",
     imageUrl: Project16Image,
     deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
     languageFilter: ["typescript", "javascript"],
   },
-  {
-    repoName: "mcp-server-integration",
-    imageUrl: Project17Image,
-    deployUrl: "https://www.camiloruas.dev",
-    languageFilter: ["react"],
-  },
-  {
-    repoName: "portifolio-Single-Page",
-    imageUrl: Project4Image,
-    deployUrl: "https://github.com/Camiloruas/mcp-server-integration",
-    languageFilter: ["javascript"],
-  },
+
   {
     repoName: "weather-now",
     imageUrl: Project10Image,

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/Home.css";
 // Ajuste o caminho da sua foto se necessário
-import profilePhoto from "../assets/project-images/magem-capa.jpeg";
+import profilePhoto from "../assets/project-images/imagem-capa.jpeg";
 
 const Home = () => {
   const { t } = useTranslation();
