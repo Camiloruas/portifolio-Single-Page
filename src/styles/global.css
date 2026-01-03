@@ -36,8 +36,8 @@ body {
   background-image:
     /* GRADIENTE PRINCIPAL (de cima para baixo) */
     linear-gradient(to bottom, rgba(0, 255, 170, 0.1) 0%, rgba(0, 0, 0, 0.95) 80%),
-    /* LINHAS REPETITIVAS (as ondas) */
-    repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.08), rgba(0, 255, 170, 0.08) 1px, transparent 1px, transparent 25px);
+    /* LINHAS REPETITIVAS (as ondas) - Mais suaves e sutis */
+    repeating-linear-gradient(150deg, rgba(0, 255, 170, 0.03), rgba(0, 255, 170, 0.03) 1px, transparent 1px, transparent 25px);
 
   /* 3. Ajustes e Aplicação de Variáveis de Texto */
   min-height: 100vh;
