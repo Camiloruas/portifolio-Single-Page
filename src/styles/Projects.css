@@ -37,7 +37,6 @@
 
 .repo-card {
   /* Transparência no fundo do card (0.6 = 60% opaco) */
-
   background-color: rgba(10, 10, 10, 0.6);
   border: 1px solid var(--cor-borda-suave);
   padding: 20px;
@@ -45,6 +44,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   text-align: left;
   transition: all 0.3s ease-in-out;
+  /* Flexbox para alinhar conteúdo e fixar botões no final */
+  display: flex;
+  flex-direction: column;
 }
 
 .repo-card:hover {
@@ -63,6 +65,13 @@
   font-size: 1rem;
   color: var(--cor-texto-secundario);
   margin-bottom: 15px;
+}
+
+/* Container do conteúdo do card - usa flex para fixar botões no final */
+.repo-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* BLOCO FINAL DAS TAGS: Apenas uma tag por cartão */
@@ -105,7 +114,8 @@
 .card-links {
   display: flex;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
 
   /* Centraliza os botões */
   justify-content: center;
