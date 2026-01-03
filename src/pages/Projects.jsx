@@ -16,7 +16,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Project1Image from "../assets/project-images/agenda-express-mongo.jpeg";
 import Project2Image from "../assets/project-images/javascript-form-validation.jpeg";
 import Project3Image from "../assets/project-images/node-express-api-rest.jpeg";
-import Project4Image from "../assets/project-images/portifolio-Single-Page.gif";
+import Project4Image from "../assets/project-images/portifolio-Single-Page.png";
 import Project5Image from "../assets/project-images/react-cpf-validator.png";
 import Project6Image from "../assets/project-images/calcauladora.png";
 import Project7Image from "../assets/project-images/pomodoro-timer.png";
