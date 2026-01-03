@@ -59,14 +59,14 @@ const projectDetails = [
     repoName: "comm-solucoes-website",
     imageUrl: Project19Image,
     deployUrl: "https://comm-solucoes-website.vercel.app/",
-    languageFilter: ["javascript"],
+    languageFilter: ["react"],
   },
 
   {
     repoName: "portifolio-Single-Page",
     imageUrl: Project4Image,
     deployUrl: "https://www.camiloruas.dev",
-    languageFilter: ["javascript"],
+    languageFilter: ["react"],
   },
 
   {
