@@ -35,14 +35,14 @@ const Contact = () => {
                 }}
                 className="social-link linkedin"
               >
-                <FaLinkedin className="link-icon" />
+                <FaLinkedin className="link-icon" aria-hidden="true" />
                 LinkedIn
               </a>
             </li>
 
             <li>
               <a href="https://github.com/Camiloruas" target="_blank" rel="noopener noreferrer" className="social-link github">
-                <FaGithub className="link-icon" />
+                <FaGithub className="link-icon" aria-hidden="true" />
                 GitHub
               </a>
             </li>
@@ -50,14 +50,14 @@ const Contact = () => {
             <li>
               {/* Link WhatsApp direto */}
               <a href="https://wa.me/5579998448030" target="_blank" rel="noopener noreferrer" className="social-link phone">
-                <FaWhatsapp className="link-icon" />
+                <FaWhatsapp className="link-icon" aria-hidden="true" />
                 {t("contact.phone")}
               </a>
             </li>
 
             <li>
               <a href="mailto:miloruas@gmail.com" className="social-link email">
-                <FaEnvelope className="link-icon" />
+                <FaEnvelope className="link-icon" aria-hidden="true" />
                 {t("contact.sendEmail")}
               </a>
             </li>

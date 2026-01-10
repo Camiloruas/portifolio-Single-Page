@@ -29,7 +29,7 @@ const Header = () => {
       <div className="header-content">
         <div className="logo-placeholder" />
 
-        <button className="menu-toggle" onClick={toggleMenu}>
+        <button className="menu-toggle" onClick={toggleMenu} aria-label={t('nav.toggleMenu')}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 

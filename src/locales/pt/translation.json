@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "Sobre",
     "projects": "Projetos",
-    "contact": "Contato"
+    "contact": "Contato",
+    "toggleMenu": "Alternar menu"
   },
   "home": {
     "role": "Desenvolvedor Full Stack"
@@ -14,7 +15,7 @@
     "subtitle": "Desenvolvedor <1>Full Stack</1> Explorando o universo do <2>desenvolvimento web.</2>",
     "passion": "Sou apaixonado por tecnologia e motivado pelo desejo de transformar ideias em soluções reais. Busco unir lógica, criatividade e propósito em cada projeto, aplicando boas práticas e sempre aprendendo algo novo no caminho.",
     "journeyTitle": "Minha Trajetória",
-    "journey1": "Minha jornada na tecnologia começou antes da graduação em <0>Sistemas de Informação</0> (2010). Desde então, atuei por mais de uma década em empresas de grande porte como <1>Proxxi Tecnologia (IBM®)</1> e <2>Bradesco</2>, onde desenvolvi valores como responsabilidade, precisão e trabalho em equipe. Essas experiências moldaram minha forma de pensar e me ensinaram que excelência e aprendizado contínuo são o caminho para evoluir.",
+    "journey1": "Minha jornada na tecnologia começou antes da graduação em <0>Sistemas de Informação</0> (2010). Desde então, atuei por mais de uma década em empresas de grande porte como <2>Scopus Tecnologia (Bradesco)</2> e <1>Proxxi Tecnologia (IBM®)</1>, onde desenvolvi valores como responsabilidade, precisão e trabalho em equipe. Essas experiências moldaram minha forma de pensar e me ensinaram que excelência e aprendizado contínuo são o caminho para evoluir.",
     "journey2": "Após anos na área de <1>infraestrutura</1>, decidi seguir uma nova direção: o <2>Desenvolvimento Web</2>. Hoje, me dedico a criar aplicações modernas e funcionais, sempre em busca de aprimorar minhas habilidades e acompanhar as tendências do setor.",
     "goalsTitle": "Objetivos e Desafios",
     "goals": "Meu objetivo é consolidar minha atuação como desenvolvedor <1>Full Stack</1>, participando de projetos que estimulem minha capacidade técnica e criativa. Gosto de ver o resultado do meu trabalho ganhando vida e impactando pessoas, por isso, cada desafio é uma oportunidade de aprender, evoluir e gerar valor através da tecnologia.",

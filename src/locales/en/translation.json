@@ -3,7 +3,8 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "toggleMenu": "Toggle menu"
   },
   "home": {
     "role": "Full Stack Developer"
@@ -14,7 +15,7 @@
     "subtitle": "<1>Full Stack</1> Developer Exploring the universe of <2>web development.</2>",
     "passion": "I am passionate about technology and motivated by the desire to turn ideas into real solutions. I seek to unite logic, creativity, and purpose in each project, applying good practices and always learning something new along the way.",
     "journeyTitle": "My Journey",
-    "journey1": "My journey in technology began before graduating in <0>Information Systems</0> (2010). Since then, I have worked for over a decade in large companies such as <1>Proxxi Tecnologia (IBM®)</1> and <2>Bradesco</2>, where I developed values such as responsibility, precision, and teamwork. These experiences shaped my way of thinking and taught me that excellence and continuous learning are the way to evolve.",
+    "journey1": "My journey in technology began before graduating in <0>Information Systems</0> (2010). Since then, I have worked for over a decade in large companies such as <2>Scopus Tecnologia (Bradesco)</2> and  <1>Proxxi Tecnologia (IBM®)</1> and , where I developed values such as responsibility, precision, and teamwork. These experiences shaped my way of thinking and taught me that excellence and continuous learning are the way to evolve.",
     "journey2": "After years in the <1>infrastructure</1> area, I decided to follow a new direction: <2>Web Development</2>. Today, I dedicate myself to creating modern and functional applications, always seeking to improve my skills and keep up with industry trends.",
     "goalsTitle": "Goals and Challenges",
     "goals": "My goal is to consolidate my role as a <1>Full Stack</1> developer, participating in projects that stimulate my technical and creative capacity. I like to see the result of my work come to life and impact people, so every challenge is an opportunity to learn, evolve, and generate value through technology.",

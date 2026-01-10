@@ -18,14 +18,14 @@ const SocialSidebar = () => {
 
   return (
     <div className="social-sidebar">
-      <a href="https://www.linkedin.com/in/camilo-ruas-3a2a6425/" target="_blank" rel="noopener noreferrer" className="sidebar-icon linkedin">
-        <FontAwesomeIcon icon={faLinkedinIn} />
+      <a href="https://www.linkedin.com/in/camilo-ruas-3a2a6425/" target="_blank" rel="noopener noreferrer" className="sidebar-icon linkedin" aria-label="LinkedIn">
+        <FontAwesomeIcon icon={faLinkedinIn} aria-hidden="true" />
       </a>
-      <a href="https://github.com/camiloruas" target="_blank" rel="noopener noreferrer" className="sidebar-icon github">
-        <FontAwesomeIcon icon={faGithub} />
+      <a href="https://github.com/camiloruas" target="_blank" rel="noopener noreferrer" className="sidebar-icon github" aria-label="GitHub">
+        <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
       </a>
-      <a href="https://www.instagram.com/camiloruas/" target="_blank" rel="noopener noreferrer" className="sidebar-icon instagram">
-        <FontAwesomeIcon icon={faInstagram} />
+      <a href="https://www.instagram.com/camiloruas/" target="_blank" rel="noopener noreferrer" className="sidebar-icon instagram" aria-label="Instagram">
+        <FontAwesomeIcon icon={faInstagram} aria-hidden="true" />
       </a>
       {/* Adicione outros links sociais conforme necessário */}
     </div>

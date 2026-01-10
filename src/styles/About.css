@@ -149,7 +149,6 @@ p {
   margin-bottom: 20px;
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(0, 255, 170, 0.2); /* Linha sutil para separar */
-  max-width: 800px; /* Limita a largura do título do setor */
 }
 
 /* Container para dispor os ícones em grade */
