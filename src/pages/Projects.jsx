@@ -103,7 +103,7 @@ const projectDetails = [
   {
     repoName: "calculadora",
     imageUrl: Project6Image,
-    deployUrl: "https://camiloruas.github.io/calcauladora/",
+    deployUrl: "https://camiloruas.github.io/calculadora",
     languageFilter: ["javascript"],
   },
   {
