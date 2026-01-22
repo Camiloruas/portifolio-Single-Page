@@ -43,10 +43,10 @@ const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
 
   {
-    repoName: "mcp-client",
+    repoName: "ai-customer-service-agent",
     imageUrl: Project20Image,
     deployUrl: "https://github.com/Camiloruas/ai-customer-service-agent",
-    languageFilter: ["javascript"],
+    languageFilter: ["N8N"],
   },
 
   {
