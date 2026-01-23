@@ -33,6 +33,7 @@ import Project17Image from "../assets/project-images/mcp-server-integration.png"
 import Project18Image from "../assets/project-images/mcp-client.png";
 import Project19Image from "../assets/project-images/comm-solucoes-website.png";
 import Project20Image from "../assets/project-images/ai-customer-service-agent.png";
+import Project21Image from "../assets/project-images/dashboard-atlas.png";
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -41,6 +42,13 @@ import Project20Image from "../assets/project-images/ai-customer-service-agent.p
  */
 const projectDetails = [
   // CORREÇÃO: O primeiro item agora é um objeto limpo.
+
+  {
+    repoName: "dashboard-atlas",
+    imageUrl: Project21Image,
+    deployUrl: "https://dashboard-atlas-tawny.vercel.app/",
+    languageFilter: ["Ract"],
+  },
 
   {
     repoName: "ai-customer-service-agent",
