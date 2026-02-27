@@ -88,7 +88,8 @@
   /* Zera a margem que pode estar empurrando de volta */
   margin: 0;
   padding: 0;
-  margin-bottom: 15px; /* Mantém o espaçamento para o bloco de botões abaixo */
+  margin-bottom: 15px;
+  /* Mantém o espaçamento para o bloco de botões abaixo */
 }
 
 /* Estiliza a tag de linguagem principal e a tag de filtro dos botões */
@@ -139,6 +140,7 @@
   object-fit: cover;
   display: block;
   transition: transform 0.5s;
+  border: none;
 }
 
 .repo-card:hover .project-image {
@@ -150,15 +152,18 @@
   .projects-page .page-title {
     font-size: 2.5rem;
   }
+
   .projects-page {
     margin-top: -15vh;
   }
+
   .filter-buttons-container {
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 10px;
     white-space: nowrap;
   }
+
   /* Centraliza os botões mesmo em telas pequenas */
   .card-links {
     justify-content: center;
@@ -198,7 +203,8 @@
     /* Zera a margem que pode estar empurrando de volta */
     margin: 0;
     padding: 0;
-    margin-bottom: 15px; /* Mantém o espaçamento para o bloco de botões abaixo */
+    margin-bottom: 15px;
+    /* Mantém o espaçamento para o bloco de botões abaixo */
   }
 
   .projects-page .page-title {
@@ -206,11 +212,15 @@
     margin-top: 130px;
     margin-bottom: 10px;
   }
+
   .filter-buttons-container {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Reduced gap between buttons */
-    margin-bottom: 10px; /* Reduced bottom margin */
-    transform: scale(0.7); /* Makes buttons 90% of their original size */
+    gap: 10px;
+    /* Reduced gap between buttons */
+    margin-bottom: 10px;
+    /* Reduced bottom margin */
+    transform: scale(0.7);
+    /* Makes buttons 90% of their original size */
   }
 }

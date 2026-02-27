@@ -41,7 +41,15 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
-  // CORREÇÃO: O primeiro item agora é um objeto limpo.
+  {
+    repoName: "ai-whatsapp-scheduler",
+    imageUrl: null, // O usuário não quer imagem, mas o vídeo
+    videoUrl: "https://www.youtube.com/embed/my2K4YxFeAI",
+    deployUrl: "https://www.youtube.com/watch?v=my2K4YxFeAI",
+    languageFilter: ["react"],
+  },
+
+
 
   {
     repoName: "dashboard-atlas",
@@ -197,10 +205,22 @@ const ProjectCard = ({ repo }) => {
 
   return (
     <div id={`card-${repo.id}`} className="repo-card">
-      {repo.imageUrl && (
+      {repo.videoUrl ? (
         <div className="project-image-container">
-          <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
+          <iframe
+            src={repo.videoUrl}
+            title={`Vídeo do projeto ${repo.name}`}
+            className="project-image"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
+      ) : (
+        repo.imageUrl && (
+          <div className="project-image-container">
+            <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
+          </div>
+        )
       )}
 
       <div className="repo-content">
@@ -262,6 +282,7 @@ const Projects = () => {
           orderedRepos.push({
             ...repoFromGithub,
             imageUrl: detail.imageUrl,
+            videoUrl: detail.videoUrl, // Adicionado aqui
             deployUrl: detail.deployUrl,
             languageFilter: detail.languageFilter,
           });
