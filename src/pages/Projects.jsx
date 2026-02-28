@@ -43,7 +43,7 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
 const projectDetails = [
   {
     repoName: "ai-whatsapp-scheduler",
-    imageUrl: null, // O usuário não quer imagem, mas o vídeo
+    imageUrl: null, // não quero imagem, mas o vídeo
     videoUrl: "https://www.youtube.com/embed/my2K4YxFeAI",
     deployUrl: "https://www.youtube.com/watch?v=my2K4YxFeAI",
     languageFilter: ["react"],
