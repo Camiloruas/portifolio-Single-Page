@@ -41,11 +41,22 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
+
+
+
+
   {
     repoName: "ai-whatsapp-scheduler",
     imageUrl: null, // não quero imagem, mas o vídeo
     videoUrl: "https://www.youtube.com/embed/my2K4YxFeAI",
     deployUrl: "https://www.youtube.com/watch?v=my2K4YxFeAI",
+    languageFilter: ["react"],
+  },
+  {
+    repoName: "google-calendar-birthday-automation",
+    imageUrl: null, // não quero imagem, mas o vídeo
+    videoUrl: "https://www.youtube.com/embed/9OadCSAeduQ",
+    deployUrl: "https://www.youtube.com/watch?v=9OadCSAeduQ",
     languageFilter: ["react"],
   },
 
