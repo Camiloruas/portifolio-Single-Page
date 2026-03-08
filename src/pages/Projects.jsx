@@ -34,6 +34,41 @@ import Project18Image from "../assets/project-images/mcp-client.png";
 import Project19Image from "../assets/project-images/comm-solucoes-website.png";
 import Project20Image from "../assets/project-images/ai-customer-service-agent.png";
 import Project21Image from "../assets/project-images/dashboard-atlas.png";
+
+const FILTER_ORDER = ["all", "react", "typescript", "javascript", "n8n", "outros"];
+
+const FILTER_ALIASES = {
+  react: "react",
+  reactjs: "react",
+  ract: "react",
+  typescript: "typescript",
+  ts: "typescript",
+  javascript: "javascript",
+  js: "javascript",
+  node: "javascript",
+  "node.js": "javascript",
+  n8n: "n8n",
+  outros: "outros",
+  others: "outros",
+};
+
+const normalizeFilterTag = (tag) => {
+  if (!tag) return null;
+
+  const normalizedTag = String(tag).trim().toLowerCase();
+  return FILTER_ALIASES[normalizedTag] || normalizedTag;
+};
+
+const normalizeLanguageFilters = (filters = []) => {
+  const normalizedFilters = filters.map(normalizeFilterTag).filter((filter) => FILTER_ORDER.includes(filter) && filter !== "all");
+
+  return normalizedFilters.length > 0 ? [...new Set(normalizedFilters)] : ["outros"];
+};
+
+const getFilterLabel = (t, filterKey) => {
+  const translatedLabel = t(`projects.filters.${filterKey}`);
+  return translatedLabel === `projects.filters.${filterKey}` ? filterKey.toUpperCase() : translatedLabel;
+};
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
 // ----------------------------------------------------
@@ -41,26 +76,20 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
-
-
-
-
   {
     repoName: "ai-whatsapp-scheduler",
     imageUrl: null, // não quero imagem, mas o vídeo
     videoUrl: "https://www.youtube.com/embed/my2K4YxFeAI",
     deployUrl: "https://www.youtube.com/watch?v=my2K4YxFeAI",
-    languageFilter: ["react"],
+    languageFilter: ["n8n"],
   },
   {
     repoName: "google-calendar-birthday-automation",
     imageUrl: null, // não quero imagem, mas o vídeo
     videoUrl: "https://www.youtube.com/embed/9OadCSAeduQ",
     deployUrl: "https://www.youtube.com/watch?v=9OadCSAeduQ",
-    languageFilter: ["react"],
+    languageFilter: ["n8n"],
   },
-
-
 
   {
     repoName: "dashboard-atlas",
@@ -108,7 +137,7 @@ const projectDetails = [
     repoName: "agendamento-bot",
     imageUrl: Project16Image,
     deployUrl: "https://www.youtube.com/shorts/ines78N-htE",
-    languageFilter: ["typescript", "javascript"],
+    languageFilter: ["typescript"],
   },
 
   {
@@ -218,13 +247,7 @@ const ProjectCard = ({ repo }) => {
     <div id={`card-${repo.id}`} className="repo-card">
       {repo.videoUrl ? (
         <div className="project-image-container">
-          <iframe
-            src={repo.videoUrl}
-            title={`Vídeo do projeto ${repo.name}`}
-            className="project-image"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          <iframe src={repo.videoUrl} title={`Vídeo do projeto ${repo.name}`} className="project-image" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
       ) : (
         repo.imageUrl && (
@@ -295,7 +318,7 @@ const Projects = () => {
             imageUrl: detail.imageUrl,
             videoUrl: detail.videoUrl, // Adicionado aqui
             deployUrl: detail.deployUrl,
-            languageFilter: detail.languageFilter,
+            languageFilter: normalizeLanguageFilters(detail.languageFilter),
           });
           // Remove do mapa para que não seja adicionado novamente
           githubMap.delete(detail.repoName);
@@ -305,18 +328,12 @@ const Projects = () => {
       // 3. FASE 2: Adiciona o restante dos repositórios do GitHub (sem detalhes manuais)
       const remainingRepos = Array.from(githubMap.values())
         .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
-        .map((repo) => {
-          const languages = repo.languages_list || [];
-          if (repo.topics.includes("react")) {
-            languages.push("react");
-          }
-          return {
-            ...repo,
-            imageUrl: null,
-            deployUrl: null,
-            languageFilter: languages.length > 0 ? [...new Set(languages)] : ["outros"],
-          };
-        });
+        .map((repo) => ({
+          ...repo,
+          imageUrl: null,
+          deployUrl: null,
+          languageFilter: ["outros"],
+        }));
 
       orderedRepos = [...orderedRepos, ...remainingRepos];
 
@@ -325,8 +342,8 @@ const Projects = () => {
       orderedRepos.forEach((repo) => {
         repo.languageFilter.forEach((lang) => allFilters.add(lang));
       });
-      // Garante a ordem desejada dos filtros
-      const sortedFilters = ["all", "react", "typescript", "javascript", "outros"].filter((f) => allFilters.has(f));
+      // Garante uma ordem estável e restringe os filtros ao conjunto curado.
+      const sortedFilters = FILTER_ORDER.filter((filterName) => allFilters.has(filterName));
       setAvailableFilters(sortedFilters);
 
       setRepos(orderedRepos);
@@ -367,7 +384,7 @@ const Projects = () => {
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
           <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
-            {t(`projects.filters.${f}`)}
+            {getFilterLabel(t, f)}
           </button>
         ))}
       </div>

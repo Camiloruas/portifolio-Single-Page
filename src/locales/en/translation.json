@@ -43,6 +43,7 @@
       "react": "React",
       "javascript": "JavaScript",
       "typescript": "TypeScript",
+      "n8n": "n8n",
       "outros": "Others"
     }
   },
