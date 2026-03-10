@@ -28,6 +28,12 @@
   /* Linhas de divisão sutis em fundo escuro */
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   /* 1. Cor de Fundo Principal */
   background-color: var(--cor-fundo-abstrato);
@@ -46,6 +52,11 @@ body {
   font-family: "Montserrat", sans-serif;
   background-attachment: fixed;
   /* Mantém o plano de fundo fixo ao rolar */
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 /* Estilo padrão de links para usar as variáveis de destaque */

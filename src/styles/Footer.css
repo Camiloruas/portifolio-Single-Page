@@ -4,11 +4,11 @@
   /* Posição padrão: Ocupa a largura total */
   width: 100%;
   text-align: center;
-  padding: 20px 0;
+  padding: 8px 0 1px;
 
   /* Estilo sutil */
-  font-size: 0.85rem;
-  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
 
   /* Cor discreta, mas legível */
@@ -16,6 +16,14 @@
 
   /* Garante que o fundo seja transparente para ver o background abstrato */
   background-color: transparent;
+}
+
+@media (max-width: 1440px) and (min-width: 1201px) {
+  .main-footer {
+    font-size: 0.7rem;
+    letter-spacing: 0.08rem;
+    padding: 8px 0 1px;
+  }
 }
 
 /* Opcional: Estilo sutil de hover, se houver interação */
