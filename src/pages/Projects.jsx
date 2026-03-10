@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import useScrollReveal from "../hooks/useScrollReveal";
 // Mantenha suas importações de serviço
 import { getRepositories, GITHUB_USERNAME } from "../services/githubApi";
 import "../styles/Projects.css";
@@ -231,20 +230,12 @@ const projectDetails = [
 // ----------------------------------------------------
 const ProjectCard = ({ repo }) => {
   const { t } = useTranslation();
-  // Aplica a animação Scroll Reveal em cada cartão individualmente
-  useScrollReveal(`#card-${repo.id}`, {
-    origin: "bottom",
-    distance: "40px",
-    duration: 800,
-    delay: 50,
-    opacity: 0,
-  });
 
   // Lógica para garantir que o link de deploy comece com http/https
   const deployLink = repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://")) ? repo.deployUrl : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
 
   return (
-    <div id={`card-${repo.id}`} className="repo-card">
+    <div className="repo-card">
       {repo.videoUrl ? (
         <div className="project-image-container">
           <iframe src={repo.videoUrl} title={`Vídeo do projeto ${repo.name}`} className="project-image" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
