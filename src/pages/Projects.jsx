@@ -26,13 +26,14 @@ import Project11Image from "../assets/project-images/blog-app-capstone-node.png"
 import Project12Image from "../assets/project-images/simon-game-challenge.png";
 import Project13Image from "../assets/project-images/english-alphabet-audio.png";
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
-import Project15Image from "../assets/project-images/Camiloruas.png"; // Ajustei o caminho para manter a consistência
+import Project15Image from "../assets/project-images/Camiloruas.png"; 
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 import Project17Image from "../assets/project-images/mcp-server-integration.png";
 import Project18Image from "../assets/project-images/mcp-client.png";
 import Project19Image from "../assets/project-images/comm-solucoes-website.png";
 import Project20Image from "../assets/project-images/ai-customer-service-agent.png";
 import Project21Image from "../assets/project-images/dashboard-atlas.png";
+import Project22Image from "../assets/project-images/portfólio prime-flix.png";
 
 const FILTER_ORDER = ["all", "react", "typescript", "javascript", "n8n", "outros"];
 
@@ -75,6 +76,12 @@ const getFilterLabel = (t, filterKey) => {
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
+  {
+    repoName: "prime-flix-portfolio",
+    imageUrl: Project22Image,
+    deployUrl: "https://prime-flix-chi-five.vercel.app/",
+    languageFilter: ["Ract"],
+  },
   {
     repoName: "ai-whatsapp-scheduler",
     imageUrl: null, // não quero imagem, mas o vídeo
