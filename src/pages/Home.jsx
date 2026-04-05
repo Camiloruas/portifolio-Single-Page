@@ -1,17 +1,14 @@
-// src/pages/Home.jsx
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import useScrollReveal from "../hooks/useScrollReveal";
 import "../styles/Home.css";
-// Ajuste o caminho da sua foto se necessário
 import profilePhoto from "../assets/project-images/imagem-capa.jpeg";
 
 const Home = () => {
   const { t } = useTranslation();
-  // ANIMAÇÕES SCROLL REVEAL - DISTÂNCIA E DURAÇÃO AJUSTADAS POR VOCÊ
   useScrollReveal(".text-content .home-name-1", {
     origin: "left",
-    distance: "500px", // Grande deslocamento
+    distance: "500px",
     duration: 1300,
     delay: 200,
   });

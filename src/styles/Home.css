@@ -1,9 +1,4 @@
-/* src/styles/Home.css - CONFIGURAÇÃO REVISADA */
-
-/* --- ESTILOS BASE (APLICÁVEL A DESKTOPS MAIORES) --- */
-
 .home-page {
-  /* Ajustado para compensar o header maior (com margin-top: 50px) e o footer */
   min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
@@ -14,7 +9,6 @@
 }
 
 .home-main-content {
-  /* Layout principal de duas colunas (Texto + Imagem) */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,7 +35,6 @@
 }
 
 .new-profile-photo {
-  /* Tamanho reduzido para caber na tela com o header maior */
   width: 300px;
   height: 500px;
   transform: translateX(0);
@@ -51,7 +44,6 @@
   box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
 }
 
-/* 🚨 Estilos de Texto Grandes (Para Desktop) */
 .home-name-1 {
   font-size: 9rem;
   font-weight: 700;
@@ -75,14 +67,14 @@
   margin-left: 6px;
 }
 
-/* Ajuste exclusivo para telas grandes: reduz deslocamento dos nomes para a direita */
+/* Mantem o bloco de texto visualmente equilibrado em telas muito largas. */
 @media (min-width: 1441px) {
   .home-main-content {
     padding: 10px 60px 10px 30px;
   }
 }
 
-/* Ajuste fino para notebooks (evita overflow horizontal discreto) */
+/* Ajusta proporcao e espacamento para notebooks sem quebrar a composicao em duas colunas. */
 @media (max-width: 1440px) and (min-width: 1201px) {
   .home-page {
     min-height: calc(100vh - 230px);
@@ -126,16 +118,9 @@
   }
 }
 
-/* ------------------------------------- */
-/* RESPONSIVIDADE */
-/* ------------------------------------- */
-
-/* 1. 🖥️ Desktop Reduzido / Laptops (max-width: 1200px) */
-/* Reduz o tamanho da fonte e o espaçamento para caber melhor em telas menores sem quebrar o layout */
 @media (max-width: 1200px) {
   .home-main-content {
     gap: 50px;
-    /* Reduz a distância entre texto e imagem */
     padding: 20px 40px;
   }
 
@@ -158,17 +143,14 @@
 
   .new-profile-photo {
     width: 300px;
-    /* Reduz a altura para manter a proporção */
     height: 460px;
   }
 }
 
-/* 2. 📱 Tablet (max-width: 900px) */
-/* O layout ainda é de duas colunas, mas o conteúdo é centralizado e a foto é menor */
+/* A partir daqui o hero passa para uma pilha vertical para preservar leitura e respiro. */
 @media (max-width: 900px) {
   .home-main-content {
     flex-direction: column;
-    /* 👈 Layout de uma coluna (Texto em cima, Imagem embaixo) */
     gap: 40px;
     padding: 20px 30px;
   }
@@ -178,16 +160,13 @@
     max-width: 100%;
     text-align: center;
     justify-content: center;
-    /* Centraliza a imagem */
   }
 
-  /* Redução mais acentuada da foto para caber bem no topo do tablet */
   .new-profile-photo {
     width: 250px;
     height: 400px;
   }
 
-  /* Ajuste no texto para o tablet */
   .home-name-1 {
     font-size: 5rem;
     letter-spacing: 1rem;
@@ -205,19 +184,14 @@
   }
 }
 
-/* 3. 📲 Celulares (max-width: 600px) */
-/* Estilos finais para telas muito pequenas, priorizando a leitura */
 @media (max-width: 768px) {
-  /* 🚨 NOVO: Correção de segurança para eliminar qualquer sobra horizontal no container */
   .home-page {
     overflow-x: hidden;
-    /* Evita que elementos internos empurrem a largura da página */
   }
 
   .home-main-content {
     padding: 20px 15px;
     margin-top: -10vh;
-    /* Ajusta o espaçamento superior */
   }
 
   .new-profile-photo {
@@ -225,20 +199,16 @@
     width: 200px;
   }
 
-  /* 🚨 CORRIGIDO: Remove os margin-left desnecessários, use padding-left no .text-content se precisar */
   .home-name-1,
   .home-name-2,
   .habilidades {
-    /* Remove os margins problemáticos que esticam a tela */
     margin-left: 20px;
     padding-left: 0;
   }
 
   .home-name-1 {
     font-size: 3rem;
-    /* Redução para garantir que caiba */
     letter-spacing: 0.3rem;
-    /* Reduzido */
     margin-bottom: -3%;
     text-align: center;
   }
@@ -246,9 +216,7 @@
   .home-name-2 {
     margin-left: 40px;
     font-size: 2rem;
-    /* Redução para garantir que caiba */
     letter-spacing: 2.6rem;
-    /* Reduzido drasticamente */
     text-align: center;
   }
 
@@ -258,7 +226,6 @@
     text-align: center;
   }
 
-  /* 🚨 NOVO: Garante que o container de texto esteja centralizado */
   .text-content {
     align-items: center;
     text-align: center;
