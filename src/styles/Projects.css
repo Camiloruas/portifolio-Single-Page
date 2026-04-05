@@ -2,7 +2,7 @@
 
 .projects-page {
   padding: 3rem 2rem;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
@@ -33,6 +33,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  align-items: stretch;
 }
 
 .repo-card {
@@ -47,6 +48,7 @@
   /* Flexbox para alinhar conteúdo e fixar botões no final */
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .repo-card:hover {
@@ -149,12 +151,18 @@
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
+  .projects-page {
+    padding: 1.5rem 0.85rem 2rem;
+    margin-top: -15vh;
+  }
+
   .projects-page .page-title {
     font-size: 2.5rem;
   }
 
-  .projects-page {
-    margin-top: -15vh;
+  .repo-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
   }
 
   .filter-buttons-container {
@@ -170,10 +178,10 @@
   }
 
   .repo-card {
-    /* Transparência no fundo do card (0.6 = 60% opaco) */
-    margin-left: 5px;
-    height: 450px;
-    width: 270px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding: 16px;
   }
 
   .repo-card h3 {
@@ -217,10 +225,8 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    /* Reduced gap between buttons */
     margin-bottom: 10px;
-    /* Reduced bottom margin */
-    transform: scale(0.7);
-    /* Makes buttons 90% of their original size */
+    transform: scale(0.88);
+    transform-origin: center top;
   }
 }
