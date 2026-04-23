@@ -34,6 +34,7 @@ import Project19Image from "../assets/project-images/comm-solucoes-website.png";
 import Project20Image from "../assets/project-images/ai-customer-service-agent.png";
 import Project21Image from "../assets/project-images/dashboard-atlas.png";
 import Project22Image from "../assets/project-images/portfólio prime-flix.png";
+import Project23Image from "../assets/project-images/crypto-market.png";
 
 const FILTER_ORDER = ["all", "react", "typescript", "javascript", "n8n", "outros"];
 
@@ -76,6 +77,14 @@ const getFilterLabel = (t, filterKey) => {
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
+  {
+    repoName: "crypto-market",
+    description: "Market monitoring application for cryptocurrencies.",
+    repoUrl: "https://github.com/Camiloruas/crypto-market",
+    imageUrl: Project23Image,
+    deployUrl: "https://crypto-market-psi-one.vercel.app/",
+    languageFilter: ["typescript"],
+  },
   {
     repoName: "prime-flix-portfolio",
     imageUrl: Project22Image,
@@ -320,6 +329,17 @@ const Projects = () => {
           });
           // Remove do mapa para que não seja adicionado novamente
           githubMap.delete(detail.repoName);
+        } else if (detail.repoUrl) {
+          orderedRepos.push({
+            id: detail.repoName,
+            name: detail.repoName,
+            description: detail.description,
+            html_url: detail.repoUrl,
+            imageUrl: detail.imageUrl,
+            videoUrl: detail.videoUrl,
+            deployUrl: detail.deployUrl,
+            languageFilter: normalizeLanguageFilters(detail.languageFilter),
+          });
         }
       });
 
