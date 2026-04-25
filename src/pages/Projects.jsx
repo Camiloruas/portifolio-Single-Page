@@ -26,7 +26,7 @@ import Project11Image from "../assets/project-images/blog-app-capstone-node.png"
 import Project12Image from "../assets/project-images/simon-game-challenge.png";
 import Project13Image from "../assets/project-images/english-alphabet-audio.png";
 import Project14Image from "../assets/project-images/Capstone-Project-1.png";
-import Project15Image from "../assets/project-images/Camiloruas.png"; 
+import Project15Image from "../assets/project-images/Camiloruas.png";
 import Project16Image from "../assets/project-images/agendamento-bot.jpg";
 import Project17Image from "../assets/project-images/mcp-server-integration.png";
 import Project18Image from "../assets/project-images/mcp-client.png";
@@ -36,7 +36,14 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
 import Project22Image from "../assets/project-images/portfólio prime-flix.png";
 import Project23Image from "../assets/project-images/crypto-market.png";
 
-const FILTER_ORDER = ["all", "react", "typescript", "javascript", "n8n", "outros"];
+const FILTER_ORDER = [
+  "all",
+  "react",
+  "typescript",
+  "javascript",
+  "n8n",
+  "outros",
+];
 
 const FILTER_ALIASES = {
   react: "react",
@@ -61,14 +68,20 @@ const normalizeFilterTag = (tag) => {
 };
 
 const normalizeLanguageFilters = (filters = []) => {
-  const normalizedFilters = filters.map(normalizeFilterTag).filter((filter) => FILTER_ORDER.includes(filter) && filter !== "all");
+  const normalizedFilters = filters
+    .map(normalizeFilterTag)
+    .filter((filter) => FILTER_ORDER.includes(filter) && filter !== "all");
 
-  return normalizedFilters.length > 0 ? [...new Set(normalizedFilters)] : ["outros"];
+  return normalizedFilters.length > 0
+    ? [...new Set(normalizedFilters)]
+    : ["outros"];
 };
 
 const getFilterLabel = (t, filterKey) => {
   const translatedLabel = t(`projects.filters.${filterKey}`);
-  return translatedLabel === `projects.filters.${filterKey}` ? filterKey.toUpperCase() : translatedLabel;
+  return translatedLabel === `projects.filters.${filterKey}`
+    ? filterKey.toUpperCase()
+    : translatedLabel;
 };
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
@@ -206,7 +219,8 @@ const projectDetails = [
   {
     repoName: "react-flow-tasks",
     imageUrl: Project8Image,
-    deployUrl: "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/",
+    deployUrl:
+      "https://react-flow-tasks-git-main-camilos-projects-0cde7ca6.vercel.app/",
     languageFilter: ["typescript", "react"],
   },
   {
@@ -248,18 +262,33 @@ const ProjectCard = ({ repo }) => {
   const { t } = useTranslation();
 
   // Lógica para garantir que o link de deploy comece com http/https
-  const deployLink = repo.deployUrl && (repo.deployUrl.startsWith("http://") || repo.deployUrl.startsWith("https://")) ? repo.deployUrl : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
+  const deployLink =
+    repo.deployUrl &&
+    (repo.deployUrl.startsWith("http://") ||
+      repo.deployUrl.startsWith("https://"))
+      ? repo.deployUrl
+      : `https://${repo.deployUrl}`; // Assume HTTPS se não houver protocolo
 
   return (
     <div className="repo-card">
       {repo.videoUrl ? (
         <div className="project-image-container">
-          <iframe src={repo.videoUrl} title={`Vídeo do projeto ${repo.name}`} className="project-image" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe
+            src={repo.videoUrl}
+            title={`Vídeo do projeto ${repo.name}`}
+            className="project-image"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       ) : (
         repo.imageUrl && (
           <div className="project-image-container">
-            <img src={repo.imageUrl} alt={`Captura de tela do projeto ${repo.name}`} className="project-image" />
+            <img
+              src={repo.imageUrl}
+              alt={`Captura de tela do projeto ${repo.name}`}
+              className="project-image"
+            />
           </div>
         )
       )}
@@ -270,7 +299,12 @@ const ProjectCard = ({ repo }) => {
 
         <div className="card-links">
           {/* Link para o Repositório no GitHub */}
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="btn-base btn-primary github-link">
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-base btn-primary github-link"
+          >
             <FaGithub /> {t("projects.code")}
           </a>
 
@@ -361,7 +395,9 @@ const Projects = () => {
         repo.languageFilter.forEach((lang) => allFilters.add(lang));
       });
       // Garante uma ordem estável e restringe os filtros ao conjunto curado.
-      const sortedFilters = FILTER_ORDER.filter((filterName) => allFilters.has(filterName));
+      const sortedFilters = FILTER_ORDER.filter((filterName) =>
+        allFilters.has(filterName),
+      );
       setAvailableFilters(sortedFilters);
 
       setRepos(orderedRepos);
@@ -401,7 +437,11 @@ const Projects = () => {
       {/* BARRA DE FILTROS */}
       <div className="filter-buttons-container">
         {availableFilters.map((f) => (
-          <button key={f} className={`btn-base btn-primary ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
+          <button
+            key={f}
+            className={`btn-base btn-primary ${filter === f ? "active" : ""}`}
+            onClick={() => setFilter(f)}
+          >
             {getFilterLabel(t, f)}
           </button>
         ))}
