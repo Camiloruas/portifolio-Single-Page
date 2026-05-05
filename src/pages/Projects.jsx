@@ -35,6 +35,7 @@ import Project20Image from "../assets/project-images/ai-customer-service-agent.p
 import Project21Image from "../assets/project-images/dashboard-atlas.png";
 import Project22Image from "../assets/project-images/portfólio prime-flix.png";
 import Project23Image from "../assets/project-images/crypto-market.png";
+import Project24Image from "../assets/project-images/elementor-ai-builder.png";
 
 const FILTER_ORDER = [
   "all",
@@ -90,6 +91,12 @@ const getFilterLabel = (t, filterKey) => {
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
+  {
+    repoName: "elementor-ai-builder",
+    imageUrl: Project24Image,
+    deployUrl: "https://github.com/Camiloruas/elementor-ai-builder",
+    languageFilter: ["typescript"],
+  },
   {
     repoName: "crypto-market",
     description: "Market monitoring application for cryptocurrencies.",
