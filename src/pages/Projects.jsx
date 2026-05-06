@@ -37,6 +37,8 @@ import Project22Image from "../assets/project-images/portfólio prime-flix.png";
 import Project23Image from "../assets/project-images/crypto-market.png";
 import Project24Image from "../assets/project-images/elementor-ai-builder.png";
 
+import LinktreeImage from "../assets/project-images/linktree.png";
+
 const FILTER_ORDER = [
   "all",
   "react",
@@ -96,6 +98,13 @@ const projectDetails = [
     imageUrl: Project24Image,
     deployUrl: "https://github.com/Camiloruas/elementor-ai-builder",
     languageFilter: ["typescript"],
+  },
+  {
+    repoName: "linktree",
+    repoUrl: "https://github.com/Camiloruas/linktree",
+    imageUrl: LinktreeImage,
+    deployUrl: "https://linktree-eosin-one.vercel.app/",
+    languageFilter: ["react"],
   },
   {
     repoName: "crypto-market",
