@@ -38,6 +38,7 @@ import Project23Image from "../assets/project-images/crypto-market.png";
 import Project24Image from "../assets/project-images/elementor-ai-builder.png";
 
 import LinktreeImage from "../assets/project-images/linktree.png";
+import Project25Image from "../assets/project-images/ecommerce-context.png";
 
 const FILTER_ORDER = [
   "all",
@@ -93,6 +94,12 @@ const getFilterLabel = (t, filterKey) => {
  * CORREÇÃO DE LINK: Adicionado o protocolo 'https://' no link 'www.camiloruas.dev'
  */
 const projectDetails = [
+  {
+    repoName: "ecommerce-context",
+    imageUrl: Project25Image,
+    deployUrl: "https://ecommerce-context-nine.vercel.app/",
+    languageFilter: ["react"],
+  },
   {
     repoName: "elementor-ai-builder",
     imageUrl: Project24Image,
