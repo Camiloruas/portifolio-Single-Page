@@ -36,6 +36,7 @@ import Project21Image from "../assets/project-images/dashboard-atlas.png";
 import Project22Image from "../assets/project-images/portfólio prime-flix.png";
 import Project23Image from "../assets/project-images/crypto-market.png";
 import Project24Image from "../assets/project-images/elementor-ai-builder.png";
+import LandingPagePsicologaImage from "../assets/project-images/landing-page-psicologa.png";
 
 import LinktreeImage from "../assets/project-images/linktree.png";
 import Project25Image from "../assets/project-images/ecommerce-context.png";
@@ -145,6 +146,14 @@ const projectDetails = [
     imageUrl: LinktreeImage,
     deployUrl: "https://linktree-eosin-one.vercel.app/",
     languageFilter: ["react"],
+  },
+  {
+    repoName: "landing-page-psicologa",
+    description: "Landing page para psicóloga",
+    repoUrl: "https://github.com/Camiloruas/landing-page-psicologa",
+    imageUrl: LandingPagePsicologaImage,
+    deployUrl: "https://github.com/Camiloruas/landing-page-psicologa",
+    languageFilter: ["wordpress"],
   },
   {
     repoName: "crypto-market",
