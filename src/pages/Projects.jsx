@@ -45,6 +45,7 @@ const FILTER_ORDER = [
   "react",
   "typescript",
   "javascript",
+  "wordpress",
   "n8n",
   "outros",
 ];
@@ -59,6 +60,9 @@ const FILTER_ALIASES = {
   js: "javascript",
   node: "javascript",
   "node.js": "javascript",
+  wordpress: "wordpress",
+  wp: "wordpress",
+  "wordpress.org": "wordpress",
   n8n: "n8n",
   outros: "outros",
   others: "outros",
@@ -86,6 +90,35 @@ const getFilterLabel = (t, filterKey) => {
   return translatedLabel === `projects.filters.${filterKey}`
     ? filterKey.toUpperCase()
     : translatedLabel;
+};
+
+const getRepoFilter = (repo) => {
+  const metadata = [
+    ...(repo.topics || []),
+    ...(repo.languages_list || []),
+    repo.name || "",
+    repo.description || "",
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  if (metadata.includes("wordpress") || metadata.includes("wp")) {
+    return ["wordpress"];
+  }
+  if (metadata.includes("react")) {
+    return ["react"];
+  }
+  if (metadata.includes("typescript")) {
+    return ["typescript"];
+  }
+  if (metadata.includes("javascript") || metadata.includes("js")) {
+    return ["javascript"];
+  }
+  if (metadata.includes("n8n")) {
+    return ["n8n"];
+  }
+
+  return ["outros"];
 };
 // ----------------------------------------------------
 // 2. ARRAY MANUAL COM LINKS DE DEPLOY E IMAGENS - CORREÇÃO DE LINKS APLICADA
@@ -407,7 +440,7 @@ const Projects = () => {
           ...repo,
           imageUrl: null,
           deployUrl: null,
-          languageFilter: ["outros"],
+          languageFilter: getRepoFilter(repo),
         }));
 
       orderedRepos = [...orderedRepos, ...remainingRepos];
