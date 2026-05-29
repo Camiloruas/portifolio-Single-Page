@@ -152,7 +152,7 @@ const projectDetails = [
     description: "Landing page para psicóloga",
     repoUrl: "https://github.com/Camiloruas/landing-page-psicologa",
     imageUrl: LandingPagePsicologaImage,
-    deployUrl: "https://github.com/Camiloruas/landing-page-psicologa",
+    deployUrl: "https://wp.camiloruas.dev/elementor/",
     languageFilter: ["wordpress"],
   },
   {
