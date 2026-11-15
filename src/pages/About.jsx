@@ -6,10 +6,9 @@ import { DiReact, DiJavascript1, DiHtml5, DiCss3, DiGit, DiNodejs, DiPostgresql,
 
 import { FaSass, FaBootstrap, FaWindows, FaLinux } from "react-icons/fa";
 
-import { SiNextdotjs, SiTypescript, SiNodedotjs, SiRedux, SiDocker, SiN8N } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiNodedotjs, SiRedux, SiDocker, SiN8N, SiOllama } from "react-icons/si";
 
 import { TbBrandVscode } from "react-icons/tb";
-import { Ollama } from "@lobehub/icons";
 
 import ProfileImage from "../assets/project-images/profile.jpg";
 
@@ -59,7 +58,7 @@ const categorizedSkills = {
   ],
 
   "AI & Automation": [
-    { Icon: Ollama, name: "Ollama" },
+    { Icon: SiOllama, name: "Ollama" },
     { Icon: McpIcon, name: "MCP" },
     { Icon: SiN8N, name: "n8n" },
   ],
